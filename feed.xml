@@ -1,28 +1,15 @@
----
----
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <channel>
-        <title>{{ site.name | xml_escape }}</title>
-        <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>      
-        <link>{{ site.url }}</link>
-        <atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
-        <lastBuildDate>{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}</lastBuildDate>
-        {% for post in site.posts limit:10 %}
-            <item>
-                <title>{{ post.title | xml_escape }}</title>
-                {% if post.author.name %}
-                    <dc:creator>{{ post.author.name | xml_escape }}</dc:creator>
-                {% endif %}        
-                {% if post.excerpt %}
-                    <description>{{ post.excerpt | xml_escape }}</description>
-                {% else %}
-                    <description>{{ post.content | xml_escape }}</description>
-                {% endif %}
-                <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-                <link>{{ site.url }}{{ post.url }}</link>
-                <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-            </item>
-        {% endfor %}
-    </channel>
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>코로코로</title>
+  <link>https://coro-coro.github.io/</link>
+  <description>KU-BIG 신종 코로나바이러스 데이터분석 웹</description>
+  <item>
+    <title>코로코로 분석</title>
+    <link>https://coro-coro.github.io/analysis.html</link>
+    <description>신종 코로나바이러스 데이터분석</description>
+  </item>
+</channel>
+
 </rss>

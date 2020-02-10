@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+  
+  <meta name="naver-site-verification" content="a94e28eb991b9426ca86e4d983844f7567033789"/>
+  <meta property="og:image" content="/corocoro/images/kakaocoro.jpg"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>코로코로</title>
+  <link rel="shortcut icon" href="">
+  <link rel='stylesheet' href='/corocoro/css/style.css'>
+  <link rel="stylesheet" href="/corocoro/css/w3style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<style>
+  .wrap {position: absolute;left: 0;bottom: 40px;width: 230px;height: 132px;margin-left: -115px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+  .wrap * {padding: 0;margin: 0;}
+  .wrap .info {width: 230px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+  .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+  .info .title {padding: 5px 0 0 10px;height: 30px;background: #fff;border-bottom: 1px solid #fff;font-size: 18px;font-weight: bold;}
+  .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+  .info .close:hover {cursor: pointer;}
+  .info .body {position: relative;overflow: hidden;}
+  .info .desc {font-size: 14px; position: relative;margin: 10px 0 0 10px;height: 75px;}
+  .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+  .desc .jibun {font-size: 13px;color: #888;margin-top: -2px;}
+  .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+  .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+  .info .link {color: #5085BB;}
+  body, h1,h2,h3,h4,h5,h6 {font-family: 'Nanum Gothic', sans-serif;}
+  /*.w3-row-padding img {margin-bottom: 12px}
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {width: 120px;background: #222;}
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  /*#main {margin-left: 120px}
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+  /* .category, .category *{margin:0;padding:0;color:#000;}    */
+  /* .category {background-color:#fff;}
+  .category .menu_selected {background:#FF5F4A;color:#fff;}  */
+  </style>
+
+<body style="height: 100%;">
+  <div class="kubig">
+    <div><img src="/corocoro/images/hosp.png" style="height:20px;width:20px;"> = 확진자 이송 병원</div>
+    <div>최근 업데이트: 2020/02/10 12:44</div>
+    <div>고려대학교 빅데이터 학회 KU-BIG</div>
+  </div>
+  <div class="nav w3-hide-small">
+        <a href="/corocoro/index.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small">확진자 방문장소</a> 
+        <a href="/corocoro/analysis.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small">분석</a>
+        <a href="/corocoro/jebo.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small">제보하기</a> 
+        <a href="/corocoro/aboutus.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small">ABOUT US</a>
+  </div>
+  
+  <!--Navbar on small screens (Hidden on medium and large screens) -->
+  <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="nav">
+      <a href="/corocoro/index.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">확진자 방문장소</a>
+      <a href="/corocoro/analysis.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">분석</a>
+      <a href="/corocoro/jebo.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">제보하기</a>
+      <a href="/corocoro/aboutus.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">ABOUT US</a>
+    </div>
+  </div>
+  <div class="logo">
+    <img src="/corocoro/images/coro.jpg" style="height:70px;width:70px;">
+  </div>
+  <div id="map" style="width:100%;height:95%;padding-bottom:0px"></div>
+
+  <!-- <div class="category"> -->
+  <div class="cate">
+  <div class="w3-card w3-round">
+    <div class='w3-white'>
+      <button id="threeDays" onclick="changeMarker('three')" class="w3-button w3-block w3-left-align" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">최근3일</button>
+      <button id="sevenDays" onclick="changeMarker('seven')" class="w3-button w3-block w3-left-align" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">최근7일</button>
+      <button id="allDays" onclick="changeMarker('all')" class="w3-button w3-block w3-left-align" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">전체보기</button>
+    </div>      
+  </div>
+</div>
+<!-- </div> -->
+
+
+
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1fb7efe94e828e84dab4f1bdc5d7e89&libraries=clusterer"></script>
+        <script>
+/////////*********여기에 추가
+          var positions = [
+          {
+            "title": "인천국제공항",
+            "no": "1,4,7,8,17,26, 27번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.450010,
+            "lng": 126.455528,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "인천광역시의료원",
+            "no": "1번환자",
+            "date": "200119",
+            "etc": "공항 검역대에서 바로 격리 조치",
+            "lat": 37.4785259,
+            "lng": 126.6663152,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "김포공항",
+            "no": "2,12,13번환자",
+            "date": "200131",
+            "etc": " ",
+            "lat": 37.5603627,
+            "lng": 126.776299,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강서구 보건소",
+            "no": "2번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.5496053,
+            "lng": 126.8660883,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "2번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.5672269,
+            "lng": 126.7533708,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "국립중앙의료원",
+            "no": "2번환자",
+            "date": "200122",
+            "etc": "확진후 이동",
+            "lat": 37.5672454,
+            "lng": 127.0034702,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "일산소재 마트",
+            "no": "3번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 37.673517,
+            "lng": 126.755300,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "일산소재 백화점",
+            "no": "3번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 37.670964,
+            "lng": 126.761146,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "신사동 가로수길",
+            "no": "3번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 37.520878,
+            "lng": 127.022863,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강남소재 병원(성형외과)",
+            "no": "3번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.524661,
+            "lng": 127.028002,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강남소재 음식점",
+            "no": "3번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 37.530772,
+            "lng": 127.031924,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "한강 편의점",
+            "no": "3번환자",
+            "date": "200123",
+            "etc": " ",
+            "lat": 37.524703,
+            "lng": 127.015943,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "역삼동",
+            "no": "3번환자",
+            "date": "200123",
+            "etc": " ",
+            "lat": 37.500735,
+            "lng": 127.036373,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "대치동",
+            "no": "3번환자",
+            "date": "200123",
+            "etc": " ",
+            "lat": 37.494607,
+            "lng": 127.063292,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강남소재 호텔",
+            "no": "3번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.503137,
+            "lng": 127.049091,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "일산소재 음식점",
+            "no": "3번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.674672,
+            "lng": 126.776701,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "일산소재 카페",
+            "no": "3번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.678166,
+            "lng": 126.812165,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "일산후곡마을(지인주요생활지역)",
+            "no": "3번환자",
+            "date": "200125",
+            "etc": " ",
+            "lat": 37.679657,
+            "lng": 126.763737,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "평택 송탄터미널",
+            "no": "4번환자",
+            "date": "200120",
+            "etc": "인천에서 평택으로 이동",
+            "lat": 37.0796065,
+            "lng": 127.0561043,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "4번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.0220402,
+            "lng": 126.8134938,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "병원(의원)",
+            "no": "4번환자",
+            "date": "200125",
+            "etc": "고열과 근육통으로 2번째 내원, 능동감시",
+            "lat": 37.0520115,
+            "lng": 126.9172444,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "잡화점",
+            "no": "5번환자",
+            "date": "200126",
+            "etc": " ",
+            "lat": 37.5917891,
+            "lng": 127.0164831,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "역술인",
+            "no": "5번환자",
+            "date": "200126",
+            "etc": " ",
+            "lat": 37.564001,
+            "lng": 127.029535,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "마사지샵",
+            "no": "5번환자",
+            "date": "200126",
+            "etc": " ",
+            "lat": 37.5903342,
+            "lng": 127.013032,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "슈퍼마켓",
+            "no": "5번환자",
+            "date": "200126",
+            "etc": " ",
+            "lat": 37.5904921,
+            "lng": 127.0119803,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "음식점",
+            "no": "5번환자",
+            "date": "200127",
+            "etc": " ",
+            "lat": 37.5920615,
+            "lng": 127.0167096,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "슈퍼마켓",
+            "no": "5번환자",
+            "date": "200127",
+            "etc": " ",
+            "lat": 37.5906117,
+            "lng": 126.9441293,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "슈퍼마켓",
+            "no": "5번환자",
+            "date": "200127",
+            "etc": " ",
+            "lat": 37.5921286,
+            "lng": 126.9838789,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "미용시설",
+            "no": "5번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.5916736,
+            "lng": 127.016226,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "슈퍼마켓",
+            "no": "5번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.5854777,
+            "lng": 127.0863714,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "음식점",
+            "no": "5번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.5982157,
+            "lng": 127.0797739,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "서울소재 웨딩숍",
+            "no": "5번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.5236782,
+            "lng": 127.0443493,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "중랑구 보건소",
+            "no": "5번환자",
+            "date": "200129",
+            "etc": " ",
+            "lat": 37.5947418,
+            "lng": 127.0728561,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "5번환자",
+            "date": "200129",
+            "etc": " ",
+            "lat": 37.6065642,
+            "lng": 127.09043,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "서울소재 음식점",
+            "no": "6번환자",
+            "date": "200122",
+            "etc": "국내 첫 2차감염자(3번과접촉)",
+            "lat": 37.5231182,
+            "lng": 127.0328149,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "명륜교회",
+            "no": "6,21번환자",
+            "date": "200129",
+            "etc": "",
+            "lat": 37.5863425,
+            "lng": 126.9976339,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "6번환자",
+            "date": "200129",
+            "etc": "국내 첫 2차감염자(3번과접촉)",
+            "lat": 37.5863425,
+            "lng": 126.9976339,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "7번환자",
+            "date": "200129",
+            "etc": "서울특별시청 위치에 비정",
+            "lat": 37.56376,
+            "lng": 126.997459,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "서초소재 음식점",
+            "no": "8번환자",
+            "date": "200125",
+            "etc": "서초구청 위치에 비정",
+            "lat": 37.483573,
+            "lng": 127.032814,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "8번환자",
+            "date": "200125",
+            "etc": "군산시청 위치에 비정",
+            "lat": 126.736801,
+            "lng": 35.967541,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "월명동 대중목욕탕",
+            "no": "8번환자",
+            "date": "200126",
+            "etc": "",
+            "lat": 35.986657,
+            "lng": 126.70813,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수송동 병원(내과)",
+            "no": "8번환자",
+            "date": "200127",
+            "etc": " ",
+            "lat": 35.968159,
+            "lng": 126.71607,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "군산의료원",
+            "no": "8번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 35.954584,
+            "lng": 126.711701,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "문화동 음식점",
+            "no": "8번환자",
+            "date": "200129",
+            "etc": " ",
+            "lat": 35.976076,
+            "lng": 126.705509,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "이마트 군산점",
+            "no": "8번환자",
+            "date": "200129",
+            "etc": " ",
+            "lat": 35.982751,
+            "lng": 126.734983,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "원광대병원",
+            "no": "8번환자",
+            "date": "200131",
+            "etc": "확진 후 이송",
+            "lat": 35.967169,
+            "lng": 126.959038,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "서울의료원",
+            "no": "5,7,9번환자",
+            "date": "200131",
+            "etc": "확진후 이송",
+            "lat": 37.61288,
+            "lng": 127.098649,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "미용실",
+            "no": "10,11번환자",
+            "date": "200130",
+            "etc": " ",
+            "lat": 37.642503,
+            "lng": 126.792359,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "10,11번환자",
+            "date": "200130",
+            "etc": "자가 격리",
+            "lat": 37.5863425,
+            "lng": 126.9976339,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "서울대병원",
+            "no": "6,10,11,21번환자",
+            "date": "200131",
+            "etc": "확진후 이송",
+            "lat": 37.579669,
+            "lng": 126.998970,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "장충동 면세점",
+            "no": "12번환자",
+            "date": "200120",
+            "etc": " ",
+            "lat": 37.557176,
+            "lng": 127.007688,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "인천출입국사무소",
+            "no": "12번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 47.461832,
+            "lng": 126.631175,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "인천시남구(지인주요생활지역)",
+            "no": "12번환자",
+            "date": "200121",
+            "etc": " ",
+            "lat": 37.463504,
+            "lng": 126.650556,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "부천 약국",
+            "no": "12번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.503394,
+            "lng": 126.765973,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강릉 카페",
+            "no": "12번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.751819,
+            "lng": 128.876017,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강릉 음식점",
+            "no": "12번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.751819,
+            "lng": 128.876017,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강릉 리조트",
+            "no": "12번환자",
+            "date": "200122",
+            "etc": " ",
+            "lat": 37.683463,
+            "lng": 129.043904,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강릉역",
+            "no": "12번환자",
+            "date": "200123",
+            "etc": " ",
+            "lat": 37.7637857,
+            "lng": 128.8994578,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수원역",
+            "no": "12번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.266184,
+            "lng": 126.999655,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "지인주요생활지역",
+            "no": "12번환자",
+            "date": "200124",
+            "etc": " ",
+            "lat": 37.263417,
+            "lng": 127.028654,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "부천영화관",
+            "no": "12,14번환자",
+            "date": "200126",
+            "etc": " ",
+            "lat": 37.486006,
+            "lng": 126.780990,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "면세점",
+            "no": "12번환자",
+            "date": "200127",
+            "etc": " ",
+            "lat": 37.557176,
+            "lng": 127.007688,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "심곡본동 병원(내과)",
+            "no": "12,14번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.483702,
+            "lng": 126.778113,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "심곡본동 약국",
+            "no": "12,14번환자",
+            "date": "200128",
+            "etc": " ",
+            "lat": 37.483702,
+            "lng": 126.778113,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "부천보건소선별진료소",
+            "no": "12,14번환자",
+            "date": "200130",
+            "etc": " ",
+            "lat": 37.494210,
+            "lng": 126.781006,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "순천향대학교부속부천병원",
+            "no": "12,14번환자",
+            "date": "200130",
+            "etc": " ",
+            "lat": 37.498415,
+            "lng": 126.762864,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "국립중앙의료원",
+            "no": "13번환자",
+            "date": "200202",
+            "etc": "확진 후 이송",
+            "lat": 37.567302,
+            "lng": 127.006094,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "산본동 병원(내과)",
+            "no": "12,14번환자",
+            "date": "200125",
+            "etc": "",
+            "lat": 37.359161,
+            "lng": 126.930967,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "산본역",
+            "no": "14번환자",
+            "date": "200125",
+            "etc": " ",
+            "lat": 37.358017,
+            "lng": 126.933004,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "지인주요생활지역",
+            "no": "12,14번환자",
+            "date": "200125",
+            "etc": "군포1동 동사무소 위치에 비정",
+            "lat": 37.353607,
+            "lng": 126.945675,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "산본로데오거리",
+            "no": "14번환자",
+            "date": "200125",
+            "etc": "",
+            "lat": 37.359672,
+            "lng": 126.931694,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "14번환자",
+            "date": "200201",
+            "etc": "부천시청 위치에 비정",
+            "lat": 37.503513,
+            "lng": 126.765892,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "이마트 부천점",
+            "no": "14번환자",
+            "date": "200130",
+            "etc": "16시경 방문하여 약 20분간 체류",
+            "lat": 37.484079,
+            "lng": 126.782528,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "분당서울대병원",
+            "no": "4,12,14번환자",
+            "date": "200202",
+            "etc": "확진후이송",
+            "lat": 37.351375,
+            "lng": 127.123411,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "15번환자",
+            "date": "200201",
+            "etc": "천천동 중심부",
+            "lat": 37.2954264,
+            "lng": 126.9733569,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "장안구 보건소",
+            "no": "15번환자",
+            "date": "200201",
+            "etc": " ",
+            "lat": 37.304349,
+            "lng": 127.0079881,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "국군수도병원",
+            "no": "15번환자",
+            "date": "200201",
+            "etc": " ",
+            "lat": 37.3917148,
+            "lng": 127.147098,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "무안국제공항",
+            "no": "16번환자",
+            "date": "200119",
+            "etc": " ",
+            "lat": 34.992644,
+            "lng": 35.015424,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "지인주요생활지역",
+            "no": "16번환자",
+            "date": "200125",
+            "etc": "나주시청 위치",
+            "lat": 35.015424,
+            "lng": 126.710914,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요생활지역",
+            "no": "16번환자",
+            "date": "200126",
+            "etc": "광주광역시청 위치",
+            "lat": 35.160038,
+            "lng": 126.851443,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "광주 21세기병원",
+            "no": "16번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 35.175897,
+            "lng": 126.818066,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "전남대병원",
+            "no": "16번환자",
+            "date": "200204",
+            "etc": "확진 후 이송",
+            "lat": 35.141506,
+            "lng": 126.922088,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "서울역",
+            "no": "12, 17번환자",
+            "date": "200124",
+            "etc": "",
+            "lat": 37.555129  ,
+            "lng": 126.970637,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "동자동 음식점",
+            "no": "17번환자",
+            "date": "200124",
+            "etc": "서울역내에 위치",
+            "lat": 37.555023,
+            "lng": 126.970459,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "동자동 약국",
+            "no": "17번환자",
+            "date": "200124",
+            "etc": "서울역내에 위치",
+            "lat": 37.5548,
+            "lng": 126.970665,
+            "imageSrc": "/corocoro/images/infect.png"
+          },  
+          {
+            "title": "황금동 주유소",
+            "no": "17번환자",
+            "date": "200125",
+            "etc": "",
+            "lat": 35.842806,
+            "lng": 128.625002,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "동대구역",
+            "no": "17번환자",
+            "date": "200125",
+            "etc": "",
+            "lat": 35.8797037,
+            "lng": 128.6265829,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "신암동 편의점",
+            "no": "17번환자",
+            "date": "200125",
+            "etc": "동대구역내에 위치",
+            "lat": 35.879093,
+            "lng": 128.628721,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수서역",
+            "no": "17번환자",
+            "date": "200125",
+            "etc": "",
+            "lat": 37.487494,
+            "lng": 127.101303,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "인창동 병원",
+            "no": "17번환자",
+            "date": "200127",
+            "etc": "",
+            "lat": 37.60633,
+            "lng": 127.139129,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "인창동 약국",
+            "no": "17번환자",
+            "date": "200127",
+            "etc": "",
+            "lat": 37.606325,
+            "lng": 127.139171,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수택동 슈퍼마켓",
+            "no": "17번환자",
+            "date": "200129",
+            "etc": "",
+            "lat": 37.586942,
+            "lng": 127.138411,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수택동 음식점",
+            "no": "17번환자",
+            "date": "200129",
+            "etc": "",
+            "lat": 37.587278,
+            "lng": 127.138740,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "수택동 내과",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.587024,
+            "lng": 127.138214,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "수택동 약국",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.587024,
+            "lng": 127.138214,
+            "imageSrc": "/corocoro/images/infect.png"
+          },   
+          {
+            "title": "수택동 음식점",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.587173,
+            "lng": 127.138744,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "광나루역",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.545276,
+            "lng": 127.103474,
+            "imageSrc": "/corocoro/images/infect.png"
+          },  
+          {
+            "title": "광장동 이마트24",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.544639,
+            "lng": 127.103528,
+            "imageSrc": "/corocoro/images/infect.png"
+          },   
+          {
+            "title": "주요생활지역",
+            "no": "17번환자",
+            "date": "200203",
+            "etc": "구리시청에 비정",
+            "lat": 37.594301,
+            "lng": 127.129739,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "한양대구리병원",
+            "no": "17번환자",
+            "date": "200204",
+            "etc": "",
+            "lat": 37.601223,
+            "lng": 127.13238,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },   
+          {
+            "title": "명지병원",
+            "no": "3, 17번환자",
+            "date": "200204",
+            "etc": "확진 후 이송",
+            "lat": 37.642117,
+            "lng": 126.83121,
+            "imageSrc": "/corocoro/images/hosp.png"
+          }, 
+          {
+            "title": "병원(종합병원)",
+            "no": "16,18번환자",
+            "date": "200202",
+            "etc": "",
+            "lat": 35.176030,
+            "lng": 126.818110,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          { 
+            "title": "전남대병원",
+            "no": "18번환자",
+            "date": "200205",
+            "etc": "확진판정 후 이송",
+            "lat": 35.142123,
+            "lng": 126.921702,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "카페",
+            "no": "19번환자",
+            "date": "200201",
+            "etc": "",
+            "lat": 37.5000078,
+            "lng": 127.1097186,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "강남호텔",
+            "no": "19번환자",
+            "date": "200201",
+            "etc": "",
+            "lat": 37.5047047,
+            "lng": 127.0253279,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "송도아울렛",
+            "no": "19번환자",
+            "date": "200201",
+            "etc": "수수가든,삼성전자,폴로,올젠,브룩스브라더스,갤럭시,폼스튜디오",
+            "lat": 37.381483,
+            "lng": 126.6549862,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "음식점",
+            "no": "19번환자",
+            "date": "200201",
+            "etc": "",
+            "lat": 37.495282,
+            "lng": 127.1153113,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title":"음식점",
+            "no": "19번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 37.377143,
+            "lng": 127.1105608,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "19번 확진자 회사",
+            "no": "19번환자",
+            "date": "200203",
+            "etc": "수내동사무소에 비정",
+            "lat": 37.375426,
+            "lng": 127.1158559,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "주요 생활 지역",
+            "no": "19번환자",
+            "date": "200205",
+            "etc": "",
+            "lat": 37.4963996,
+            "lng": 127.1077964,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "서울의료원",
+            "no": "19번환자",
+            "date": "200205",
+            "etc": "확진 후 이송",
+            "lat": 37.6127767,
+            "lng": 127.0959779,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },       
+          {
+            "title": "주요 생활 지역",
+            "no": "20번환자",
+            "date": "200203",
+            "etc": "자가 격리 중",
+            "lat": 37.295426,
+            "lng": 126.973357,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "장안구 보건소",
+            "no": "20번환자",
+            "date": "200205",
+            "etc": "",
+            "lat": 37.304515,
+            "lng": 127.010155,
+            "imageSrc": "/corocoro/images/hosp.png"
+          }, 
+          {
+            "title": "주요 생활 지역",
+            "no": "20번환자",
+            "date": "200205",
+            "etc": "",
+            "lat": 37.295426,
+            "lng": 126.973357,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "국군 수도 병원",
+            "no": "20번환자",
+            "date": "200205",
+            "etc": "확진 판정 후 이송",
+            "lat": 37.3917148,
+            "lng": 127.147098,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "성북구보건소",
+            "no": "21번환자",
+            "date": "200205",
+            "etc": "확진 판정 후 이송",
+            "lat": 37.602645,
+            "lng": 127.039514,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },
+          {
+            "title": "하나로마트",
+            "no": "22번환자",
+            "date": "200201",
+            "etc": "금천농협빛가람점",
+            "lat": 35.016412,
+            "lng": 126.785086,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "나주 혁신도시 인근 음식점",
+            "no": "22번환자",
+            "date": "200201",
+            "etc": "임의로 정류장에다 표시",
+            "lat": 35.0166839,
+            "lng": 126.7840337,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "로컬푸드직매장",
+            "no": "22번환자",
+            "date": "200202",
+            "etc": "",
+            "lat": 35.0347591,
+            "lng": 126.7938186,
+            "imageSrc": "/corocoro/images/infect.png"
+          },   
+          {
+            "title": "광주우편집중국",
+            "no": "22번환자",
+            "date": "200203",
+            "etc": "",
+            "lat": 35.2190201,
+            "lng": 126.8498047,
+            "imageSrc": "/corocoro/images/infect.png"
+          },   
+          {
+            "title": "주요생활지역",
+            "no": "22번환자",
+            "date": "200206",
+            "etc": "",
+            "lat": 35.0268678,
+            "lng": 126.770487,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "조선대학교 병원",
+            "no": "22번환자",
+            "date": "200206",
+            "etc": "확진 후 이송",
+            "lat": 35.1386047,
+            "lng": 126.9244892,
+            "imageSrc": "/corocoro/images/hosp.png"
+          },   
+          {
+            "title": "프레지던트호텔",
+            "no": "23번환자",
+            "date": "200202",
+            "etc": "숙소 퇴실",
+            "lat": 37.565644,
+            "lng": 126.979448,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "롯데백화점 본점",
+            "no": "23번환자",
+            "date": "200202",
+            "etc": "지인차량이동, 12:15~13:19 체류",
+            "lat": 37.5648,
+            "lng":  126.9819,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "서대문구 창천동",
+            "no": "23번환자",
+            "date": "200202",
+            "etc": "13시경 지인차량이동",
+            "lat": 37.5585,
+            "lng":  126.9346,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+           {
+            "title": "이마트 마포공덕점",
+            "no": "23번환자",
+            "date": "200202",
+            "etc": "지인차량이동, 14:18~16:09 체류",
+            "lat": 37.542378,
+            "lng":  126.953449,
+            "imageSrc": "/corocoro/images/infect.png"
+          }, 
+          {
+            "title": "서대문구 창천동",
+            "no": "23번환자",
+            "date": "200202",
+            "etc": "13시경 지인차량이동",
+            "lat": 37.5585,
+            "lng":  126.9346,
+            "imageSrc": "/corocoro/images/infect.png"
+          },
+          {
+            "title": "경기도의료원 안성병원",
+            "no": "26, 27번환자",
+            "date": "20020",
+            "etc": "확진 후 이송",
+            "lat": 37.017256,
+            "lng": 127.260228,
+            "imageSrc": "/corocoro/images/infect.png"
+          }
+         
+            
+        ];
+
+          var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+          mapOption = { 
+              center: new kakao.maps.LatLng(36.9110378,127.3391835), // 지도의 중심좌표
+              level:13  // 지도의 확대 레벨
+          };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+          //지도생성
+
+          var clusterer = new kakao.maps.MarkerClusterer({
+              map: map, 
+              averageCenter: true, 
+              minLevel: 10, 
+              calculator: [5,10,20],
+              styles:[{
+                width : '30px', height : '30px',
+                background: 'rgba(255,255,153, .8)',
+                borderRadius: '15px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '31px'
+            },
+            {
+                width : '50px', height : '50px',
+                background: 'rgba(255, 152, 0, .8)',
+                borderRadius: '25px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '51px'
+            },
+            {
+                width : '70px', height : '70px',
+                background: 'rgba(255, 86, 7, .8)',
+                borderRadius: '35px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '71px'
+            },
+            {
+                width : '90px', height : '90px',
+                background: 'rgba(246, 65, 45, .8)',
+                borderRadius: '45px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '91px'
+            }]
+          });
+
+          function thrdaysago(date){
+            date.setDate(date.getDate()-3);
+            var year = date.getFullYear();         
+            var month = (1 + date.getMonth());        
+            month = month >= 10 ? month : '0' + month;  
+            var day = date.getDate();                   
+            day = day >= 10 ? day : '0' + day;          
+            return  year + '' + month + '' + day;
+       }
+          var thrdago = new Date();
+          thrdago = thrdaysago(thrdago);
+          thrdago=thrdago.substr(thrdago.length-6);
+          thrdago=parseInt(thrdago);
+
+          function svdaysago(date){
+            date.setDate(date.getDate()-7);
+            var year = date.getFullYear();         
+            var month = (1 + date.getMonth());        
+            month = month >= 10 ? month : '0' + month;  
+            var day = date.getDate();                   
+            day = day >= 10 ? day : '0' + day;          
+            return  year + '' + month + '' + day;
+       }
+          var svdago = new Date();
+          svdago = svdaysago(svdago);
+          svdago=svdago.substr(svdago.length-6);
+          svdago=parseInt(svdago);
+
+
+        var threeMarkers = [], 
+        sevenMarkers = [], 
+        allMarkers =[],
+        threeOverlays = [],
+        sevenOverlays = [],
+        allOverlays =[];
+
+        createThreeMarkers(); 
+        createSevenMarkers(); 
+        createAllMarkers();
+
+        function createMarkerImage(src, size, options) {
+            var markerImage = new kakao.maps.MarkerImage(src, size, options);
+            return markerImage;            
+        }
+
+        function createMarker(position, image) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                image: image
+            });
+            return marker;  
+        }   
+          
+        function createThreeMarkers() {
+            for (var i = 0; i < positions.length; i++) { 
+              if(parseInt(positions[i].date)>=thrdago){ 
+                
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(positions[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(positions[i].lat, positions[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title">' + positions[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc">' + 
+                                '                <div class="ellipsis">'+positions[i].no+'</div>' + 
+                                '                <div class="jibun ellipsis">방문날짜: '+positions[i].date+'</div>' +  
+                                '                <div class="jibun ellipsis">'+positions[i].etc+'</div>' +  
+                                '            </div>' + 
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  threeMarkers.push(marker);
+                  threeOverlays.push(overlay);
+            }
+          }
+        }  
+
+        function setThreeMarkers(map) {        
+            for (var i = 0; i < threeMarkers.length; i++) {  
+                threeMarkers[i].setMap(map);
+            }        
+        }
+
+        function setThreeOverlays(map) {        
+            for (var i = 0; i < threeOverlays.length; i++) {  
+                threeOverlays[i].setMap(map);
+            }        
+        }
+
+        function createSevenMarkers() {   
+            for (var i = 0; i < positions.length; i++) {
+              if(parseInt(positions[i].date)>=svdago){
+                
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(positions[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(positions[i].lat, positions[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title">' + positions[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc">' + 
+                                '                <div class="ellipsis">'+positions[i].no+'</div>' + 
+                                '                <div class="jibun ellipsis">방문날짜: '+positions[i].date+'</div>' +  
+                                '                <div class="jibun ellipsis">'+positions[i].etc+'</div>' +  
+                                '            </div>' + 
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  sevenMarkers.push(marker);
+                  sevenOverlays.push(overlay);
+                }
+            }
+        }  
+
+        function setSevenMarkers(map) {        
+            for (var i = 0; i < sevenMarkers.length; i++) {  
+                sevenMarkers[i].setMap(map);
+            }        
+        }
+
+        function setSevenOverlays(map) {        
+            for (var i = 0; i < sevenOverlays.length; i++) {  
+                sevenOverlays[i].setMap(map);
+            }        
+        }
+
+        function createAllMarkers() {   
+            for (var i = 0; i < positions.length; i++) {
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(positions[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(positions[i].lat, positions[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title">' + positions[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc">' + 
+                                '                <div class="ellipsis">'+positions[i].no+'</div>' + 
+                                '                <div class="jibun ellipsis">방문날짜: '+positions[i].date+'</div>' +  
+                                '                <div class="jibun ellipsis">'+positions[i].etc+'</div>' +  
+                                '            </div>' + 
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  allMarkers.push(marker);
+                  allOverlays.push(overlay);
+            }
+        }  
+
+        function setAllMarkers(map) {        
+            for (var i = 0; i < allMarkers.length; i++) {  
+                allMarkers[i].setMap(map);
+            }        
+        }
+
+        function setAllOverlays(map) {        
+            for (var i = 0; i < allOverlays.length; i++) {  
+                allOverlays[i].setMap(map);
+            }        
+        }
+
+        changeMarker('all');
+
+        function changeMarker(type){
+          var threeDays = document.getElementById('threeDays');
+            var sevenDays = document.getElementById('sevenDays');
+            var allDays = document.getElementById('allDays');
+
+            if (type === 'three') {
+              threeDays.className += ' w3-theme-d1';            
+                sevenDays.className=sevenDays.className.replace(' w3-theme-d1','');
+                allDays.className=allDays.className.replace(' w3-theme-d1','');
+
+                clusterer.removeMarkers(sevenMarkers);
+                clusterer.removeMarkers(allMarkers);
+                clusterer.addMarkers(threeMarkers);
+                            
+        
+                setSevenOverlays(null);
+                setThreeOverlays(null);
+                setThreeMarkers(null);
+                setSevenMarkers(null);
+                setAllMarkers(null);
+                setAllOverlays(null);
+                
+            } else if (type === 'seven') {
+                threeDays.className=threeDays.className.replace(' w3-theme-d1','');
+                allDays.className=allDays.className.replace(' w3-theme-d1','');
+                sevenDays.className += ' w3-theme-d1';
+
+                clusterer.removeMarkers(threeMarkers);
+                clusterer.removeMarkers(allMarkers);
+                clusterer.addMarkers(sevenMarkers);
+     
+                setThreeOverlays(null);
+                setSevenOverlays(null);
+                setThreeMarkers(null);
+                setSevenMarkers(null);
+                setAllMarkers(null);
+                setAllOverlays(null);
+
+          } else if (type === 'all') { 
+                threeDays.className=threeDays.className.replace(' w3-theme-d1','');
+                sevenDays.className=sevenDays.className.replace(' w3-theme-d1','');
+                allDays.className += ' w3-theme-d1';
+
+                clusterer.removeMarkers(threeMarkers);
+                clusterer.removeMarkers(sevenMarkers);
+                clusterer.addMarkers(allMarkers);
+
+                setThreeOverlays(null);
+                setSevenOverlays(null);
+                setThreeMarkers(null);
+                setSevenMarkers(null);
+                setAllMarkers(null);
+                setAllOverlays(null);
+            }
+                 
+        } 
+
+        function makeClickListener(map, overlay) {
+          return function() {            
+            if(overlay.getMap()){
+                overlay.setMap(null);
+            }
+            else{
+                setThreeOverlays(null);
+                setSevenOverlays(null);
+                overlay.setMap(map);
+            }
+            
+          }
+        }
+     
+
+        </script>
+
+</body>
+</html>
+
+

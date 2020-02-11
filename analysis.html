@@ -110,7 +110,7 @@
               <li><b>23번확진자: </b>50대 여자, 중국인 관광객</li>
               <li><b>24번확진자: </b>20대 남자, 우한 교민</li>
               <li><b>25번확진자: </b>70대 여자, 26번/27번 확진자의 가족</li>
-              <li><b>26번확진자: </b>50대 남자,  방문자</li>
+              <li><b>26번확진자: </b>50대 남자,  광둥성 방문자</li>
               <li><b>27번확진자: </b>30대 여자, 광둥성 방문자</li>
 	      <li><b>28번확진자: </b>30대 여자, 3번 확진자의 지인</li>
           </ul>
@@ -194,11 +194,18 @@
       <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
     </div></div>
 
-    <div class="w3-padding-small" id="main">
+    <div class="w3-padding-small w3-hide-small" id="main">
       <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
         <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
         <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
-      <div id="cloud" class="chart-container" style="width:100px;"></div>
+      <div id="cloud" class="chart-container" style="width:100%;height:250%;"></div>
+    </div></div>
+
+    <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
+      <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+        <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
+        <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
+      <div id="cloudsmall" class="chart-container" style="width:100px;height:250%;"></div>
     </div></div>
   
   <!-- 구글차트 format -->
@@ -350,6 +357,47 @@
       
               function draw(words) {
                 d3.select("#cloud").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                  .append("g")
+                    .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+                  .selectAll("text")
+                    .data(words)
+                  .enter().append("text")
+                    .style("font-size", function(d) { return d.size + "px"; })
+                    .style("font-family", "Impact")
+                    .style("fill", function(d, i) { return fill(i); })
+                    .attr("text-anchor", "middle")
+                    .attr("transform", function(d) {
+                      return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                  .text(function(d) { return d.text; });
+              }
+            });
+        </script>
+        <script type="text/javascript">
+          var weight = 2,   // change me
+              width = 480,
+              height = 250;
+      
+          var fill = d3.scale.category20();
+          d3.csv("words_freq.csv", function(d) {
+              return {
+                text: d.word,
+                size: +d.freq*weight
+              }
+            },
+            function(data) {
+              d3.layout.cloud().size([width, height]).words(data)
+                //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+                .rotate(0)
+                .font("Impact")
+                .fontSize(function(d) { return d.size; })
+                .on("end", draw)
+                .start();
+      
+              function draw(words) {
+                d3.select("#cloudsmall").append("svg")
                     .attr("width", width)
                     .attr("height", height)
                   .append("g")

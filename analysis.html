@@ -194,7 +194,7 @@
     <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
       <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     <!--제목-->
       <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  <!--하위설명-->
-      <div id="tweet" style="width: 150%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
+      <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
     </div></div>
 
     <div class="w3-padding-small w3-hide-small" id="main">
@@ -306,7 +306,8 @@
           var options = {
             hAxis: {
               title: '날짜',
-
+	      titleTetStyle: {
+		      fontsize: 8
             },
             vAxes: {
               0: {

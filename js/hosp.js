@@ -1,6 +1,6 @@
-var chart_1a8ae6de7ccb48e38aa5502567c86ce6 = echarts.init(
-    document.getElementById('1a8ae6de7ccb48e38aa5502567c86ce6'), 'white', {renderer: 'canvas'});
-var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
+var chart_b67987e99c1047af812aa0a3142a90ad = echarts.init(
+    document.getElementById('b67987e99c1047af812aa0a3142a90ad'), 'white', {renderer: 'canvas'});
+var option_b67987e99c1047af812aa0a3142a90ad = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -42,9 +42,9 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
     "name": "\ud655\uc9c4\uc790 \uc218(\uba85)",
     "data": [
         2,
-        1,
         2,
         4,
+        2,
         2,
         6,
         4,
@@ -54,10 +54,10 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
         2,
         1
     ],
-    "barCategoryGap": "20%",
+    "barCategoryGap": 35,
     "label": {
         "show": true,
-        "position": "right",
+        "position": "top",
         "color": [
             "black"
         ],
@@ -105,6 +105,12 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
     "nameLocation": "end",
     "nameGap": 15,
     "gridIndex": 0,
+    "axisLabel": {
+        "show": true,
+        "position": "top",
+        "rotate": -13,
+        "margin": 8
+    },
     "inverse": false,
     "offset": 0,
     "splitNumber": 5,
@@ -117,7 +123,21 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
             "curveness": 0,
             "type": "solid"
         }
-    }
+    },
+    "data": [
+        "\uacbd\uae30\ub3c4\uc758\ub8cc\uc6d0 \uc548\uc131\ubcd1\uc6d0",
+        "\uad6d\uad70\uc218\ub3c4\ubcd1\uc6d0",
+        "\uad6d\ub9bd\uc911\uc559\uc758\ub8cc\uc6d0",
+        "\uba85\uc9c0\ubcd1\uc6d0",
+        "\ubd84\ub2f9\uc11c\uc6b8\ub300\ubcd1\uc6d0",
+        "\uc11c\uc6b8\ub300\ubcd1\uc6d0",
+        "\uc11c\uc6b8\uc758\ub8cc\uc6d0",
+        "\uc6d0\uad11\ub300\ubcd1\uc6d0",
+        "\uc778\ucc9c\uc758\ub8cc\uc6d0",
+        "\uc77c\uc0b0\uba85\uc9c0\ubcd1\uc6d0",
+        "\uc804\ub0a8\ub300\ubcd1\uc6d0",
+        "\uc870\uc120\ub300\ubcd1\uc6d0"
+    ]
 }
 ],
 "yAxis": [
@@ -139,21 +159,7 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
             "curveness": 0,
             "type": "solid"
         }
-    },
-    "data": [
-        "\uacbd\uae30\ub3c4\uc758\ub8cc\uc6d0 \uc548\uc131\ubcd1\uc6d0",
-        "\uace0\uc591\uba85\uc9c0\ubcd1\uc6d0",
-        "\uad6d\uad70\uc218\ub3c4\ubcd1\uc6d0",
-        "\uad6d\ub9bd\uc911\uc559\uc758\ub8cc\uc6d0",
-        "\ubd84\ub2f9\uc11c\uc6b8\ub300\ubcd1\uc6d0",
-        "\uc11c\uc6b8\ub300\ubcd1\uc6d0",
-        "\uc11c\uc6b8\uc758\ub8cc\uc6d0",
-        "\uc6d0\uad11\ub300\ubcd1\uc6d0",
-        "\uc778\ucc9c\uc758\ub8cc\uc6d0",
-        "\uc77c\uc0b0\uba85\uc9c0\ubcd1\uc6d0",
-        "\uc804\ub0a8\ub300\ubcd1\uc6d0",
-        "\uc870\uc120\ub300\ubcd1\uc6d0"
-    ]
+    }
 }
 ],
 "title": [
@@ -162,6 +168,26 @@ var option_1a8ae6de7ccb48e38aa5502567c86ce6 = {
     "padding": 5,
     "itemGap": 10
 }
+],
+"dataZoom": [
+{
+    "show": true,
+    "type": "slider",
+    "realtime": true,
+    "start": 20,
+    "end": 80,
+    "orient": "horizontal",
+    "zoomLock": false
+},
+{
+    "show": true,
+    "type": "inside",
+    "realtime": true,
+    "start": 20,
+    "end": 80,
+    "orient": "horizontal",
+    "zoomLock": false
+}
 ]
 };
-chart_1a8ae6de7ccb48e38aa5502567c86ce6.setOption(option_1a8ae6de7ccb48e38aa5502567c86ce6);
+chart_b67987e99c1047af812aa0a3142a90ad.setOption(option_b67987e99c1047af812aa0a3142a90ad);

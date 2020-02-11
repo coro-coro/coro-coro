@@ -1,6 +1,6 @@
-var chart_f10c06367a964a6d8a9eaf1f59737471 = echarts.init(
-    document.getElementById('f10c06367a964a6d8a9eaf1f59737471'), 'white', {renderer: 'canvas'});
-var option_f10c06367a964a6d8a9eaf1f59737471 = {
+var chart_7613c1984ced4729af53c72a42395c67 = echarts.init(
+    document.getElementById('7613c1984ced4729af53c72a42395c67'), 'white', {renderer: 'canvas'});
+var option_7613c1984ced4729af53c72a42395c67 = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -110,10 +110,9 @@ var option_f10c06367a964a6d8a9eaf1f59737471 = {
 },
 "title": [
 {
-    "text": "\uac10\uc5fc\uc720\ud615",
     "padding": 5,
     "itemGap": 10
 }
 ]
 };
-chart_f10c06367a964a6d8a9eaf1f59737471.setOption(option_f10c06367a964a6d8a9eaf1f59737471);
+chart_7613c1984ced4729af53c72a42395c67.setOption(option_7613c1984ced4729af53c72a42395c67);

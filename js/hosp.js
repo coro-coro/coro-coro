@@ -1,6 +1,6 @@
-var chart_b67987e99c1047af812aa0a3142a90ad = echarts.init(
-    document.getElementById('b67987e99c1047af812aa0a3142a90ad'), 'white', {renderer: 'canvas'});
-var option_b67987e99c1047af812aa0a3142a90ad = {
+var chart_bd61aa8f969a4d2c91f597f126e66e12 = echarts.init(
+    document.getElementById('bd61aa8f969a4d2c91f597f126e66e12'), 'white', {renderer: 'canvas'});
+var option_bd61aa8f969a4d2c91f597f126e66e12 = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -54,7 +54,7 @@ var option_b67987e99c1047af812aa0a3142a90ad = {
         2,
         1
     ],
-    "barCategoryGap": 35,
+    "barCategoryGap": "20%",
     "label": {
         "show": true,
         "position": "top",
@@ -190,4 +190,4 @@ var option_b67987e99c1047af812aa0a3142a90ad = {
 }
 ]
 };
-chart_b67987e99c1047af812aa0a3142a90ad.setOption(option_b67987e99c1047af812aa0a3142a90ad);
+chart_bd61aa8f969a4d2c91f597f126e66e12.setOption(option_bd61aa8f969a4d2c91f597f126e66e12);

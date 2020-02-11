@@ -1,6 +1,6 @@
-var chart_c4e9a4fdbea94cf6aa3cf13abb4fc989 = echarts.init(
-    document.getElementById('c4e9a4fdbea94cf6aa3cf13abb4fc989'), 'white', {renderer: 'canvas'});
-var option_c4e9a4fdbea94cf6aa3cf13abb4fc989 = {
+var chart_0037df7ac338482e9d3e1ce0ace10a86 = echarts.init(
+    document.getElementById('0037df7ac338482e9d3e1ce0ace10a86'), 'white', {renderer: 'canvas'});
+var option_0037df7ac338482e9d3e1ce0ace10a86 = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -25,7 +25,7 @@ var option_c4e9a4fdbea94cf6aa3cf13abb4fc989 = {
         },
         {
             "name": "2\ucc28",
-            "value": 8
+            "value": 9
         },
         {
             "name": "3\ucc28",
@@ -47,7 +47,7 @@ var option_c4e9a4fdbea94cf6aa3cf13abb4fc989 = {
             "black"
         ],
         "margin": 8,
-        "formatter": "{b}: {d}%"
+        "formatter": "{b}:\n{d}%"
     },
     "rippleEffect": {
         "show": true,
@@ -92,4 +92,4 @@ var option_c4e9a4fdbea94cf6aa3cf13abb4fc989 = {
 }
 ]
 };
-chart_c4e9a4fdbea94cf6aa3cf13abb4fc989.setOption(option_c4e9a4fdbea94cf6aa3cf13abb4fc989);
+chart_0037df7ac338482e9d3e1ce0ace10a86.setOption(option_0037df7ac338482e9d3e1ce0ace10a86);

@@ -15,6 +15,7 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="d3.layout.cloud.js"></script>
+        <script src="d3.layout.small.cloud.js"></script>
 
       </head>
     <style>
@@ -388,7 +389,7 @@
               }
             },
             function(data) {
-              d3.layout.cloud().size([width, height]).words(data)
+              d3.layout.small.cloud().size([width, height]).words(data)
                 //.rotate(function() { return ~~(Math.random() * 2) * 90; })
                 .rotate(0)
                 .font("Impact")

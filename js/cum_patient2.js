@@ -1,6 +1,6 @@
-var chart_bc768acda0e1480fb07c1f26b194955f = echarts.init(
-    document.getElementById('bc768acda0e1480fb07c1f26b194955f'), 'white', {renderer: 'canvas'});
-var option_bc768acda0e1480fb07c1f26b194955f = {
+var chart_10aa7ae62d9a4a4fad1e0c49e1172a5e = echarts.init(
+    document.getElementById('10aa7ae62d9a4a4fad1e0c49e1172a5e'), 'white', {renderer: 'canvas'});
+var option_10aa7ae62d9a4a4fad1e0c49e1172a5e = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -10,54 +10,476 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
 "animationEasingUpdate": "cubicOut",
 "animationDelayUpdate": 0,
 "color": [
-"#BDBDBD",
-"#c23531",
-"#2f4554",
-"#61a0a8",
-"#d48265",
-"#749f83",
-"#ca8622",
-"#bda29a",
-"#6e7074",
-"#546570",
-"#c4ccd3",
-"#f05b72",
-"#ef5b9c",
-"#f47920",
-"#905a3d",
-"#fab27b",
-"#2a5caa",
-"#444693",
-"#726930",
-"#b2d235",
-"#6d8346",
-"#ac6767",
-"#1d953f",
-"#6950a1",
-"#918597"
+"maroon",
+"firebrick",
+"orangered",
+"coral",
+"gray"
 ],
 "series": [
 {
-    "type": "bar",
-    "name": "\ud655\uc9c4\uc790 \uc218(\uba85)",
+    "type": "line",
+    "name": "\uc804\uccb4",
+    "connectNulls": false,
+    "symbolSize": 4,
+    "showSymbol": true,
+    "smooth": false,
+    "step": false,
     "data": [
-        6,
-        6,
-        6,
-        8,
-        1,
-        1,
-        1
+        [
+            "2020-01-19",
+            1
+        ],
+        [
+            "2020-01-22",
+            2
+        ],
+        [
+            "2020-01-25",
+            3
+        ],
+        [
+            "2020-01-26",
+            4
+        ],
+        [
+            "2020-01-30",
+            7
+        ],
+        [
+            "2020-01-31",
+            11
+        ],
+        [
+            "2020-02-01",
+            12
+        ],
+        [
+            "2020-02-02",
+            15
+        ],
+        [
+            "2020-02-03",
+            16
+        ],
+        [
+            "2020-02-05",
+            19
+        ],
+        [
+            "2020-02-06",
+            24
+        ],
+        [
+            "2020-02-09",
+            27
+        ],
+        [
+            "2020-02-10",
+            28
+        ],
+        [
+            "2020-02-16",
+            29
+        ]
     ],
-    "barCategoryGap": "20%",
+    "hoverAnimation": true,
     "label": {
         "show": true,
-        "position": "right",
+        "position": "top",
         "color": [
             "black"
         ],
-        "margin": 8
+        "margin": 8,
+        "fontSize": 11
     },
+    "lineStyle": {
+        "width": 1,
+        "opacity": 1,
+        "curveness": 0,
+        "type": "solid"
+    },
+    "areaStyle": {
+        "opacity": 1
+    },
+    "zlevel": 0,
+    "z": 0,
+    "rippleEffect": {
+        "show": true,
+        "brushType": "stroke",
+        "scale": 2.5,
+        "period": 4
+    }
+},
+{
+    "type": "line",
+    "name": "1\ucc28",
+    "connectNulls": false,
+    "symbolSize": 4,
+    "showSymbol": true,
+    "smooth": false,
+    "step": false,
+    "data": [
+        [
+            "2020-01-19",
+            1
+        ],
+        [
+            "2020-01-22",
+            2
+        ],
+        [
+            "2020-01-25",
+            3
+        ],
+        [
+            "2020-01-26",
+            4
+        ],
+        [
+            "2020-01-30",
+            6
+        ],
+        [
+            "2020-01-31",
+            7
+        ],
+        [
+            "2020-02-01",
+            7
+        ],
+        [
+            "2020-02-02",
+            9
+        ],
+        [
+            "2020-02-03",
+            10
+        ],
+        [
+            "2020-02-05",
+            11
+        ],
+        [
+            "2020-02-06",
+            13
+        ],
+        [
+            "2020-02-09",
+            15
+        ],
+        [
+            "2020-02-10",
+            15
+        ],
+        [
+            "2020-02-16",
+            15
+        ]
+    ],
+    "hoverAnimation": true,
+    "label": {
+        "show": true,
+        "position": "top",
+        "color": [
+            "black"
+        ],
+        "margin": 8,
+        "fontSize": 11
+    },
+    "lineStyle": {
+        "width": 1,
+        "opacity": 1,
+        "curveness": 0,
+        "type": "solid"
+    },
+    "areaStyle": {
+        "opacity": 0.5
+    },
+    "zlevel": 0,
+    "z": 0,
+    "rippleEffect": {
+        "show": true,
+        "brushType": "stroke",
+        "scale": 2.5,
+        "period": 4
+    }
+},
+{
+    "type": "line",
+    "name": "2\ucc28",
+    "connectNulls": false,
+    "symbolSize": 4,
+    "showSymbol": true,
+    "smooth": false,
+    "step": false,
+    "data": [
+        [
+            "2020-01-19",
+            0
+        ],
+        [
+            "2020-01-22",
+            0
+        ],
+        [
+            "2020-01-25",
+            0
+        ],
+        [
+            "2020-01-26",
+            0
+        ],
+        [
+            "2020-01-30",
+            1
+        ],
+        [
+            "2020-01-31",
+            2
+        ],
+        [
+            "2020-02-01",
+            3
+        ],
+        [
+            "2020-02-02",
+            3
+        ],
+        [
+            "2020-02-03",
+            3
+        ],
+        [
+            "2020-02-05",
+            5
+        ],
+        [
+            "2020-02-06",
+            7
+        ],
+        [
+            "2020-02-09",
+            8
+        ],
+        [
+            "2020-02-10",
+            9
+        ],
+        [
+            "2020-02-16",
+            9
+        ]
+    ],
+    "hoverAnimation": true,
+    "label": {
+        "show": true,
+        "position": "top",
+        "color": [
+            "black"
+        ],
+        "margin": 8,
+        "fontSize": 11
+    },
+    "lineStyle": {
+        "width": 1,
+        "opacity": 1,
+        "curveness": 0,
+        "type": "solid"
+    },
+    "areaStyle": {
+        "opacity": 0.5
+    },
+    "zlevel": 0,
+    "z": 0,
+    "rippleEffect": {
+        "show": true,
+        "brushType": "stroke",
+        "scale": 2.5,
+        "period": 4
+    }
+},
+{
+    "type": "line",
+    "name": "3\ucc28",
+    "connectNulls": false,
+    "symbolSize": 4,
+    "showSymbol": true,
+    "smooth": false,
+    "step": false,
+    "data": [
+        [
+            "2020-01-19",
+            0
+        ],
+        [
+            "2020-01-22",
+            0
+        ],
+        [
+            "2020-01-25",
+            0
+        ],
+        [
+            "2020-01-26",
+            0
+        ],
+        [
+            "2020-01-30",
+            0
+        ],
+        [
+            "2020-01-31",
+            2
+        ],
+        [
+            "2020-02-01",
+            2
+        ],
+        [
+            "2020-02-02",
+            3
+        ],
+        [
+            "2020-02-03",
+            3
+        ],
+        [
+            "2020-02-05",
+            3
+        ],
+        [
+            "2020-02-06",
+            4
+        ],
+        [
+            "2020-02-09",
+            4
+        ],
+        [
+            "2020-02-10",
+            4
+        ],
+        [
+            "2020-02-16",
+            4
+        ]
+    ],
+    "hoverAnimation": true,
+    "label": {
+        "show": true,
+        "position": "top",
+        "color": [
+            "black"
+        ],
+        "margin": 8,
+        "fontSize": 11
+    },
+    "lineStyle": {
+        "width": 1,
+        "opacity": 1,
+        "curveness": 0,
+        "type": "solid"
+    },
+    "areaStyle": {
+        "opacity": 0.5
+    },
+    "zlevel": 0,
+    "z": 0,
+    "rippleEffect": {
+        "show": true,
+        "brushType": "stroke",
+        "scale": 2.5,
+        "period": 4
+    }
+},
+{
+    "type": "line",
+    "name": "\ud655\uc778 \uc911",
+    "connectNulls": false,
+    "symbolSize": 4,
+    "showSymbol": true,
+    "smooth": false,
+    "step": false,
+    "data": [
+        [
+            "2020-01-19",
+            0
+        ],
+        [
+            "2020-01-22",
+            0
+        ],
+        [
+            "2020-01-25",
+            0
+        ],
+        [
+            "2020-01-26",
+            0
+        ],
+        [
+            "2020-01-30",
+            0
+        ],
+        [
+            "2020-01-31",
+            0
+        ],
+        [
+            "2020-02-01",
+            0
+        ],
+        [
+            "2020-02-02",
+            0
+        ],
+        [
+            "2020-02-03",
+            0
+        ],
+        [
+            "2020-02-05",
+            0
+        ],
+        [
+            "2020-02-06",
+            0
+        ],
+        [
+            "2020-02-09",
+            0
+        ],
+        [
+            "2020-02-10",
+            0
+        ],
+        [
+            "2020-02-16",
+            1
+        ]
+    ],
+    "hoverAnimation": true,
+    "label": {
+        "show": true,
+        "position": "top",
+        "color": [
+            "black"
+        ],
+        "margin": 8,
+        "fontSize": 11
+    },
+    "lineStyle": {
+        "width": 1,
+        "opacity": 1,
+        "curveness": 0,
+        "type": "solid"
+    },
+    "areaStyle": {
+        "opacity": 0.8
+    },
+    "zlevel": 0,
+    "z": 0,
     "rippleEffect": {
         "show": true,
         "brushType": "stroke",
@@ -69,10 +491,18 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
 "legend": [
 {
     "data": [
-        "\ud655\uc9c4\uc790 \uc218(\uba85)"
+        "\uc804\uccb4",
+        "1\ucc28",
+        "2\ucc28",
+        "3\ucc28",
+        "\ud655\uc778 \uc911"
     ],
     "selected": {
-        "\ud655\uc9c4\uc790 \uc218(\uba85)": true
+        "\uc804\uccb4": true,
+        "1\ucc28": true,
+        "2\ucc28": true,
+        "3\ucc28": true,
+        "\ud655\uc778 \uc911": true
     },
     "show": true,
     "padding": 5,
@@ -95,6 +525,7 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
 },
 "xAxis": [
 {
+    "type": "time",
     "show": true,
     "scale": false,
     "nameLocation": "end",
@@ -102,7 +533,7 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
     "gridIndex": 0,
     "inverse": false,
     "offset": 0,
-    "splitNumber": 5,
+    "splitNumber": 7,
     "minInterval": 0,
     "splitLine": {
         "show": false,
@@ -112,7 +543,23 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
             "curveness": 0,
             "type": "solid"
         }
-    }
+    },
+    "data": [
+        "2020-01-19",
+        "2020-01-22",
+        "2020-01-25",
+        "2020-01-26",
+        "2020-01-30",
+        "2020-01-31",
+        "2020-02-01",
+        "2020-02-02",
+        "2020-02-03",
+        "2020-02-05",
+        "2020-02-06",
+        "2020-02-09",
+        "2020-02-10",
+        "2020-02-16"
+    ]
 }
 ],
 "yAxis": [
@@ -134,23 +581,15 @@ var option_bc768acda0e1480fb07c1f26b194955f = {
             "curveness": 0,
             "type": "solid"
         }
-    },
-    "data": [
-        "20\ub300",
-        "30\ub300",
-        "40\ub300",
-        "50\ub300",
-        "60\ub300",
-        "70\ub300",
-        "80\ub300"
-    ]
+    }
 }
 ],
 "title": [
 {
+    "text": "\ub204\uc801 \ud655\uc9c4\uc790 \uc218",
     "padding": 5,
     "itemGap": 10
 }
 ]
 };
-chart_bc768acda0e1480fb07c1f26b194955f.setOption(option_bc768acda0e1480fb07c1f26b194955f);
+chart_10aa7ae62d9a4a4fad1e0c49e1172a5e.setOption(option_10aa7ae62d9a4a4fad1e0c49e1172a5e);

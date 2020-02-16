@@ -288,7 +288,7 @@
                   colors: ['#097138']
                 };
 
-                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                var chart = new google.visualization.LineChart(document.getElementById('datalab1'));
                 chart.draw(data, options);
               }
         </script>
@@ -355,7 +355,7 @@
                   colors: ['#a52714', '#097138']
                 };
 
-                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                var chart = new google.visualization.LineChart(document.getElementById('datalab2'));
                 chart.draw(data, options);
               }
         </script>
@@ -421,22 +421,22 @@
         <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
       <div id="cloud" class="chart-container" style="width:100%;height:250%;text-align:center;"></div>
     </div></div>
-  
-  <!-- 구글차트 format -->
-<script>
-  // Accordion
-  function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-      x.previousElementSibling.className += " w3-theme-d1";
-    } else { 
-      x.className = x.className.replace("w3-show", "");
-      x.previousElementSibling.className = 
-      x.previousElementSibling.className.replace(" w3-theme-d1", "");
-    }
-  }
-</script>
+
+      <script>
+        // Accordion
+        function myFunction(id) {
+          var x = document.getElementById(id);
+          if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+          } else { 
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-theme-d1", "");
+          }
+        }
+      </script>
+
       <script>
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawVisualization);
@@ -477,7 +477,7 @@
       </script>
 
       <script>
-        google.charts.load('current', {
+        google.charts.load('tweet', {
           packages: ['corechart', 'line']
         });
         google.charts.setOnLoadCallback(drawLineColors);

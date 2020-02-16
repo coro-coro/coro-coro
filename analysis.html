@@ -46,6 +46,9 @@
       <div style="display: block;padding: 0px 10px 10px 0px;position: absolute; right:0px;">
         <p style="font-size:12px;">*출처: 질병관리본부</p>
       </div>
+
+
+      <!--감염 현황-->
       <div class="w3-padding-small" id="main">
         <div class="w3-content w3-justify w3-text-light-grey" style="padding-top:32px!important;padding-bottom:7px!important">
                 <h5 style="color:black"><b> 감염 현황</b></h5>
@@ -80,6 +83,9 @@
               </div>            
           </div>  
         </div>
+
+
+        <!--확진자 리스트-->
         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify">
             <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1" style="text-align: center;color:black; background-color: rgb(204,204,204);">▼ 확진자 리스트 보기</button>
@@ -118,14 +124,16 @@
           </div>
           </div>
         </div>
-        <!-- 구글차트 format -->
+
+
+        <!--감염추이-->
         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-            <h5 style="color:black"><b> 감염 추이</b></h5>                    <!--제목-->
+            <h5 style="color:black"><b> 감염 추이</b></h5>              
             <div id="current" style="width: 100%;height:250%;"></div>
           </div></div>
           <script>
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages':['corechart']}); //id통일
             google.charts.setOnLoadCallback(drawVisualization);
     
             function drawVisualization() {
@@ -158,10 +166,11 @@
                 series: {0:{color:'red'}, 2: {color:'#6593F5'}, 1: {type: 'line', color: 'red'},3:{type:'line',color:'#6593F5'}},
                 legend: {position: 'top'}};
     
-              var chart = new google.visualization.ComboChart(document.getElementById('current'));
+              var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
               chart.draw(data, options);
             }
           </script>
+
 
           <!--date_plot-->
           <div class="w3-padding-small" id="main">
@@ -170,6 +179,7 @@
               <div id="abfe806966364b81b19e2ed5b7db9a49" class="chart-container" style="height:250%; width:100%;"></div>
           </div></div>
 
+
           <!--cum_patient-->
           <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
@@ -177,12 +187,14 @@
               <div id="7b2c73e6c1cd4db7ae8270e0fc10b16b" class="chart-container" style="height:250%; width:100%;"></div>
           </div></div>
 
+
           <!--hospital_plot-->
           <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <div id="d91497165afe4e94a74d8ca2c6a612ce" class="chart-container" style="height:250%; width:100%;"></div>
           </div>
         </div>
+
 
         <!--pieplot-->
         <div class="w3-padding-small" id="main">
@@ -206,7 +218,7 @@
       <div class="w3-padding-small" id="main">
         <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
          <h5 style="color:black"><b> 감염유형</b></h5>
-          <div id="da1059b5aa4d49f9afb39655cebfe134" class="chart-container" style="height:250%; width:100%;"></div>
+          <div id="da1059b5aa4d49f9afb39655cebfe134" class="chart-container" style="height:250%; width:100%;"></div> <!--감염유형-->
       </div>
     </div>
 
@@ -216,16 +228,17 @@
     </div>
   </div>
 
-  <!--age_plot-->
-  <div class="w3-padding-small" id="main">
-    <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-      <h5 style="color:black"><b> 연령대 별 확진자 수</b></h5>
-      <div id="bc768acda0e1480fb07c1f26b194955f" class="chart-container" style="height:250%; width:100%;"></div>
-    </div>
-  </div>
+
+      <!--age_plot-->
+      <div class="w3-padding-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black"><b> 연령대 별 확진자 수</b></h5>
+          <div id="bc768acda0e1480fb07c1f26b194955f" class="chart-container" style="height:250%; width:100%;"></div>
+        </div>
+      </div>
 
 
-  <!--네이버랩-->
+  <!--JOURNAL-->
   <div class="w3-padding-small" id="main">
     <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
       <h4 style="color:black"><b>"신종 코로나 바이러스로 사람들의 관심 정도가 변화한 키워드들을 알아보자."</b></h4>
@@ -437,117 +450,119 @@
       </div>
 
 
-
-  <!-- 구글차트 format -->
-  <div class="w3-padding-small" id="main">
-    <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-      <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     <!--제목-->
-      <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  <!--하위설명-->
-      <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
-    </div></div>
-    <script>
-      google.charts.load('tweet', {
-        packages: ['corechart', 'line']
-      });
-      google.charts.setOnLoadCallback(drawLineColors);
-
-      function drawLineColors() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', '날짜');
-        data.addColumn('number', '누적확진자');
-        data.addColumn('number', '트윗 건수');
-
-        data.addRows([
-          ['1/19', 1, 74],
-          ['1/20', 1, 623],
-          ['1/21', 1, 727],
-          ['1/22', 2, 1240],
-          ['1/23', 2, 1483],
-          ['1/24', 2, 2093],
-          ['1/25', 3, 7519],
-          ['1/26', 4, 5510],
-          ['1/27', 4, 6876],
-          ['1/28', 4, 7777],
-          ['1/29', 4, 5430],
-          ['1/30', 7, 5924],
-          ['1/31', 11, 7356],
-          ['2/1', 12, 5514],
-          ['2/2', 15, 5201],
-          ['2/3', 16, 4986],
-          ['2/4', 16, 4918],
-          ['2/5', 19, 4916],
-          ['2/6', 23, 4683],
-          ['2/7', 24, 4409],
-          ['2/8', 24, 3145],
-    ['2/9', 27, 2501],
-          ['2/10', 28, 2912],
-    ['2/11', 28, 2353],
-    ['2/12', 28, 2298]
-        ]);
-
-        var options = {
-          hAxis: {
-            title: '날짜',
-      textStyle: {
-        fontSize: 5
-      }
-          },
-      
-          vAxes: {
-            0: {
-              title: '누적확진자수'
-            },
-            1: {
-              title: '트윗 건수'
-            }
-          },
-          series: [{
-              targetAxisIndex: 0
-            },
-            {
-              targetAxisIndex: 1
-            }
-          ],
-
-          colors: ['#a52714', '#097138']
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('tweet')); //id통일
-        chart.draw(data, options);
-      }
-    </script>  
-
-    <div class="w3-padding-small w3-hide-small" id="main">
+    <!-- 트위터 구글차트 -->
+    <div class="w3-padding-small" id="main">
       <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-        <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
-        <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
-      <img src="/images/wordc.png" style="width:80%;height:250%;display: block; margin: 0px auto;"></div>
-    </div></div>
-
-    <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
-      <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-        <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
-        <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
-      <div id="cloud" class="chart-container" style="width:100%;height:250%;text-align:center;"></div>
-    </div></div>
-
+        <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     <!--제목-->
+        <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  <!--하위설명-->
+        <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
+      </div></div>
       <script>
-        // Accordion
-        function myFunction(id) {
-          var x = document.getElementById(id);
-          if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-theme-d1";
-          } else { 
-            x.className = x.className.replace("w3-show", "");
-            x.previousElementSibling.className = 
-            x.previousElementSibling.className.replace(" w3-theme-d1", "");
-          }
+        google.charts.load('tweet', {
+          packages: ['corechart', 'line']
+        });
+        google.charts.setOnLoadCallback(drawLineColors);
+
+        function drawLineColors() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', '날짜');
+          data.addColumn('number', '누적확진자');
+          data.addColumn('number', '트윗 건수');
+
+          data.addRows([
+            ['1/19', 1, 74],
+            ['1/20', 1, 623],
+            ['1/21', 1, 727],
+            ['1/22', 2, 1240],
+            ['1/23', 2, 1483],
+            ['1/24', 2, 2093],
+            ['1/25', 3, 7519],
+            ['1/26', 4, 5510],
+            ['1/27', 4, 6876],
+            ['1/28', 4, 7777],
+            ['1/29', 4, 5430],
+            ['1/30', 7, 5924],
+            ['1/31', 11, 7356],
+            ['2/1', 12, 5514],
+            ['2/2', 15, 5201],
+            ['2/3', 16, 4986],
+            ['2/4', 16, 4918],
+            ['2/5', 19, 4916],
+            ['2/6', 23, 4683],
+            ['2/7', 24, 4409],
+            ['2/8', 24, 3145],
+            ['2/9', 27, 2501],
+            ['2/10', 28, 2912],
+            ['2/11', 28, 2353],
+            ['2/12', 28, 2298]
+          ]);
+
+          var options = {
+            hAxis: {
+              title: '날짜',
+        textStyle: {
+          fontSize: 5
         }
-      </script>
+            },
+        
+            vAxes: {
+              0: {
+                title: '누적확진자수'
+              },
+              1: {
+                title: '트윗 건수'
+              }
+            },
+            series: [{
+                targetAxisIndex: 0
+              },
+              {
+                targetAxisIndex: 1
+              }
+            ],
 
-      
+            colors: ['#a52714', '#097138']
+          };
 
+          var chart = new google.visualization.LineChart(document.getElementById('tweet')); //id통일
+          chart.draw(data, options);
+        }
+      </script>  
+
+      <!--트위터 wordcloud-->
+      <div class="w3-padding-small w3-hide-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
+          <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
+        <img src="/images/wordc.png" style="width:80%;height:250%;display: block; margin: 0px auto;"></div>
+      </div></div>
+      <!--on small screens-->
+      <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
+          <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
+        <div id="cloud" class="chart-container" style="width:100%;height:250%;text-align:center;"></div>
+      </div></div>
+
+
+
+      <!-------------------------------------javascript부분--------------------------------------->
+
+        <!--확진자리스트 dropdown-->
+        <script>
+          // Accordion
+          function myFunction(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+              x.className += " w3-show";
+              x.previousElementSibling.className += " w3-theme-d1";
+            } else { 
+              x.className = x.className.replace("w3-show", "");
+              x.previousElementSibling.className = 
+              x.previousElementSibling.className.replace(" w3-theme-d1", "");
+            }
+          }
+        </script>
 
         <script type="text/javascript" src="/js/bydate.js"></script> 
         <script type="text/javascript" src="/js/cum_patient2.js"></script>
@@ -558,6 +573,8 @@
         <script type="text/javascript" src="/js/how.js"></script> 
         <script type="text/javascript" src="/js/nat.js"></script> 
         <script type="text/javascript" src="/js/age.js"></script> 
+
+        <!--wordcloud-->
         <script type="text/javascript">
           var weight = 2,   // change me
               width = 384,
@@ -599,9 +616,7 @@
               }
             });
         </script>
-      
-        
-
+        <!-------------------------------------javascript부분--------------------------------------->
         </body>
 </html>
 

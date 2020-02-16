@@ -1,6 +1,6 @@
-var chart_7613c1984ced4729af53c72a42395c67 = echarts.init(
-    document.getElementById('7613c1984ced4729af53c72a42395c67'), 'white', {renderer: 'canvas'});
-var option_7613c1984ced4729af53c72a42395c67 = {
+var chart_da1059b5aa4d49f9afb39655cebfe134 = echarts.init(
+    document.getElementById('da1059b5aa4d49f9afb39655cebfe134'), 'white', {renderer: 'canvas'});
+var option_da1059b5aa4d49f9afb39655cebfe134 = {
 "animation": true,
 "animationThreshold": 2000,
 "animationDuration": 1000,
@@ -15,6 +15,7 @@ var option_7613c1984ced4729af53c72a42395c67 = {
 "#eccdb3",
 "#bcefd0",
 "#a1e8e4",
+"gray",
 "#23c8b2",
 "#7f5a7c"
 ],
@@ -42,6 +43,10 @@ var option_7613c1984ced4729af53c72a42395c67 = {
         {
             "name": "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
             "value": 3
+        },
+        {
+            "name": "\ud655\uc778 \uc911",
+            "value": 1
         },
         {
             "name": "\ud655\uc9c4\uc790 \uac00\uc871",
@@ -85,6 +90,7 @@ var option_7613c1984ced4729af53c72a42395c67 = {
         "\uc6b0\ud55c \ubc29\ubb38\uc790",
         "\uc911\uad6d \ubc29\ubb38\uc790",
         "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
+        "\ud655\uc778 \uc911",
         "\ud655\uc9c4\uc790 \uac00\uc871",
         "\ud655\uc9c4\uc790 \uc9c0\uc778"
     ],
@@ -115,4 +121,4 @@ var option_7613c1984ced4729af53c72a42395c67 = {
 }
 ]
 };
-chart_7613c1984ced4729af53c72a42395c67.setOption(option_7613c1984ced4729af53c72a42395c67);
+chart_da1059b5aa4d49f9afb39655cebfe134.setOption(option_da1059b5aa4d49f9afb39655cebfe134);

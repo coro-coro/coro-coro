@@ -1,6 +1,6 @@
-var chart_a593be2160834e4abcb6d8863a7556d6 = echarts.init(
-            document.getElementById('a593be2160834e4abcb6d8863a7556d6'), 'white', {renderer: 'canvas'});
-        var option_a593be2160834e4abcb6d8863a7556d6 = {
+var chart_07009fc2d9e7464db83779c9412d6b70 = echarts.init(
+            document.getElementById('07009fc2d9e7464db83779c9412d6b70'), 'white', {renderer: 'canvas'});
+        var option_07009fc2d9e7464db83779c9412d6b70 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -59,7 +59,7 @@ var chart_a593be2160834e4abcb6d8863a7556d6 = echarts.init(
                 "\uc5ec"
             ],
             "selected": {},
-            "show": true,
+            "show": false,
             "padding": 5,
             "itemGap": 10,
             "itemWidth": 25,
@@ -80,10 +80,10 @@ var chart_a593be2160834e4abcb6d8863a7556d6 = echarts.init(
     },
     "title": [
         {
-            "text": "\uc131\ubcc4",
+            "text": "\uc131\ubcc4(\uba85)",
             "padding": 5,
             "itemGap": 10
         }
     ]
 };
-        chart_a593be2160834e4abcb6d8863a7556d6.setOption(option_a593be2160834e4abcb6d8863a7556d6);
+        chart_07009fc2d9e7464db83779c9412d6b70.setOption(option_07009fc2d9e7464db83779c9412d6b70);

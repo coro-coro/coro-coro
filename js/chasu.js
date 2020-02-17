@@ -1,101 +1,101 @@
-var chart_6cb3a994dcb643269665ed278b0ffabe = echarts.init(
-    document.getElementById('6cb3a994dcb643269665ed278b0ffabe'), 'white', {renderer: 'canvas'});
-var option_6cb3a994dcb643269665ed278b0ffabe = {
-"animation": true,
-"animationThreshold": 2000,
-"animationDuration": 1000,
-"animationEasing": "cubicOut",
-"animationDelay": 0,
-"animationDurationUpdate": 300,
-"animationEasingUpdate": "cubicOut",
-"animationDelayUpdate": 0,
-"color": [
-"maroon",
-"firebrick",
-"orangered",
-"gray"
-],
-"series": [
-{
-    "type": "pie",
-    "clockwise": true,
-    "data": [
+var chart_ba3e2ddd84934611bae44ec5edf1dd20 = echarts.init(
+            document.getElementById('ba3e2ddd84934611bae44ec5edf1dd20'), 'white', {renderer: 'canvas'});
+        var option_ba3e2ddd84934611bae44ec5edf1dd20 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "maroon",
+        "firebrick",
+        "orangered",
+        "gray"
+    ],
+    "series": [
         {
-            "name": "1\ucc28",
-            "value": 15
-        },
-        {
-            "name": "2\ucc28",
-            "value": 9
-        },
-        {
-            "name": "3\ucc28",
-            "value": 4
-        },
-        {
-            "name": "\ud655\uc778 \uc911",
-            "value": 1
+            "type": "pie",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "1\ucc28",
+                    "value": 15
+                },
+                {
+                    "name": "2\ucc28",
+                    "value": 9
+                },
+                {
+                    "name": "3\ucc28",
+                    "value": 4
+                },
+                {
+                    "name": "\ud655\uc778 \uc911",
+                    "value": 2
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "color": [
+                    "black"
+                ],
+                "margin": 8,
+                "formatter": "{b}:\n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
         }
     ],
-    "radius": [
-        "0%",
-        "75%"
+    "legend": [
+        {
+            "data": [
+                "1\ucc28",
+                "2\ucc28",
+                "3\ucc28",
+                "\ud655\uc778 \uc911"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
     ],
-    "center": [
-        "50%",
-        "50%"
-    ],
-    "label": {
+    "tooltip": {
         "show": true,
-        "position": "top",
-        "color": [
-            "black"
-        ],
-        "margin": 8,
-        "formatter": "{b}:\n{d}%"
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
     },
-    "rippleEffect": {
-        "show": true,
-        "brushType": "stroke",
-        "scale": 2.5,
-        "period": 4
-    }
-}
-],
-"legend": [
-{
-    "data": [
-        "1\ucc28",
-        "2\ucc28",
-        "3\ucc28",
-        "\ud655\uc778 \uc911"
-    ],
-    "selected": {},
-    "show": false,
-    "padding": 5,
-    "itemGap": 10,
-    "itemWidth": 25,
-    "itemHeight": 14
-}
-],
-"tooltip": {
-"show": true,
-"trigger": "item",
-"triggerOn": "mousemove|click",
-"axisPointer": {
-    "type": "line"
-},
-"textStyle": {
-    "fontSize": 14
-},
-"borderWidth": 0
-},
-"title": [
-{
-    "text": "\uac10\uc5fc \ucc28\uc218",
-    "padding": 5,
-    "itemGap": 10
-}
-]
+    "title": [
+        {
+            "text": "\uac10\uc5fc \ucc28\uc218",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
 };
-chart_6cb3a994dcb643269665ed278b0ffabe.setOption(option_6cb3a994dcb643269665ed278b0ffabe);
+        chart_ba3e2ddd84934611bae44ec5edf1dd20.setOption(option_ba3e2ddd84934611bae44ec5edf1dd20);

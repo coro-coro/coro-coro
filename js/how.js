@@ -1,124 +1,125 @@
-var chart_da1059b5aa4d49f9afb39655cebfe134 = echarts.init(
-    document.getElementById('da1059b5aa4d49f9afb39655cebfe134'), 'white', {renderer: 'canvas'});
-var option_da1059b5aa4d49f9afb39655cebfe134 = {
-"animation": true,
-"animationThreshold": 2000,
-"animationDuration": 1000,
-"animationEasing": "cubicOut",
-"animationDelay": 0,
-"animationDurationUpdate": 300,
-"animationEasingUpdate": "cubicOut",
-"animationDelayUpdate": 0,
-"color": [
-"#fc6472",
-"#f4b2a6",
-"#eccdb3",
-"#bcefd0",
-"#a1e8e4",
-"gray",
-"#23c8b2",
-"#7f5a7c"
-],
-"series": [
-{
-    "type": "pie",
-    "clockwise": true,
-    "data": [
+var chart_a0f0544110704db18037656a70602d8f = echarts.init(
+            document.getElementById('a0f0544110704db18037656a70602d8f'), 'white', {renderer: 'canvas'});
+        var option_a0f0544110704db18037656a70602d8f = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#fc6472",
+        "#f4b2a6",
+        "#eccdb3",
+        "#bcefd0",
+        "#a1e8e4",
+        "gray",
+        "#23c8b2",
+        "#7f5a7c"
+    ],
+    "series": [
         {
-            "name": "\uae30\ud0c0 \ud574\uc678 \ubc29\ubb38\uc790",
-            "value": 3
-        },
-        {
-            "name": "\uc6b0\ud55c \uad50\ubbfc",
-            "value": 3
-        },
-        {
-            "name": "\uc6b0\ud55c \ubc29\ubb38\uc790",
-            "value": 6
-        },
-        {
-            "name": "\uc911\uad6d \ubc29\ubb38\uc790",
-            "value": 2
-        },
-        {
-            "name": "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
-            "value": 3
-        },
-        {
-            "name": "\ud655\uc778 \uc911",
-            "value": 1
-        },
-        {
-            "name": "\ud655\uc9c4\uc790 \uac00\uc871",
-            "value": 8
-        },
-        {
-            "name": "\ud655\uc9c4\uc790 \uc9c0\uc778",
-            "value": 3
+            "type": "pie",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "\uae30\ud0c0 \ud574\uc678 \ubc29\ubb38\uc790",
+                    "value": 3
+                },
+                {
+                    "name": "\uc6b0\ud55c \uad50\ubbfc",
+                    "value": 3
+                },
+                {
+                    "name": "\uc6b0\ud55c \ubc29\ubb38\uc790",
+                    "value": 6
+                },
+                {
+                    "name": "\uc911\uad6d \ubc29\ubb38\uc790",
+                    "value": 2
+                },
+                {
+                    "name": "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
+                    "value": 3
+                },
+                {
+                    "name": "\ud655\uc778 \uc911",
+                    "value": 2
+                },
+                {
+                    "name": "\ud655\uc9c4\uc790 \uac00\uc871",
+                    "value": 8
+                },
+                {
+                    "name": "\ud655\uc9c4\uc790 \uc9c0\uc778",
+                    "value": 3
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "color": [
+                    "black"
+                ],
+                "margin": 8,
+                "formatter": "{b}:\n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
         }
     ],
-    "radius": [
-        "0%",
-        "75%"
+    "legend": [
+        {
+            "data": [
+                "\uae30\ud0c0 \ud574\uc678 \ubc29\ubb38\uc790",
+                "\uc6b0\ud55c \uad50\ubbfc",
+                "\uc6b0\ud55c \ubc29\ubb38\uc790",
+                "\uc911\uad6d \ubc29\ubb38\uc790",
+                "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
+                "\ud655\uc778 \uc911",
+                "\ud655\uc9c4\uc790 \uac00\uc871",
+                "\ud655\uc9c4\uc790 \uc9c0\uc778"
+            ],
+            "selected": {},
+            "show": false,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
     ],
-    "center": [
-        "50%",
-        "50%"
-    ],
-    "label": {
+    "tooltip": {
         "show": true,
-        "position": "top",
-        "color": [
-            "black"
-        ],
-        "margin": 8,
-        "formatter": "{b}:\n{d}%"
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
     },
-    "rippleEffect": {
-        "show": true,
-        "brushType": "stroke",
-        "scale": 2.5,
-        "period": 4
-    }
-}
-],
-"legend": [
-{
-    "data": [
-        "\uae30\ud0c0 \ud574\uc678 \ubc29\ubb38\uc790",
-        "\uc6b0\ud55c \uad50\ubbfc",
-        "\uc6b0\ud55c \ubc29\ubb38\uc790",
-        "\uc911\uad6d \ubc29\ubb38\uc790",
-        "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
-        "\ud655\uc778 \uc911",
-        "\ud655\uc9c4\uc790 \uac00\uc871",
-        "\ud655\uc9c4\uc790 \uc9c0\uc778"
-    ],
-    "selected": {},
-    "show": false,
-    "padding": 5,
-    "itemGap": 10,
-    "itemWidth": 25,
-    "itemHeight": 14
-}
-],
-"tooltip": {
-"show": true,
-"trigger": "item",
-"triggerOn": "mousemove|click",
-"axisPointer": {
-    "type": "line"
-},
-"textStyle": {
-    "fontSize": 14
-},
-"borderWidth": 0
-},
-"title": [
-{
-    "padding": 5,
-    "itemGap": 10
-}
-]
+    "title": [
+        {
+            "text": "\uac10\uc5fc\uc720\ud615",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
 };
-chart_da1059b5aa4d49f9afb39655cebfe134.setOption(option_da1059b5aa4d49f9afb39655cebfe134);
+        chart_a0f0544110704db18037656a70602d8f.setOption(option_a0f0544110704db18037656a70602d8f);

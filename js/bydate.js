@@ -1,6 +1,6 @@
-var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
-            document.getElementById('b13c25a1df1d4607a5342e0da28a981e'), 'white', {renderer: 'canvas'});
-        var option_b13c25a1df1d4607a5342e0da28a981e = {
+var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
+            document.getElementById('b9d5bb648dbc4a9fbc8dd80cda5571bc'), 'white', {renderer: 'canvas'});
+        var option_b9d5bb648dbc4a9fbc8dd80cda5571bc = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -20,28 +20,29 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
             "type": "bar",
             "name": "1\ucc28",
             "data": [
-                1.0,
-                0.0,
                 0.0,
                 1.0,
                 0.0,
                 0.0,
-                1.0,
+                0.0,
                 1.0,
                 0.0,
+                1.0,
+                1.0,
                 0.0,
                 0.0,
                 2.0,
                 1.0,
                 0.0,
                 2.0,
-                1.0,
                 0.0,
+                1.0,
                 1.0,
                 2.0,
                 0.0,
                 0.0,
                 2.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -86,12 +87,13 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                2.0,
-                2.0,
+                3.0,
+                1.0,
                 0.0,
                 0.0,
                 1.0,
                 1.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -135,8 +137,9 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
                 1.0,
                 0.0,
                 0.0,
-                0.0,
                 1.0,
+                0.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -195,7 +198,8 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                1.0,
+                2.0,
+                0.0,
                 1.0
             ],
             "stack": "stack1",
@@ -296,7 +300,8 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
                 "02/14",
                 "02/15",
                 "02/16",
-                "02/17"
+                "02/17",
+                "02/18"
             ]
         }
     ],
@@ -329,4 +334,4 @@ var chart_b13c25a1df1d4607a5342e0da28a981e = echarts.init(
         }
     ]
 };
-        chart_b13c25a1df1d4607a5342e0da28a981e.setOption(option_b13c25a1df1d4607a5342e0da28a981e);
+        chart_b9d5bb648dbc4a9fbc8dd80cda5571bc.setOption(option_b9d5bb648dbc4a9fbc8dd80cda5571bc);

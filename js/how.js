@@ -1,6 +1,6 @@
- var chart_77df5b2ac8be48ed85b85e1706b90fde = echarts.init(
-            document.getElementById('77df5b2ac8be48ed85b85e1706b90fde'), 'white', {renderer: 'canvas'});
-        var option_77df5b2ac8be48ed85b85e1706b90fde = {
+var chart_6d2b787744ee4790b78499f313d1ded3 = echarts.init(
+            document.getElementById('6d2b787744ee4790b78499f313d1ded3'), 'white', {renderer: 'canvas'});
+        var option_6d2b787744ee4790b78499f313d1ded3 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -46,14 +46,14 @@
                 },
                 {
                     "name": "\ud655\uc778 \uc911",
-                    "value": 3
+                    "value": 17
                 },
                 {
                     "name": "\ud655\uc9c4\uc790 \uac00\uc871",
-                    "value": 8
+                    "value": 9
                 },
                 {
-                    "name": "\ud655\uc9c4\uc790 \uc9c0\uc778",
+                    "name": "\ud655\uc9c4\uc790 \uc811\ucd09\uc790",
                     "value": 3
                 }
             ],
@@ -93,7 +93,7 @@
                 "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
                 "\ud655\uc778 \uc911",
                 "\ud655\uc9c4\uc790 \uac00\uc871",
-                "\ud655\uc9c4\uc790 \uc9c0\uc778"
+                "\ud655\uc9c4\uc790 \uc811\ucd09\uc790"
             ],
             "selected": {},
             "show": false,
@@ -122,4 +122,4 @@
         }
     ]
 };
-        chart_77df5b2ac8be48ed85b85e1706b90fde.setOption(option_77df5b2ac8be48ed85b85e1706b90fde);
+        chart_6d2b787744ee4790b78499f313d1ded3.setOption(option_6d2b787744ee4790b78499f313d1ded3);

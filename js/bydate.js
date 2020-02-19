@@ -1,6 +1,6 @@
-var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
-            document.getElementById('b9d5bb648dbc4a9fbc8dd80cda5571bc'), 'white', {renderer: 'canvas'});
-        var option_b9d5bb648dbc4a9fbc8dd80cda5571bc = {
+var chart_3ce9217dbcaa432496a5ef5456cf69c4 = echarts.init(
+            document.getElementById('3ce9217dbcaa432496a5ef5456cf69c4'), 'white', {renderer: 'canvas'});
+        var option_3ce9217dbcaa432496a5ef5456cf69c4 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -42,6 +42,7 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
                 0.0,
                 0.0,
                 2.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -100,6 +101,7 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
                 0.0,
                 0.0,
                 0.0,
+                0.0,
                 0.0
             ],
             "stack": "stack1",
@@ -150,7 +152,8 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                0.0
+                0.0,
+                1.0
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
@@ -200,7 +203,8 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
                 0.0,
                 2.0,
                 0.0,
-                1.0
+                1.0,
+                14.0
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
@@ -301,7 +305,8 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
                 "02/15",
                 "02/16",
                 "02/17",
-                "02/18"
+                "02/18",
+                "02/19"
             ]
         }
     ],
@@ -334,4 +339,4 @@ var chart_b9d5bb648dbc4a9fbc8dd80cda5571bc = echarts.init(
         }
     ]
 };
-        chart_b9d5bb648dbc4a9fbc8dd80cda5571bc.setOption(option_b9d5bb648dbc4a9fbc8dd80cda5571bc);
+        chart_3ce9217dbcaa432496a5ef5456cf69c4.setOption(option_3ce9217dbcaa432496a5ef5456cf69c4);

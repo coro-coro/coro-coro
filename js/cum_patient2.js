@@ -1,6 +1,6 @@
-var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
-            document.getElementById('682d61fdda0c4b928baf4994b676021d'), 'white', {renderer: 'canvas'});
-        var option_682d61fdda0c4b928baf4994b676021d = {
+var chart_a1982628a1f447758f5d1414f7f42267 = echarts.init(
+            document.getElementById('a1982628a1f447758f5d1414f7f42267'), 'white', {renderer: 'canvas'});
+        var option_a1982628a1f447758f5d1414f7f42267 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -11,15 +11,14 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
     "animationDelayUpdate": 0,
     "color": [
         "maroon",
-        "firebrick",
+        "gray",
         "orangered",
-        "coral",
-        "gray"
+        "firebrick",
+        "maroon"
     ],
     "series": [
         {
             "type": "line",
-            "name": "\uc804\uccb4",
             "connectNulls": false,
             "symbolSize": 4,
             "showSymbol": true,
@@ -85,6 +84,10 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 [
                     "2020-02-18",
                     31
+                ],
+                [
+                    "2020-02-19",
+                    46
                 ]
             ],
             "hoverAnimation": true,
@@ -96,6 +99,99 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 ],
                 "margin": 8,
                 "fontSize": 11
+            },
+            "lineStyle": {
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0
+            },
+            "zlevel": 0,
+            "z": 0
+        },
+        {
+            "type": "line",
+            "name": "\ud655\uc778 \uc911",
+            "connectNulls": false,
+            "symbolSize": 4,
+            "showSymbol": true,
+            "smooth": false,
+            "step": false,
+            "stack": "stack1",
+            "data": [
+                [
+                    "2020-01-20",
+                    0
+                ],
+                [
+                    "2020-01-24",
+                    0
+                ],
+                [
+                    "2020-01-26",
+                    0
+                ],
+                [
+                    "2020-01-27",
+                    0
+                ],
+                [
+                    "2020-01-30",
+                    0
+                ],
+                [
+                    "2020-01-31",
+                    0
+                ],
+                [
+                    "2020-02-01",
+                    0
+                ],
+                [
+                    "2020-02-02",
+                    0
+                ],
+                [
+                    "2020-02-04",
+                    0
+                ],
+                [
+                    "2020-02-05",
+                    0
+                ],
+                [
+                    "2020-02-06",
+                    0
+                ],
+                [
+                    "2020-02-09",
+                    0
+                ],
+                [
+                    "2020-02-10",
+                    0
+                ],
+                [
+                    "2020-02-16",
+                    2
+                ],
+                [
+                    "2020-02-18",
+                    3
+                ],
+                [
+                    "2020-02-19",
+                    17
+                ]
+            ],
+            "hoverAnimation": true,
+            "label": {
+                "show": false,
+                "position": "top",
+                "margin": 8
             },
             "lineStyle": {
                 "width": 1,
@@ -107,93 +203,88 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 "opacity": 1
             },
             "zlevel": 0,
-            "z": 0,
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
+            "z": 0
         },
         {
             "type": "line",
-            "name": "1\ucc28",
+            "name": "3\ucc28",
             "connectNulls": false,
             "symbolSize": 4,
             "showSymbol": true,
             "smooth": false,
             "step": false,
+            "stack": "stack1",
             "data": [
                 [
                     "2020-01-20",
-                    1
+                    0
                 ],
                 [
                     "2020-01-24",
-                    2
+                    0
                 ],
                 [
                     "2020-01-26",
-                    3
+                    0
                 ],
                 [
                     "2020-01-27",
-                    4
+                    0
                 ],
                 [
                     "2020-01-30",
-                    6
+                    0
                 ],
                 [
                     "2020-01-31",
-                    7
+                    2
                 ],
                 [
                     "2020-02-01",
-                    7
+                    2
                 ],
                 [
                     "2020-02-02",
-                    9
+                    3
                 ],
                 [
                     "2020-02-04",
-                    10
+                    3
                 ],
                 [
                     "2020-02-05",
-                    11
+                    4
                 ],
                 [
                     "2020-02-06",
-                    13
+                    4
                 ],
                 [
                     "2020-02-09",
-                    15
+                    4
                 ],
                 [
                     "2020-02-10",
-                    15
+                    4
                 ],
                 [
                     "2020-02-16",
-                    15
+                    4
                 ],
                 [
                     "2020-02-18",
-                    15
+                    4
+                ],
+                [
+                    "2020-02-19",
+                    5
                 ]
             ],
             "hoverAnimation": true,
             "label": {
-                "show": true,
+                "show": false,
                 "position": "top",
-                "color": [
-                    "black"
-                ],
-                "margin": 8,
-                "fontSize": 11
+                "margin": 8
             },
             "lineStyle": {
                 "width": 1,
@@ -202,16 +293,10 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 "type": "solid"
             },
             "areaStyle": {
-                "opacity": 0.5
+                "opacity": 1
             },
             "zlevel": 0,
-            "z": 0,
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
+            "z": 0
         },
         {
             "type": "line",
@@ -221,6 +306,7 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
             "showSymbol": true,
             "smooth": false,
             "step": false,
+            "stack": "stack1",
             "data": [
                 [
                     "2020-01-20",
@@ -281,17 +367,17 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 [
                     "2020-02-18",
                     9
+                ],
+                [
+                    "2020-02-19",
+                    9
                 ]
             ],
             "hoverAnimation": true,
             "label": {
-                "show": true,
+                "show": false,
                 "position": "top",
-                "color": [
-                    "black"
-                ],
-                "margin": 8,
-                "fontSize": 11
+                "margin": 8
             },
             "lineStyle": {
                 "width": 1,
@@ -300,96 +386,91 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 "type": "solid"
             },
             "areaStyle": {
-                "opacity": 0.5
+                "opacity": 1
             },
             "zlevel": 0,
-            "z": 0,
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
+            "z": 0
         },
         {
             "type": "line",
-            "name": "3\ucc28",
+            "name": "1\ucc28",
             "connectNulls": false,
             "symbolSize": 4,
             "showSymbol": true,
             "smooth": false,
             "step": false,
+            "stack": "stack1",
             "data": [
                 [
                     "2020-01-20",
-                    0
+                    1
                 ],
                 [
                     "2020-01-24",
-                    0
+                    2
                 ],
                 [
                     "2020-01-26",
-                    0
+                    3
                 ],
                 [
                     "2020-01-27",
-                    0
+                    4
                 ],
                 [
                     "2020-01-30",
-                    0
+                    6
                 ],
                 [
                     "2020-01-31",
-                    2
+                    7
                 ],
                 [
                     "2020-02-01",
-                    2
+                    7
                 ],
                 [
                     "2020-02-02",
-                    3
+                    9
                 ],
                 [
                     "2020-02-04",
-                    3
+                    10
                 ],
                 [
                     "2020-02-05",
-                    4
+                    11
                 ],
                 [
                     "2020-02-06",
-                    4
+                    13
                 ],
                 [
                     "2020-02-09",
-                    4
+                    15
                 ],
                 [
                     "2020-02-10",
-                    4
+                    15
                 ],
                 [
                     "2020-02-16",
-                    4
+                    15
                 ],
                 [
                     "2020-02-18",
-                    4
+                    15
+                ],
+                [
+                    "2020-02-19",
+                    15
                 ]
             ],
             "hoverAnimation": true,
             "label": {
-                "show": true,
+                "show": false,
                 "position": "top",
-                "color": [
-                    "black"
-                ],
-                "margin": 8,
-                "fontSize": 11
+                "margin": 8
             },
             "lineStyle": {
                 "width": 1,
@@ -398,131 +479,27 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 "type": "solid"
             },
             "areaStyle": {
-                "opacity": 0.5
+                "opacity": 1
             },
             "zlevel": 0,
-            "z": 0,
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
-        },
-        {
-            "type": "line",
-            "name": "\ud655\uc778 \uc911",
-            "connectNulls": false,
-            "symbolSize": 4,
-            "showSymbol": true,
-            "smooth": false,
-            "step": false,
-            "data": [
-                [
-                    "2020-01-20",
-                    0
-                ],
-                [
-                    "2020-01-24",
-                    0
-                ],
-                [
-                    "2020-01-26",
-                    0
-                ],
-                [
-                    "2020-01-27",
-                    0
-                ],
-                [
-                    "2020-01-30",
-                    0
-                ],
-                [
-                    "2020-01-31",
-                    0
-                ],
-                [
-                    "2020-02-01",
-                    0
-                ],
-                [
-                    "2020-02-02",
-                    0
-                ],
-                [
-                    "2020-02-04",
-                    0
-                ],
-                [
-                    "2020-02-05",
-                    0
-                ],
-                [
-                    "2020-02-06",
-                    0
-                ],
-                [
-                    "2020-02-09",
-                    0
-                ],
-                [
-                    "2020-02-10",
-                    0
-                ],
-                [
-                    "2020-02-16",
-                    2
-                ],
-                [
-                    "2020-02-18",
-                    3
-                ]
-            ],
-            "hoverAnimation": true,
-            "label": {
-                "show": true,
-                "position": "top",
-                "color": [
-                    "black"
-                ],
-                "margin": 8,
-                "fontSize": 11
-            },
-            "lineStyle": {
-                "width": 1,
-                "opacity": 1,
-                "curveness": 0,
-                "type": "solid"
-            },
-            "areaStyle": {
-                "opacity": 0.8
-            },
-            "zlevel": 0,
-            "z": 0,
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
+            "z": 0
         }
     ],
     "legend": [
         {
             "data": [
-                "\uc804\uccb4",
-                "1\ucc28",
-                "2\ucc28",
+                "",
+                "\ud655\uc778 \uc911",
                 "3\ucc28",
-                "\ud655\uc778 \uc911"
+                "2\ucc28",
+                "1\ucc28"
             ],
             "selected": {
-                "\uc804\uccb4": true,
-                "1\ucc28": true,
-                "2\ucc28": true,
+                "": false,
+                "\ud655\uc778 \uc911": true,
                 "3\ucc28": true,
-                "\ud655\uc778 \uc911": true
+                "2\ucc28": true,
+                "1\ucc28": true
             },
             "show": true,
             "padding": 5,
@@ -553,7 +530,7 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
             "gridIndex": 0,
             "inverse": false,
             "offset": 0,
-            "splitNumber": 7,
+            "splitNumber": 15,
             "minInterval": 0,
             "splitLine": {
                 "show": false,
@@ -579,7 +556,8 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
                 "2020-02-09",
                 "2020-02-10",
                 "2020-02-16",
-                "2020-02-18"
+                "2020-02-18",
+                "2020-02-19"
             ]
         }
     ],
@@ -589,6 +567,7 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
             "scale": false,
             "nameLocation": "end",
             "nameGap": 15,
+            "interval": 5,
             "gridIndex": 0,
             "inverse": false,
             "offset": 0,
@@ -612,4 +591,4 @@ var chart_682d61fdda0c4b928baf4994b676021d = echarts.init(
         }
     ]
 };
-        chart_682d61fdda0c4b928baf4994b676021d.setOption(option_682d61fdda0c4b928baf4994b676021d);
+        chart_a1982628a1f447758f5d1414f7f42267.setOption(option_a1982628a1f447758f5d1414f7f42267);

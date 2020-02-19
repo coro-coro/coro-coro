@@ -1,6 +1,6 @@
-var chart_b543fe4ae0804411b75cc28f50de60c3 = echarts.init(
-            document.getElementById('b543fe4ae0804411b75cc28f50de60c3'), 'white', {renderer: 'canvas'});
-        var option_b543fe4ae0804411b75cc28f50de60c3 = {
+var chart_65d3c5adc2e7496493e20a507bb6d08c = echarts.init(
+            document.getElementById('65d3c5adc2e7496493e20a507bb6d08c'), 'white', {renderer: 'canvas'});
+        var option_65d3c5adc2e7496493e20a507bb6d08c = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -46,7 +46,7 @@ var chart_b543fe4ae0804411b75cc28f50de60c3 = echarts.init(
                 },
                 {
                     "name": "\ud655\uc778 \uc911",
-                    "value": 4
+                    "value": 5
                 },
                 {
                     "name": "\ud655\uc9c4\uc790 \uac00\uc871",
@@ -54,7 +54,7 @@ var chart_b543fe4ae0804411b75cc28f50de60c3 = echarts.init(
                 },
                 {
                     "name": "\ud655\uc9c4\uc790 \uc811\ucd09\uc790",
-                    "value": 16
+                    "value": 15
                 }
             ],
             "radius": [
@@ -122,4 +122,4 @@ var chart_b543fe4ae0804411b75cc28f50de60c3 = echarts.init(
         }
     ]
 };
-        chart_b543fe4ae0804411b75cc28f50de60c3.setOption(option_b543fe4ae0804411b75cc28f50de60c3);
+        chart_65d3c5adc2e7496493e20a507bb6d08c.setOption(option_65d3c5adc2e7496493e20a507bb6d08c);

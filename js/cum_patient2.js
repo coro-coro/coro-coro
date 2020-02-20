@@ -1,5 +1,4 @@
- require(['echarts'], function(echarts) {
-                var chart_17a1d7f4e4fd4ee4b160314a0a88f0d1 = echarts.init(
+var chart_17a1d7f4e4fd4ee4b160314a0a88f0d1 = echarts.init(
                     document.getElementById('17a1d7f4e4fd4ee4b160314a0a88f0d1'), 'white', {renderer: 'canvas'});
                 var option_17a1d7f4e4fd4ee4b160314a0a88f0d1 = {
     "animation": true,

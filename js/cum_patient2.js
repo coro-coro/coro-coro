@@ -613,4 +613,3 @@ var chart_17a1d7f4e4fd4ee4b160314a0a88f0d1 = echarts.init(
     ]
 };
                 chart_17a1d7f4e4fd4ee4b160314a0a88f0d1.setOption(option_17a1d7f4e4fd4ee4b160314a0a88f0d1);
-        });

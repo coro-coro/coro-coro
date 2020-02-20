@@ -1,6 +1,7 @@
-var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
-            document.getElementById('ebd150a646e44b67b2f4168d2667ffb7'), 'white', {renderer: 'canvas'});
-        var option_ebd150a646e44b67b2f4168d2667ffb7 = {
+ require(['echarts'], function(echarts) {
+                var chart_17a1d7f4e4fd4ee4b160314a0a88f0d1 = echarts.init(
+                    document.getElementById('17a1d7f4e4fd4ee4b160314a0a88f0d1'), 'white', {renderer: 'canvas'});
+                var option_17a1d7f4e4fd4ee4b160314a0a88f0d1 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -87,7 +88,11 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 ],
                 [
                     "2020-02-19",
-                    46
+                    57
+                ],
+                [
+                    "2020-02-20",
+                    104
                 ]
             ],
             "hoverAnimation": true,
@@ -184,7 +189,11 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 ],
                 [
                     "2020-02-19",
-                    17
+                    28
+                ],
+                [
+                    "2020-02-20",
+                    61
                 ]
             ],
             "hoverAnimation": true,
@@ -277,6 +286,10 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 ],
                 [
                     "2020-02-19",
+                    5
+                ],
+                [
+                    "2020-02-20",
                     5
                 ]
             ],
@@ -371,6 +384,10 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 [
                     "2020-02-19",
                     9
+                ],
+                [
+                    "2020-02-20",
+                    9
                 ]
             ],
             "hoverAnimation": true,
@@ -463,6 +480,10 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 ],
                 [
                     "2020-02-19",
+                    15
+                ],
+                [
+                    "2020-02-20",
                     15
                 ]
             ],
@@ -557,7 +578,8 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
                 "2020-02-10",
                 "2020-02-16",
                 "2020-02-18",
-                "2020-02-19"
+                "2020-02-19",
+                "2020-02-20"
             ]
         }
     ],
@@ -591,4 +613,5 @@ var chart_ebd150a646e44b67b2f4168d2667ffb7 = echarts.init(
         }
     ]
 };
-        chart_ebd150a646e44b67b2f4168d2667ffb7.setOption(option_ebd150a646e44b67b2f4168d2667ffb7);
+                chart_17a1d7f4e4fd4ee4b160314a0a88f0d1.setOption(option_17a1d7f4e4fd4ee4b160314a0a88f0d1);
+        });

@@ -1,6 +1,6 @@
-var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
-            document.getElementById('e64e162dfa2a4eb19601d9689346fd7b'), 'white', {renderer: 'canvas'});
-        var option_e64e162dfa2a4eb19601d9689346fd7b = {
+var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
+            document.getElementById('1fbe837d67bf42c2a5c9cc4b0d04d93a'), 'white', {renderer: 'canvas'});
+        var option_1fbe837d67bf42c2a5c9cc4b0d04d93a = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -42,6 +42,7 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
                 0.0,
                 0.0,
                 2.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -102,6 +103,7 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
                 0.0,
                 0.0,
                 0.0,
+                0.0,
                 0.0
             ],
             "stack": "stack1",
@@ -153,7 +155,8 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                1.0
+                1.0,
+                0.0
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
@@ -204,7 +207,8 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
                 2.0,
                 0.0,
                 1.0,
-                14.0
+                25.0,
+                47.0
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
@@ -306,7 +310,8 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
                 "02/16",
                 "02/17",
                 "02/18",
-                "02/19"
+                "02/19",
+                "02/20"
             ]
         }
     ],
@@ -339,4 +344,4 @@ var chart_e64e162dfa2a4eb19601d9689346fd7b = echarts.init(
         }
     ]
 };
-        chart_e64e162dfa2a4eb19601d9689346fd7b.setOption(option_e64e162dfa2a4eb19601d9689346fd7b);
+        chart_1fbe837d67bf42c2a5c9cc4b0d04d93a.setOption(option_1fbe837d67bf42c2a5c9cc4b0d04d93a);

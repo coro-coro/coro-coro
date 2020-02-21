@@ -261,50 +261,49 @@
               <div id="region" style="width: 100%;height:400%;"></div>
           </div></div>
           <script>
-            google.charts.load('current', {'packages':['bar']});
-            google.charts.setOnLoadCallback(drawChart);
+            google.charts.load('current', {'packages':['bar','corechart']});
+            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 
-            function drawChart() {
-              var data = google.visualization.arrayToDataTable([
-                ['지역', '전체', '신천지대구교회 관련','청도 대남병원 관련'],
-                ['대구', 126, 123,0],
-                ['경북', 27, 3,24],
-                ['서울', 20, 1,0],
-                ['경기', 14, 0,0],
-                ['광주', 4, 2,0],
-                ['경남', 4, 4,0],
-                ['전북', 2, 0,0],
-                ['전남', 1, 0,0],
-                ['제주', 1, 0,0],
-                ['충북', 1, 1,0],
-                ['충남', 1, 0,0],
-                ['인천', 1, 0,0]
-              ]);
-
-              var options = {
-                bars: 'horizontal', // Required for Material Bar Charts.
-                hAxis: {format: 'decimal'},
-                height: 400,
-                legend:{position: 'top', textStyle: {fontSize: 11}},
-                colors: ['#ed553b', '#bb5d76','#f6d55c'],
-                bar: { groupWidth: "85%" },
-                chartArea:{width:'100%'}
-              };
-
-              var chart = new google.charts.Bar(document.getElementById('region'));
-
-              chart.draw(data, google.charts.Bar.convertOptions(options));
-
-              var btns = document.getElementById('btn-group');
-
-              btns.onclick = function (e) {
-
-                if (e.target.tagName === 'BUTTON') {
-                  options.hAxis.format = e.target.id === 'none' ? '' : e.target.id;
-                  chart.draw(data, google.charts.Bar.convertOptions(options));
+                function schedulerSuccessAndFailChart() {
+                    var data = google.visualization.arrayToDataTable([
+                          ["Title","전체", {role:'annotation'}, "신천지대구교회 관련", "청도 대남병원 관련"],
+                          ["대구",126,126,123, 0],
+                          ['경북', 27,27,3, 24],
+                            ['서울', 20,20,1,0],
+                            ['경기', 14,14,0,0],
+                            ['광주', 4,4,2, 0],
+                            ['경남', 4,4,4, 0],
+                            ['전북', 2,2, 0,0],
+                            ['전남', 1,1,0, 0],
+                            ['제주', 1,1,0, 0],
+                            ['충북', 1,1,1,0],
+                            ['충남', 1,1,0, 0],
+                            ['인천', 1,1,0, 0]
+                  ]);
+            
+                  var barChartOption = {
+                          bars: 'vertical',
+                          height :1000,
+                          vAxis:{textStyle:{fontSize:13}},
+                          hAxis:{textStyle:{fontSize:13}},
+                          legend: { position: "top", textStyle: {fontSize: 11} },
+                          colors: ['#ca3433', '#5e64c1','#d3e9ff'],
+                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
+                          annotations: {
+                              textStyle: {
+                                fontSize: 11,
+                                color: '#871b47'
+                              }
+                          },
+                          bar: { groupWidth: "85%" },
+                          chartArea:{width:'85%',top:'30'}
+                    };
+            
+                  var chart = new google.visualization.BarChart(document.getElementById('region'));
+            
+                  chart.draw(data, barChartOption);
+                  
                 }
-              }
-            }
           </script>
 
 

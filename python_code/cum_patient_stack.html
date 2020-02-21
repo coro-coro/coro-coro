@@ -13076,7 +13076,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#pip install pyecharts</span>
@@ -13086,38 +13086,16 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Requirement already satisfied: pyecharts in c:\users\user\anaconda3\lib\site-packages (1.6.2)
-Requirement already satisfied: prettytable in c:\users\user\anaconda3\lib\site-packages (from pyecharts) (0.7.2)
-Requirement already satisfied: simplejson in c:\users\user\anaconda3\lib\site-packages (from pyecharts) (3.17.0)
-Requirement already satisfied: jinja2 in c:\users\user\anaconda3\lib\site-packages (from pyecharts) (2.10.3)
-Requirement already satisfied: MarkupSafe&gt;=0.23 in c:\users\user\anaconda3\lib\site-packages (from jinja2-&gt;pyecharts) (1.1.1)
-Note: you may need to restart the kernel to use updated packages.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pyecharts</span> 
+<span class="kn">import</span> <span class="nn">pyecharts</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 </pre></div>
 
     </div>
@@ -13127,7 +13105,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pyecharts version : &quot;</span><span class="p">,</span> <span class="n">pyecharts</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
@@ -13158,10 +13136,10 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;patient_data.csv&#39;</span><span class="p">)</span> <span class="c1">#옵션 써야 한글 읽힘</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;patient_data.csv&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> <span class="c1">#옵션 써야 한글 읽힘</span>
 </pre></div>
 
     </div>
@@ -13171,7 +13149,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13187,7 +13165,7 @@ Note: you may need to restart the kernel to use updated packages.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13313,7 +13291,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -13326,7 +13304,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
@@ -13373,8 +13351,8 @@ Note: you may need to restart the kernel to use updated packages.
 2020-02-18  확인 중       1
 2020-02-19  3차         1
             확인 중      25
-2020-02-20            14
-            확인 중      33
+2020-02-20  확인 중      47
+2020-02-21  확인 중      52
 dtype: int64
 </pre>
 </div>
@@ -13386,7 +13364,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -13403,7 +13381,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13475,7 +13453,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data2</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
@@ -13492,7 +13470,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13564,7 +13542,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;cum_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span>
@@ -13581,7 +13559,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13659,7 +13637,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">count1</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13677,7 +13655,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">count2</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13695,7 +13673,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">count3</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13713,7 +13691,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">count_unknown</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13731,99 +13709,13 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>          date degree  count  cum_count  cum_count1  cum_count2  cum_count3  \
-0   2020-01-20     1차      1          1           1           0           0   
-1   2020-01-24     1차      1          2           2           0           0   
-2   2020-01-26     1차      1          3           3           0           0   
-3   2020-01-27     1차      1          4           4           0           0   
-4   2020-01-30     1차      2          6           6           0           0   
-5   2020-01-30     2차      1          7           6           1           0   
-6   2020-01-31     1차      1          8           7           1           0   
-7   2020-01-31     2차      1          9           7           2           0   
-8   2020-01-31     3차      2         11           7           2           2   
-9   2020-02-01     2차      1         12           7           3           2   
-10  2020-02-02     1차      2         14           9           3           2   
-11  2020-02-02     3차      1         15           9           3           3   
-12  2020-02-04     1차      1         16          10           3           3   
-13  2020-02-05     1차      1         17          11           3           3   
-14  2020-02-05     2차      3         20          11           6           3   
-15  2020-02-05     3차      1         21          11           6           4   
-16  2020-02-06     1차      2         23          13           6           4   
-17  2020-02-06     2차      1         24          13           7           4   
-18  2020-02-09     1차      2         26          15           7           4   
-19  2020-02-09     2차      1         27          15           8           4   
-20  2020-02-10     2차      1         28          15           9           4   
-21  2020-02-16   확인 중      2         30          15           9           4   
-22  2020-02-18   확인 중      1         31          15           9           4   
-23  2020-02-19     3차      1         32          15           9           5   
-24  2020-02-19   확인 중     25         57          15           9           5   
-25  2020-02-20            14         71          15           9           5   
-26  2020-02-20   확인 중     33        104          15           9           5   
-
-    cum_unknown  
-0             0  
-1             0  
-2             0  
-3             0  
-4             0  
-5             0  
-6             0  
-7             0  
-8             0  
-9             0  
-10            0  
-11            0  
-12            0  
-13            0  
-14            0  
-15            0  
-16            0  
-17            0  
-18            0  
-19            0  
-20            0  
-21            2  
-22            3  
-23            3  
-24           28  
-25           28  
-26           61  
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_fin</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">data_fin</span> <span class="o">=</span> <span class="n">data_fin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data_fin</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data3</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data3</span> <span class="o">=</span> <span class="n">data3</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data3</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data3</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13858,7 +13750,8 @@ date
 2020-02-16         30          15           9           4            2
 2020-02-18         31          15           9           4            3
 2020-02-19         57          15           9           5           28
-2020-02-20        104          15           9           5           61
+2020-02-20        104          15           9           5           75
+2020-02-21        156          15           9           5          127
 </pre>
 </div>
 </div>
@@ -13869,7 +13762,154 @@ date
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;date&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020-01-20&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_mer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_date</span><span class="p">,</span> <span class="n">data3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<span class="n">data_allcount</span> <span class="o">=</span> <span class="n">data_mer</span><span class="p">[</span><span class="s1">&#39;cum_count&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_mer</span> <span class="o">=</span> <span class="n">data_mer</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;ffill&quot;</span><span class="p">)</span>
+<span class="n">data_mer</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>cum_count</th>
+      <th>cum_count1</th>
+      <th>cum_count2</th>
+      <th>cum_count3</th>
+      <th>cum_unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2020-01-20</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2020-01-21</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2020-01-22</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2020-01-23</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2020-01-24</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 누적확진자</span>
@@ -13886,36 +13926,36 @@ date
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ver_grid</span>
 <span class="n">cum_patient</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">Line</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">add_xaxis</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add_xaxis</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020-01-20&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">())</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)))</span>
     <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span>
-        <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="p">[</span><span class="s1">&#39;cum_count&#39;</span><span class="p">]),</span><span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_allcount</span><span class="p">),</span><span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span>
         <span class="n">is_selected</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span>
-        <span class="s2">&quot;확인 중&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="p">[</span><span class="s1">&#39;cum_unknown&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;확인 중&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_mer</span><span class="p">[</span><span class="s1">&#39;cum_unknown&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
         <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span>
-        <span class="s2">&quot;3차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="p">[</span><span class="s1">&#39;cum_count3&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;3차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_mer</span><span class="p">[</span><span class="s1">&#39;cum_count3&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
         <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span>
-        <span class="s2">&quot;2차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="p">[</span><span class="s1">&#39;cum_count2&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_mer</span><span class="p">[</span><span class="s1">&#39;cum_count2&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
         <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span>
-        <span class="s2">&quot;1차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_fin</span><span class="p">[</span><span class="s1">&#39;cum_count1&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1차&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_mer</span><span class="p">[</span><span class="s1">&#39;cum_count1&#39;</span><span class="p">]),</span> <span class="n">areastyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">AreaStyleOpts</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span>
         <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="o">.</span><span class="n">set_colors</span><span class="p">([</span><span class="s2">&quot;maroon&quot;</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;orangered&quot;</span><span class="p">,</span>  <span class="s2">&quot;firebrick&quot;</span><span class="p">,</span> <span class="s2">&quot;maroon&quot;</span><span class="p">])</span>
     <span class="o">.</span><span class="n">set_global_opts</span><span class="p">(</span><span class="n">title_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">TitleOpts</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">),</span>
-                    <span class="n">xaxis_opts</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">AxisOpts</span><span class="p">(</span><span class="n">type_</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">split_number</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
-                    <span class="n">yaxis_opts</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">AxisOpts</span><span class="p">(</span><span class="n">interval</span> <span class="o">=</span> <span class="mi">5</span><span class="p">))</span>
+                    <span class="n">yaxis_opts</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">AxisOpts</span><span class="p">(</span><span class="n">interval</span> <span class="o">=</span> <span class="mi">20</span><span class="p">),</span>
+                    <span class="n">xaxis_opts</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">AxisOpts</span><span class="p">(</span><span class="n">interval</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
 <span class="p">)</span>
 <span class="n">cum_patient</span><span class="o">.</span><span class="n">render_notebook</span><span class="p">()</span>
 </pre></div>
@@ -13930,7 +13970,7 @@ date
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -13944,13 +13984,13 @@ date
     });
 </script>
 
-        <div id="17a1d7f4e4fd4ee4b160314a0a88f0d1" style="width:900px; height:500px;"></div>
+        <div id="ddf2e40d17684537bad05889a17cd869" style="width:900px; height:500px;"></div>
 
 <script>
         require(['echarts'], function(echarts) {
-                var chart_17a1d7f4e4fd4ee4b160314a0a88f0d1 = echarts.init(
-                    document.getElementById('17a1d7f4e4fd4ee4b160314a0a88f0d1'), 'white', {renderer: 'canvas'});
-                var option_17a1d7f4e4fd4ee4b160314a0a88f0d1 = {
+                var chart_ddf2e40d17684537bad05889a17cd869 = echarts.init(
+                    document.getElementById('ddf2e40d17684537bad05889a17cd869'), 'white', {renderer: 'canvas'});
+                var option_ddf2e40d17684537bad05889a17cd869 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -13976,72 +14016,136 @@ date
             "step": false,
             "data": [
                 [
-                    "2020-01-20",
-                    1
+                    "01/20",
+                    1.0
                 ],
                 [
-                    "2020-01-24",
-                    2
+                    "01/21",
+                    null
                 ],
                 [
-                    "2020-01-26",
-                    3
+                    "01/22",
+                    null
                 ],
                 [
-                    "2020-01-27",
-                    4
+                    "01/23",
+                    null
                 ],
                 [
-                    "2020-01-30",
-                    7
+                    "01/24",
+                    2.0
                 ],
                 [
-                    "2020-01-31",
-                    11
+                    "01/25",
+                    null
                 ],
                 [
-                    "2020-02-01",
-                    12
+                    "01/26",
+                    3.0
                 ],
                 [
-                    "2020-02-02",
-                    15
+                    "01/27",
+                    4.0
                 ],
                 [
-                    "2020-02-04",
-                    16
+                    "01/28",
+                    null
                 ],
                 [
-                    "2020-02-05",
-                    21
+                    "01/29",
+                    null
                 ],
                 [
-                    "2020-02-06",
-                    24
+                    "01/30",
+                    7.0
                 ],
                 [
-                    "2020-02-09",
-                    27
+                    "01/31",
+                    11.0
                 ],
                 [
-                    "2020-02-10",
-                    28
+                    "02/01",
+                    12.0
                 ],
                 [
-                    "2020-02-16",
-                    30
+                    "02/02",
+                    15.0
                 ],
                 [
-                    "2020-02-18",
-                    31
+                    "02/03",
+                    null
                 ],
                 [
-                    "2020-02-19",
-                    57
+                    "02/04",
+                    16.0
                 ],
                 [
-                    "2020-02-20",
-                    104
+                    "02/05",
+                    21.0
+                ],
+                [
+                    "02/06",
+                    24.0
+                ],
+                [
+                    "02/07",
+                    null
+                ],
+                [
+                    "02/08",
+                    null
+                ],
+                [
+                    "02/09",
+                    27.0
+                ],
+                [
+                    "02/10",
+                    28.0
+                ],
+                [
+                    "02/11",
+                    null
+                ],
+                [
+                    "02/12",
+                    null
+                ],
+                [
+                    "02/13",
+                    null
+                ],
+                [
+                    "02/14",
+                    null
+                ],
+                [
+                    "02/15",
+                    null
+                ],
+                [
+                    "02/16",
+                    30.0
+                ],
+                [
+                    "02/17",
+                    null
+                ],
+                [
+                    "02/18",
+                    31.0
+                ],
+                [
+                    "02/19",
+                    57.0
+                ],
+                [
+                    "02/20",
+                    104.0
+                ],
+                [
+                    "02/21",
+                    156.0
                 ]
             ],
             "hoverAnimation": true,
@@ -14077,72 +14181,136 @@ date
             "stack": "stack1",
             "data": [
                 [
-                    "2020-01-20",
-                    0
+                    "01/20",
+                    0.0
                 ],
                 [
-                    "2020-01-24",
-                    0
+                    "01/21",
+                    0.0
                 ],
                 [
-                    "2020-01-26",
-                    0
+                    "01/22",
+                    0.0
                 ],
                 [
-                    "2020-01-27",
-                    0
+                    "01/23",
+                    0.0
                 ],
                 [
-                    "2020-01-30",
-                    0
+                    "01/24",
+                    0.0
                 ],
                 [
-                    "2020-01-31",
-                    0
+                    "01/25",
+                    0.0
                 ],
                 [
-                    "2020-02-01",
-                    0
+                    "01/26",
+                    0.0
                 ],
                 [
-                    "2020-02-02",
-                    0
+                    "01/27",
+                    0.0
                 ],
                 [
-                    "2020-02-04",
-                    0
+                    "01/28",
+                    0.0
                 ],
                 [
-                    "2020-02-05",
-                    0
+                    "01/29",
+                    0.0
                 ],
                 [
-                    "2020-02-06",
-                    0
+                    "01/30",
+                    0.0
                 ],
                 [
-                    "2020-02-09",
-                    0
+                    "01/31",
+                    0.0
                 ],
                 [
-                    "2020-02-10",
-                    0
+                    "02/01",
+                    0.0
                 ],
                 [
-                    "2020-02-16",
-                    2
+                    "02/02",
+                    0.0
                 ],
                 [
-                    "2020-02-18",
-                    3
+                    "02/03",
+                    0.0
                 ],
                 [
-                    "2020-02-19",
-                    28
+                    "02/04",
+                    0.0
                 ],
                 [
-                    "2020-02-20",
-                    61
+                    "02/05",
+                    0.0
+                ],
+                [
+                    "02/06",
+                    0.0
+                ],
+                [
+                    "02/07",
+                    0.0
+                ],
+                [
+                    "02/08",
+                    0.0
+                ],
+                [
+                    "02/09",
+                    0.0
+                ],
+                [
+                    "02/10",
+                    0.0
+                ],
+                [
+                    "02/11",
+                    0.0
+                ],
+                [
+                    "02/12",
+                    0.0
+                ],
+                [
+                    "02/13",
+                    0.0
+                ],
+                [
+                    "02/14",
+                    0.0
+                ],
+                [
+                    "02/15",
+                    0.0
+                ],
+                [
+                    "02/16",
+                    2.0
+                ],
+                [
+                    "02/17",
+                    2.0
+                ],
+                [
+                    "02/18",
+                    3.0
+                ],
+                [
+                    "02/19",
+                    28.0
+                ],
+                [
+                    "02/20",
+                    75.0
+                ],
+                [
+                    "02/21",
+                    127.0
                 ]
             ],
             "hoverAnimation": true,
@@ -14174,72 +14342,136 @@ date
             "stack": "stack1",
             "data": [
                 [
-                    "2020-01-20",
-                    0
+                    "01/20",
+                    0.0
                 ],
                 [
-                    "2020-01-24",
-                    0
+                    "01/21",
+                    0.0
                 ],
                 [
-                    "2020-01-26",
-                    0
+                    "01/22",
+                    0.0
                 ],
                 [
-                    "2020-01-27",
-                    0
+                    "01/23",
+                    0.0
                 ],
                 [
-                    "2020-01-30",
-                    0
+                    "01/24",
+                    0.0
                 ],
                 [
-                    "2020-01-31",
-                    2
+                    "01/25",
+                    0.0
                 ],
                 [
-                    "2020-02-01",
-                    2
+                    "01/26",
+                    0.0
                 ],
                 [
-                    "2020-02-02",
-                    3
+                    "01/27",
+                    0.0
                 ],
                 [
-                    "2020-02-04",
-                    3
+                    "01/28",
+                    0.0
                 ],
                 [
-                    "2020-02-05",
-                    4
+                    "01/29",
+                    0.0
                 ],
                 [
-                    "2020-02-06",
-                    4
+                    "01/30",
+                    0.0
                 ],
                 [
-                    "2020-02-09",
-                    4
+                    "01/31",
+                    2.0
                 ],
                 [
-                    "2020-02-10",
-                    4
+                    "02/01",
+                    2.0
                 ],
                 [
-                    "2020-02-16",
-                    4
+                    "02/02",
+                    3.0
                 ],
                 [
-                    "2020-02-18",
-                    4
+                    "02/03",
+                    3.0
                 ],
                 [
-                    "2020-02-19",
-                    5
+                    "02/04",
+                    3.0
                 ],
                 [
-                    "2020-02-20",
-                    5
+                    "02/05",
+                    4.0
+                ],
+                [
+                    "02/06",
+                    4.0
+                ],
+                [
+                    "02/07",
+                    4.0
+                ],
+                [
+                    "02/08",
+                    4.0
+                ],
+                [
+                    "02/09",
+                    4.0
+                ],
+                [
+                    "02/10",
+                    4.0
+                ],
+                [
+                    "02/11",
+                    4.0
+                ],
+                [
+                    "02/12",
+                    4.0
+                ],
+                [
+                    "02/13",
+                    4.0
+                ],
+                [
+                    "02/14",
+                    4.0
+                ],
+                [
+                    "02/15",
+                    4.0
+                ],
+                [
+                    "02/16",
+                    4.0
+                ],
+                [
+                    "02/17",
+                    4.0
+                ],
+                [
+                    "02/18",
+                    4.0
+                ],
+                [
+                    "02/19",
+                    5.0
+                ],
+                [
+                    "02/20",
+                    5.0
+                ],
+                [
+                    "02/21",
+                    5.0
                 ]
             ],
             "hoverAnimation": true,
@@ -14271,72 +14503,136 @@ date
             "stack": "stack1",
             "data": [
                 [
-                    "2020-01-20",
-                    0
+                    "01/20",
+                    0.0
                 ],
                 [
-                    "2020-01-24",
-                    0
+                    "01/21",
+                    0.0
                 ],
                 [
-                    "2020-01-26",
-                    0
+                    "01/22",
+                    0.0
                 ],
                 [
-                    "2020-01-27",
-                    0
+                    "01/23",
+                    0.0
                 ],
                 [
-                    "2020-01-30",
-                    1
+                    "01/24",
+                    0.0
                 ],
                 [
-                    "2020-01-31",
-                    2
+                    "01/25",
+                    0.0
                 ],
                 [
-                    "2020-02-01",
-                    3
+                    "01/26",
+                    0.0
                 ],
                 [
-                    "2020-02-02",
-                    3
+                    "01/27",
+                    0.0
                 ],
                 [
-                    "2020-02-04",
-                    3
+                    "01/28",
+                    0.0
                 ],
                 [
-                    "2020-02-05",
-                    6
+                    "01/29",
+                    0.0
                 ],
                 [
-                    "2020-02-06",
-                    7
+                    "01/30",
+                    1.0
                 ],
                 [
-                    "2020-02-09",
-                    8
+                    "01/31",
+                    2.0
                 ],
                 [
-                    "2020-02-10",
-                    9
+                    "02/01",
+                    3.0
                 ],
                 [
-                    "2020-02-16",
-                    9
+                    "02/02",
+                    3.0
                 ],
                 [
-                    "2020-02-18",
-                    9
+                    "02/03",
+                    3.0
                 ],
                 [
-                    "2020-02-19",
-                    9
+                    "02/04",
+                    3.0
                 ],
                 [
-                    "2020-02-20",
-                    9
+                    "02/05",
+                    6.0
+                ],
+                [
+                    "02/06",
+                    7.0
+                ],
+                [
+                    "02/07",
+                    7.0
+                ],
+                [
+                    "02/08",
+                    7.0
+                ],
+                [
+                    "02/09",
+                    8.0
+                ],
+                [
+                    "02/10",
+                    9.0
+                ],
+                [
+                    "02/11",
+                    9.0
+                ],
+                [
+                    "02/12",
+                    9.0
+                ],
+                [
+                    "02/13",
+                    9.0
+                ],
+                [
+                    "02/14",
+                    9.0
+                ],
+                [
+                    "02/15",
+                    9.0
+                ],
+                [
+                    "02/16",
+                    9.0
+                ],
+                [
+                    "02/17",
+                    9.0
+                ],
+                [
+                    "02/18",
+                    9.0
+                ],
+                [
+                    "02/19",
+                    9.0
+                ],
+                [
+                    "02/20",
+                    9.0
+                ],
+                [
+                    "02/21",
+                    9.0
                 ]
             ],
             "hoverAnimation": true,
@@ -14368,72 +14664,136 @@ date
             "stack": "stack1",
             "data": [
                 [
-                    "2020-01-20",
-                    1
+                    "01/20",
+                    1.0
                 ],
                 [
-                    "2020-01-24",
-                    2
+                    "01/21",
+                    1.0
                 ],
                 [
-                    "2020-01-26",
-                    3
+                    "01/22",
+                    1.0
                 ],
                 [
-                    "2020-01-27",
-                    4
+                    "01/23",
+                    1.0
                 ],
                 [
-                    "2020-01-30",
-                    6
+                    "01/24",
+                    2.0
                 ],
                 [
-                    "2020-01-31",
-                    7
+                    "01/25",
+                    2.0
                 ],
                 [
-                    "2020-02-01",
-                    7
+                    "01/26",
+                    3.0
                 ],
                 [
-                    "2020-02-02",
-                    9
+                    "01/27",
+                    4.0
                 ],
                 [
-                    "2020-02-04",
-                    10
+                    "01/28",
+                    4.0
                 ],
                 [
-                    "2020-02-05",
-                    11
+                    "01/29",
+                    4.0
                 ],
                 [
-                    "2020-02-06",
-                    13
+                    "01/30",
+                    6.0
                 ],
                 [
-                    "2020-02-09",
-                    15
+                    "01/31",
+                    7.0
                 ],
                 [
-                    "2020-02-10",
-                    15
+                    "02/01",
+                    7.0
                 ],
                 [
-                    "2020-02-16",
-                    15
+                    "02/02",
+                    9.0
                 ],
                 [
-                    "2020-02-18",
-                    15
+                    "02/03",
+                    9.0
                 ],
                 [
-                    "2020-02-19",
-                    15
+                    "02/04",
+                    10.0
                 ],
                 [
-                    "2020-02-20",
-                    15
+                    "02/05",
+                    11.0
+                ],
+                [
+                    "02/06",
+                    13.0
+                ],
+                [
+                    "02/07",
+                    13.0
+                ],
+                [
+                    "02/08",
+                    13.0
+                ],
+                [
+                    "02/09",
+                    15.0
+                ],
+                [
+                    "02/10",
+                    15.0
+                ],
+                [
+                    "02/11",
+                    15.0
+                ],
+                [
+                    "02/12",
+                    15.0
+                ],
+                [
+                    "02/13",
+                    15.0
+                ],
+                [
+                    "02/14",
+                    15.0
+                ],
+                [
+                    "02/15",
+                    15.0
+                ],
+                [
+                    "02/16",
+                    15.0
+                ],
+                [
+                    "02/17",
+                    15.0
+                ],
+                [
+                    "02/18",
+                    15.0
+                ],
+                [
+                    "02/19",
+                    15.0
+                ],
+                [
+                    "02/20",
+                    15.0
+                ],
+                [
+                    "02/21",
+                    15.0
                 ]
             ],
             "hoverAnimation": true,
@@ -14492,15 +14852,15 @@ date
     },
     "xAxis": [
         {
-            "type": "time",
             "show": true,
             "scale": false,
             "nameLocation": "end",
             "nameGap": 15,
+            "interval": 3,
             "gridIndex": 0,
             "inverse": false,
             "offset": 0,
-            "splitNumber": 15,
+            "splitNumber": 5,
             "minInterval": 0,
             "splitLine": {
                 "show": false,
@@ -14512,23 +14872,39 @@ date
                 }
             },
             "data": [
-                "2020-01-20",
-                "2020-01-24",
-                "2020-01-26",
-                "2020-01-27",
-                "2020-01-30",
-                "2020-01-31",
-                "2020-02-01",
-                "2020-02-02",
-                "2020-02-04",
-                "2020-02-05",
-                "2020-02-06",
-                "2020-02-09",
-                "2020-02-10",
-                "2020-02-16",
-                "2020-02-18",
-                "2020-02-19",
-                "2020-02-20"
+                "01/20",
+                "01/21",
+                "01/22",
+                "01/23",
+                "01/24",
+                "01/25",
+                "01/26",
+                "01/27",
+                "01/28",
+                "01/29",
+                "01/30",
+                "01/31",
+                "02/01",
+                "02/02",
+                "02/03",
+                "02/04",
+                "02/05",
+                "02/06",
+                "02/07",
+                "02/08",
+                "02/09",
+                "02/10",
+                "02/11",
+                "02/12",
+                "02/13",
+                "02/14",
+                "02/15",
+                "02/16",
+                "02/17",
+                "02/18",
+                "02/19",
+                "02/20",
+                "02/21"
             ]
         }
     ],
@@ -14538,7 +14914,7 @@ date
             "scale": false,
             "nameLocation": "end",
             "nameGap": 15,
-            "interval": 5,
+            "interval": 20,
             "gridIndex": 0,
             "inverse": false,
             "offset": 0,
@@ -14562,7 +14938,7 @@ date
         }
     ]
 };
-                chart_17a1d7f4e4fd4ee4b160314a0a88f0d1.setOption(option_17a1d7f4e4fd4ee4b160314a0a88f0d1);
+                chart_ddf2e40d17684537bad05889a17cd869.setOption(option_ddf2e40d17684537bad05889a17cd869);
         });
     </script>
 
@@ -14576,7 +14952,7 @@ date
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cum_patient</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;cum_stack.html&#39;</span><span class="p">)</span>
@@ -14592,128 +14968,17 @@ date
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[33]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;C:\\Users\\user\\Desktop\\coro-coro.github.io-master\\coro-coro.github.io-master\\python_code\\cum_stack.html&#39;</pre>
+<pre>&#39;C:\\Users\\user\\Documents\\GitHub\\coro-coro.github.io\\python_code\\cum_stack.html&#39;</pre>
 </div>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ver1">ver1<a class="anchor-link" href="#ver1">&#182;</a></h1><p>cum_patient = (
-    Line()
-    .add_xaxis(list(data_fin.index))
-    .add_yaxis(
-        "확인 중", list(data_fin['cum_unknown']), areastyle_opts=opts.AreaStyleOpts(opacity=1), stack="stack1"
-    )
-    .add_yaxis(
-        "3차", list(data_fin['cum_count3']), areastyle_opts=opts.AreaStyleOpts(opacity=1), stack="stack1"
-    )
-    .add_yaxis(
-        "2차", list(data_fin['cum_count2']), areastyle_opts=opts.AreaStyleOpts(opacity=1), stack="stack1"
-    )
-    .add_yaxis(
-        "1차", list(data_fin['cum_count1']), areastyle_opts=opts.AreaStyleOpts(opacity=1), stack="stack1"
-    )
-    .set_colors(["gray", "orangered",  "firebrick", "maroon"])
-    .set_global_opts(title_opts=opts.TitleOpts(title=""),
-                    xaxis<em>opts = opts.AxisOpts(type</em> = "time", split_number=15),
-                    yaxis_opts = opts.AxisOpts(name="명", interval = 5,
-                                               splitline_opts=opts.SplitLineOpts(
-                                                   is_show=True,
-                                                   linestyle_opts=opts.LineStyleOpts(opacity=0.8))))
-    .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
-)
-cum_patient.render_notebook()</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">AxisOpts</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on class AxisOpts in module pyecharts.options.global_options:
-
-class AxisOpts(pyecharts.options.series_options.BasicOpts)
- |  AxisOpts(type_: Union[str, NoneType] = None, name: Union[str, NoneType] = None, is_show: bool = True, is_scale: bool = False, is_inverse: bool = False, name_location: str = &#39;end&#39;, name_gap: Union[int, float] = 15, name_rotate: Union[int, float, NoneType] = None, interval: Union[int, float, NoneType] = None, grid_index: Union[int, float] = 0, position: Union[str, NoneType] = None, offset: Union[int, float] = 0, split_number: Union[int, float] = 5, boundary_gap: Union[str, bool, NoneType] = None, min_: Union[int, float, str, NoneType] = None, max_: Union[int, float, str, NoneType] = None, min_interval: Union[int, float] = 0, max_interval: Union[int, float, NoneType] = None, axisline_opts: Union[pyecharts.options.global_options.AxisLineOpts, dict, NoneType] = None, axistick_opts: Union[pyecharts.options.global_options.AxisTickOpts, dict, NoneType] = None, axislabel_opts: Union[pyecharts.options.series_options.LabelOpts, dict, NoneType] = None, axispointer_opts: Union[pyecharts.options.global_options.AxisPointerOpts, dict, NoneType] = None, name_textstyle_opts: Union[pyecharts.options.series_options.TextStyleOpts, dict, NoneType] = None, splitarea_opts: Union[pyecharts.options.series_options.SplitAreaOpts, dict, NoneType] = None, splitline_opts: Union[pyecharts.options.series_options.SplitLineOpts, dict] = &lt;pyecharts.options.series_options.SplitLineOpts object at 0x0000027374AA0288&gt;)
- |  
- |  Method resolution order:
- |      AxisOpts
- |      pyecharts.options.series_options.BasicOpts
- |      builtins.object
- |  
- |  Methods defined here:
- |  
- |  __init__(self, type_: Union[str, NoneType] = None, name: Union[str, NoneType] = None, is_show: bool = True, is_scale: bool = False, is_inverse: bool = False, name_location: str = &#39;end&#39;, name_gap: Union[int, float] = 15, name_rotate: Union[int, float, NoneType] = None, interval: Union[int, float, NoneType] = None, grid_index: Union[int, float] = 0, position: Union[str, NoneType] = None, offset: Union[int, float] = 0, split_number: Union[int, float] = 5, boundary_gap: Union[str, bool, NoneType] = None, min_: Union[int, float, str, NoneType] = None, max_: Union[int, float, str, NoneType] = None, min_interval: Union[int, float] = 0, max_interval: Union[int, float, NoneType] = None, axisline_opts: Union[pyecharts.options.global_options.AxisLineOpts, dict, NoneType] = None, axistick_opts: Union[pyecharts.options.global_options.AxisTickOpts, dict, NoneType] = None, axislabel_opts: Union[pyecharts.options.series_options.LabelOpts, dict, NoneType] = None, axispointer_opts: Union[pyecharts.options.global_options.AxisPointerOpts, dict, NoneType] = None, name_textstyle_opts: Union[pyecharts.options.series_options.TextStyleOpts, dict, NoneType] = None, splitarea_opts: Union[pyecharts.options.series_options.SplitAreaOpts, dict, NoneType] = None, splitline_opts: Union[pyecharts.options.series_options.SplitLineOpts, dict] = &lt;pyecharts.options.series_options.SplitLineOpts object at 0x0000027374AA0288&gt;)
- |      Initialize self.  See help(type(self)) for accurate signature.
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  __dict__
- |      dictionary for instance variables (if defined)
- |  
- |  __weakref__
- |      list of weak references to the object (if defined)
- |  
- |  ----------------------------------------------------------------------
- |  Methods inherited from pyecharts.options.series_options.BasicOpts:
- |  
- |  get(self, key: str) -&gt; Any
- |  
- |  update(self, **kwargs)
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors inherited from pyecharts.options.series_options.BasicOpts:
- |  
- |  opts
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 

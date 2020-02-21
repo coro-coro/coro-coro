@@ -1,6 +1,6 @@
-var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
-            document.getElementById('1e52d27d1d4b41968e0c64caae221a2f'), 'white', {renderer: 'canvas'});
-        var option_1e52d27d1d4b41968e0c64caae221a2f = {
+var chart_dc4b3a8e2f93475caa2009080668af61 = echarts.init(
+            document.getElementById('dc4b3a8e2f93475caa2009080668af61'), 'white', {renderer: 'canvas'});
+        var option_dc4b3a8e2f93475caa2009080668af61 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -14,7 +14,6 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
         "#f4b2a6",
         "#eccdb3",
         "#bcefd0",
-        "#a1e8e4",
         "#2b8cbe",
         "gray",
         "#23c8b2",
@@ -38,10 +37,6 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
                     "value": 6
                 },
                 {
-                    "name": "\uc77c\uc0c1 \uc811\ucd09\uc790",
-                    "value": 2
-                },
-                {
                     "name": "\uc911\uad6d \ubc29\ubb38\uc790",
                     "value": 2
                 },
@@ -51,7 +46,7 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
                 },
                 {
                     "name": "\ud655\uc778 \uc911",
-                    "value": 56
+                    "value": 108
                 },
                 {
                     "name": "\ud655\uc9c4\uc790 \uac00\uc871",
@@ -59,7 +54,7 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
                 },
                 {
                     "name": "\ud655\uc9c4\uc790 \uc811\ucd09\uc790",
-                    "value": 20
+                    "value": 22
                 }
             ],
             "radius": [
@@ -94,7 +89,6 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
                 "\uae30\ud0c0 \ud574\uc678 \ubc29\ubb38\uc790",
                 "\uc6b0\ud55c \uad50\ubbfc",
                 "\uc6b0\ud55c \ubc29\ubb38\uc790",
-                "\uc77c\uc0c1 \uc811\ucd09\uc790",
                 "\uc911\uad6d \ubc29\ubb38\uc790",
                 "\uc911\uad6d\uc778 \uad00\uad11\uac1d",
                 "\ud655\uc778 \uc911",
@@ -128,4 +122,4 @@ var chart_1e52d27d1d4b41968e0c64caae221a2f = echarts.init(
         }
     ]
 };
-        chart_1e52d27d1d4b41968e0c64caae221a2f.setOption(option_1e52d27d1d4b41968e0c64caae221a2f);
+        chart_dc4b3a8e2f93475caa2009080668af61.setOption(option_dc4b3a8e2f93475caa2009080668af61);

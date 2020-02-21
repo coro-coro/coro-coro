@@ -1,6 +1,6 @@
-var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
-            document.getElementById('1fbe837d67bf42c2a5c9cc4b0d04d93a'), 'white', {renderer: 'canvas'});
-        var option_1fbe837d67bf42c2a5c9cc4b0d04d93a = {
+var chart_e4db709abd304791b821e37e17996387 = echarts.init(
+            document.getElementById('e4db709abd304791b821e37e17996387'), 'white', {renderer: 'canvas'});
+        var option_e4db709abd304791b821e37e17996387 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -20,7 +20,6 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
             "type": "bar",
             "name": "1\ucc28",
             "data": [
-                0.0,
                 1.0,
                 0.0,
                 0.0,
@@ -42,6 +41,7 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 0.0,
                 2.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -82,7 +82,6 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                0.0,
                 1.0,
                 1.0,
                 1.0,
@@ -95,6 +94,7 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 1.0,
                 1.0,
+                0.0,
                 0.0,
                 0.0,
                 0.0,
@@ -135,7 +135,6 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                0.0,
                 2.0,
                 0.0,
                 1.0,
@@ -156,6 +155,7 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 0.0,
                 1.0,
+                0.0,
                 0.0
             ],
             "stack": "stack1",
@@ -203,12 +203,12 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 0.0,
                 0.0,
                 0.0,
-                0.0,
                 2.0,
                 0.0,
                 1.0,
                 25.0,
-                47.0
+                47.0,
+                52.0
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
@@ -279,7 +279,6 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 }
             },
             "data": [
-                "01/19",
                 "01/20",
                 "01/21",
                 "01/22",
@@ -311,7 +310,8 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
                 "02/17",
                 "02/18",
                 "02/19",
-                "02/20"
+                "02/20",
+                "02/21"
             ]
         }
     ],
@@ -344,4 +344,4 @@ var chart_1fbe837d67bf42c2a5c9cc4b0d04d93a = echarts.init(
         }
     ]
 };
-        chart_1fbe837d67bf42c2a5c9cc4b0d04d93a.setOption(option_1fbe837d67bf42c2a5c9cc4b0d04d93a);
+        chart_e4db709abd304791b821e37e17996387.setOption(option_e4db709abd304791b821e37e17996387);

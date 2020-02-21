@@ -223,11 +223,12 @@
               ]);
     
               var options = {
-                hAxis: {title: '날짜',ticks: [0, 40, 80, 120, 160] },
+                hAxis: {title: '날짜'},
+                vAxis: {viewWindow:{max:160,min:0,interval:40}},
                 seriesType: 'bars',
                 series: {0:{color:'red'}, 2: {color:'#6593F5'}, 1: {type: 'line', color: 'red'},3:{type:'line',color:'#6593F5'},4:{color:'#2c2c2c'}},
                 legend: {position: 'top'},
-                height: 400};
+                height: 400,width:1400};
     
               var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
               chart.draw(data, options);

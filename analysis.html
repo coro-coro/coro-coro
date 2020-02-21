@@ -253,6 +253,60 @@
               <div id="ddf2e40d17684537bad05889a17cd869" class="chart-container" style="height:250%; width:100%;"></div>
           </div></div>
 
+          <!--지역별(googlechart)-->
+          <div class="w3-padding-small w3-hide-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black; margin-bottom:0px;"><b> 지역별 감염현황</b></h5>                                   
+              <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p>
+              <div id="region" style="width: 100%;height:400%;"></div>
+          </div></div>
+          <script>
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['지역', '전체', '신천지대구교회 관련','청도 대남병원 관련'],
+                ['대구', 126, 123,0],
+                ['경북', 27, 3,24],
+                ['서울', 20, 1,0],
+                ['경기', 14, 0,0],
+                ['광주', 4, 2,0],
+                ['경남', 4, 4,0],
+                ['전북', 2, 0,0],
+                ['전남', 1, 0,0],
+                ['제주', 1, 0,0],
+                ['충북', 1, 1,0],
+                ['충남', 1, 0,0],
+                ['인천', 1, 0,0]
+              ]);
+
+              var options = {
+                bars: 'horizontal', // Required for Material Bar Charts.
+                hAxis: {format: 'decimal'},
+                height: 600,
+                legend:{position: 'top', textStyle: {fontSize: 11}},
+                colors: ['#ed553b', '#bb5d76','#f6d55c'],
+                bar: { groupWidth: "85%" },
+                chartArea:{width:'100%'}
+              };
+
+              var chart = new google.charts.Bar(document.getElementById('region'));
+
+              chart.draw(data, google.charts.Bar.convertOptions(options));
+
+              var btns = document.getElementById('btn-group');
+
+              btns.onclick = function (e) {
+
+                if (e.target.tagName === 'BUTTON') {
+                  options.hAxis.format = e.target.id === 'none' ? '' : e.target.id;
+                  chart.draw(data, google.charts.Bar.convertOptions(options));
+                }
+              }
+            }
+          </script>
+
 
           <!--hospital_plot-->
           <div class="w3-padding-small" id="main">

@@ -46,7 +46,17 @@ body {
     color:#000 !important; 
     background-color:#cccccc !important;
   }
- 
+
+  .gotoan {
+    right: 15px;
+    top: 130px;
+    display: block;
+    text-align: center;
+    z-index: 1000;
+    position: absolute;
+    background-color: #fff;
+    background-clip: padding-box;
+  }
 
   
   @media (max-width: 767px) {  

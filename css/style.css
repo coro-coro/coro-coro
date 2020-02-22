@@ -34,8 +34,8 @@ body {
   
   
   .nav {
-    background: black;
-    height: 5%;
+    background: #0b1733;
+    height: 7%;
     color: white;
     display: flex;
     justify-content: flex-end;

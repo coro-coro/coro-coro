@@ -57,7 +57,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
                     <div class="w3-right w3-padding-16">
-                      <h3>346</h3>
+                      <h3>433</h3>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -66,7 +66,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>17</h3>
+                            <h3>18</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -84,7 +84,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #565656; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>5481</h3>
+                            <h3>6037</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -220,7 +220,7 @@
                 ['2/19',  20,     51, 4,16,0],
 		            ['2/20',  53,     104, 0,16,1],
                 ['2/21',  100,     204, 1,17,0],
-                ['2/22',  142,     346, 0,17,1]
+                ['2/22',  229,     433, 1,18,1]
               ]);
     
               var options = {
@@ -268,17 +268,19 @@
                 function schedulerSuccessAndFailChart() {
                     var data = google.visualization.arrayToDataTable([
                           ["Title","전체", {role:'annotation'}, "신천지대구교회 관련",'청도 대남병원 관련'],
-                          ["대구",154,154,147,1],
-                          ['경북', 140,140,13,105],
-                            ['서울', 20,20,1,0],
-                            ['경기', 16,15,0,0],
+                          ["대구",209,209,192,1],
+                          ['경북', 154,154,21,108],
+                            ['서울', 23,23,3,0],
+                            ['경기', 20,20,2,0],
+			    ['광주', 6,6,4,0],
+			    ['강원',5,5,2,0],
                             ['경남', 5,5,4,0],
-                            ['광주', 4,4,2,0],
-                            ['충북', 3,1,1,0],
+                            ['충북', 3,3,1,0],
+			    ['부산',3,3,2,0],
                             ['전북', 2,2, 0,0],
-                            ['부산',2,2,1,0],
+			    ['전남', 2,2,0,0],
                             ['제주', 2,2,0,0],
-                            ['전남', 1,1,0,0],
+			    ['울산',1,1,0,0],
                             ['세종',1,1,0,0],
                             ['대전',1,1,0,0],
                             ['충남', 1,1,0,0],

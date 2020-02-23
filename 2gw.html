@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+  
+  <meta name="google-site-verification" content="lHHZSMRROLZb_R6U4QSkrvresJ1etB4ml7Roi1r_XEY" />
+  <meta property="og:image" content="/images/kakaocoro.jpg"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>코로코로</title>
+  <link rel="shortcut icon" href="">
+  <link rel='stylesheet' href='/css/style.css'>
+  <link rel="stylesheet" href="/css/w3style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<style>
+  .wrap {position: absolute;left: 0;bottom: 40px;width: 230px;height: 132px;margin-left: -115px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+  .wrap * {padding: 0;margin: 0;}
+  .wrap .info {width: 230px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+  .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+  .info .title {padding: 5px 0 0 10px;height: 30px;background: #fff;border-bottom: 1px solid #fff;font-size: 18px;font-weight: bold;}
+  .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+  .info .close:hover {cursor: pointer;}
+  .info .body {position: relative;overflow: hidden;}
+  .info .desc {white-space:normal;display:block; font-size: 14px; position: relative;margin: 10px 0 0 10px;height: 75px;}
+  .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+  .desc .jibun {font-size: 13px;color: #888;margin-top: -2px;}
+  .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+  .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+  .info .link {color: #5085BB;}
+  .opa {opacity:0.5;}
+  body, h1,h2,h3,h4,h5,h6 {font-family: 'Nanum Gothic', sans-serif;}
+  /*.w3-row-padding img {margin-bottom: 12px}
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {width: 120px;background: #222;}
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  /*#main {margin-left: 120px}
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+  /* .category, .category *{margin:0;padding:0;color:#000;}    */
+  /* .category {background-color:#fff;}
+  .category .menu_selected {background:#FF5F4A;color:#fff;}  */
+  </style>
+
+<body style="height: 100%;">
+  <div class="kubig">
+    <div>고려대학교 빅데이터 연구회 KU-BIG</div>
+  </div>
+  <div class="nav w3-hide-small">
+    <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small opa" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
+    <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small"  style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a>
+</div>
+  
+  <!--Navbar on small screens (Hidden on medium and large screens) -->
+  <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="nav">
+      <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large opa" style="text-align:center; width:50% !important; font-size:13px;">확진자 방문장소</a> 
+      <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large"  style="text-align:center; width:50% !important; font-size:13px;">전국 신천지 위치</a>
+    </div>
+  </div>
+  <div class="logo">
+    <img src="/images/coro.jpg" style="height:70px;width:70px;">
+  </div>
+  <div class="gotoan">
+    <div class='w3-white'>
+      <a href='/analysis.html' class='w3-button w3-block w3-left-align' style="padding:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">확진자 분석 바로가기 ▶</a>
+    </div>
+  </div>
+  <div class="cate">
+    <div class="w3-card w3-round">
+      <div class='w3-white'>
+        <button onclick="location.href='/'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">서울·경기</button>
+        <button onclick="location.href='/2gw.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">강원</button>
+        <button onclick="location.href='/3chung.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">충청</button>
+        <button onclick="location.href='/4honam.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">호남</button>
+        <button onclick="location.href='/5yn.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">영남</button>
+        <button onclick="location.href='/6jeju.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">제주</button>
+      </div>      
+    </div>
+  </div>
+  <div id="map" style="width:100%;height:93%;padding-bottom:0px"></div>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1fb7efe94e828e84dab4f1bdc5d7e89&libraries=clusterer"></script>
+        <script>
+/////////*********여기에 추가
+          var churchpos = [
+          {"title" : "신천지 교회",
+"etc":"강원도 동해시 평릉동 159-1번지 일성빌딩 지하1층, 2층, 3층" ,
+"lat": 37.529539,
+"lng": 129.105396,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"강원도 속초시 조양동 1527-1 건물전체" ,
+"lat": 38.189289,
+"lng": 128.591328,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"강원도 원주시 우산동 96-4번지" ,
+"lat": 37.363904,
+"lng": 127.939678,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 옥천동 147-10번지 2층" ,
+"lat": 37.758240,
+"lng": 128.898181,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 옥천동 268-1 동영빌딩 2~5층" ,
+"lat": 37.759044,
+"lng": 128.901459,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 천곡동 1083-9 지하1층,지상2층,3층" ,
+"lat": 37.524246,
+"lng": 129.104888,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 160-1 가나빌딩 A라인 3층" ,
+"lat": 37.529090,
+"lng": 129.105265,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 160-1번지" ,
+"lat": 37.529090,
+"lng": 129.105265,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 160-1번지 B라인 지하, 2층, 3층(총3개층)" ,
+"lat": 37.529090,
+"lng": 129.105265,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 동해대로 4213 보고빌딩 6,7층" ,
+"lat": 38.195089,
+"lng": 128.577184,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 우산동 50-4" ,
+"lat": 37.377360,
+"lng": 127.944025,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 우산동 96-1 2,3층" ,
+"lat": 37.364400,
+"lng": 127.939576,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 현충로 322 지하 1층, 2층" ,
+"lat": 37.381876,
+"lng": 127.947523,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 호저면 옥산리 589-4번지 외" ,
+"lat": 37.429826,
+"lng": 127.919873,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 후평동 25번지 5, 6층" ,
+"lat": 37.873572,
+"lng": 127.752269,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 교동 907-4번지 지상1,2층" ,
+"lat": 38.201257,
+"lng": 128.577906,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 교동 908-10외 1필지 3층" ,
+"lat": 38.200665,
+"lng": 128.577502,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 동명동 519-1외 1필지 2,3층" ,
+"lat": 38.210564,
+"lng": 128.588782,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 단구동 1515-10 대동빌딩 2층" ,
+"lat": 37.330369,
+"lng": 127.948303,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 조양동 43-1 3층" ,
+"lat": 37.879765,
+"lng": 127.729309,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 강릉대로 359번길 5-15 수전빌딩 3층" ,
+"lat": 37.766571,
+"lng": 128.904468,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 159-1 1층" ,
+"lat": 37.529539,
+"lng": 129.105396,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 159-1 1호" ,
+"lat": 37.529539,
+"lng": 129.105396,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 평릉동 159-1번지 일성빌딩 1층" ,
+"lat": 37.529539,
+"lng": 129.105396,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 소초면 장양리 794-1번지" ,
+"lat": 37.410679,
+"lng": 127.957116,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 우산동 231-12번지 정우빌딩 지하1층,지상3,4,5,6층" ,
+"lat": 37.366652,
+"lng": 127.938411,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 우산동 93-17 2층" ,
+"lat": 37.365337,
+"lng": 127.939993,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 학성동 203-7번지 2층,3층" ,
+"lat": 37.352789,
+"lng": 127.948830,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 석사동 678-1 4층" ,
+"lat": 37.858546,
+"lng": 127.745569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 효자동 615, 4층" ,
+"lat": 37.874925,
+"lng": 127.740500,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 명륜동 310-2번지 1층" ,
+"lat": 37.340006,
+"lng": 127.938760,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 퇴계동 1082 3층" ,
+"lat": 37.862166,
+"lng": 127.732248,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 교동 136-5번지 행당빌딩 4층" ,
+"lat": 37.761030,
+"lng": 128.899815,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 교동 1730-3번지 2층" ,
+"lat": 37.757987,
+"lng": 128.881529,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 선수촌로 79-21 4층" ,
+"lat": 37.757792,
+"lng": 128.867727,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 성남동 113-2 3층" ,
+"lat": 37.751611,
+"lng": 128.895457,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 성남동 96-4,5번지 3층" ,
+"lat": 37.753155,
+"lng": 128.897439,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 천곡동 980번지 태영빌딩 3층 302호" ,
+"lat": 37.515138,
+"lng": 129.118995,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 천곡동 988-22번지 2층" ,
+"lat": 37.515785,
+"lng": 129.122059,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 한섬로114(천곡동,4층) 그린빌딩내 403호404호" ,
+"lat": 37.521128,
+"lng": 129.116426,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 동해시 효가동 237 3,4층" ,
+"lat": 37.495769,
+"lng": 129.110145,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 교동 908-10번지 2층" ,
+"lat": 38.200665,
+"lng": 128.577502,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 교동 977-20번지 3층" ,
+"lat": 38.193072,
+"lng": 128.573332,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 조양동 1500-14 2층" ,
+"lat": 38.189186,
+"lng": 128.582971,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 중앙동 478-37번지 2층" ,
+"lat": 38.203325,
+"lng": 128.591373,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 속초시 청학동 482-69외 1필지 씨티아이빌딩 801호" ,
+"lat": 38.201449,
+"lng": 128.586437,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 단계동 510-10번지 3층" ,
+"lat": 37.356455,
+"lng": 127.929242,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 단계동 517-1번지 3층" ,
+"lat": 37.356438,
+"lng": 127.931545,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 단계동 782-14번지 4층" ,
+"lat": 37.346438,
+"lng": 127.934127,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 무실동 1720-8 2층" ,
+"lat": 37.339717,
+"lng": 127.922328,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 무실동 1846-1 6층" ,
+"lat": 37.332918,
+"lng": 127.928214,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 원동 278-1번지 원동프라자 5층" ,
+"lat": 37.343992,
+"lng": 127.943666,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 원동 58-1번지 6층" ,
+"lat": 37.347266,
+"lng": 127.951712,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 학성동 315-2번지 3층" ,
+"lat": 37.354626,
+"lng": 127.946334,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 동내면 거두리 929-3 3층" ,
+"lat": 37.854143,
+"lng": 127.751028,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 동내면 학곡리 602번지 3층 4호" ,
+"lat": 37.835313,
+"lng": 127.760645,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 삭주로 110 3층" ,
+"lat": 37.883959,
+"lng": 127.743072,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 석사동 678-1번지  5층" ,
+"lat": 37.858546,
+"lng": 127.745569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 석사동 796-13 3층" ,
+"lat": 37.856701,
+"lng": 127.742075,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 운교동 175-9번지  2층" ,
+"lat": 37.874950,
+"lng": 127.731793,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 퇴계동 1191-1번지 제2동 3층" ,
+"lat": 37.864850,
+"lng": 127.723885,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 강릉시 죽헌동 320-8 1층, 지하1층" ,
+"lat": 37.784355,
+"lng": 128.871284,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 태장2동 1388-6" ,
+"lat": 37.382056,
+"lng": 127.948132,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 원주시 태장동 981-8번지" ,
+"lat": 37.375498,
+"lng": 127.951693,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"강원도 춘천시 석사동 291-10번지 3~4층" ,
+"lat": 37.855995,
+"lng": 127.748942,
+"imageSrc": "/images/shincheonji.png",
+}
+
+        ];
+
+          var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+          mapOption = { 
+              center: new kakao.maps.LatLng(37.7563118,128.0665991), // 지도의 중심좌표
+              level:10  // 지도의 확대 레벨
+          };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+          //지도생성
+
+          var clusterer = new kakao.maps.MarkerClusterer({
+              map: map, 
+              averageCenter: true, 
+              minLevel: 10, 
+              calculator: [10,20],
+              styles:[{
+                width : '30px', height : '30px',
+                background: 'rgba(255,255,153, .8)',
+                borderRadius: '15px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '31px'
+            },
+            {
+                width : '50px', height : '50px',
+                background: 'rgba(255, 152, 0, .8)',
+                borderRadius: '25px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '51px'
+            },
+            {
+                width : '70px', height : '70px',
+                background: 'rgba(246, 65, 45, .8)',
+                borderRadius: '35px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '71px'
+            }]
+          });
+
+          
+        var churchMarkers = [],
+        churchOverlays =[];
+
+        createChurchMarkers();
+
+        function createMarkerImage(src, size, options) {
+            var markerImage = new kakao.maps.MarkerImage(src, size, options);
+            return markerImage;            
+        }
+
+        function createMarker(position, image) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                image: image
+            });
+            return marker;  
+        }   
+         
+        function createChurchMarkers() {   
+            for (var i = 0; i < churchpos.length; i++) {
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(churchpos[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(churchpos[i].lat, churchpos[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title" style="color:black">' + churchpos[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc" style="word-break:break-all;color:black">'+churchpos[i].etc+'</div>' +
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  churchMarkers.push(marker);
+                  churchOverlays.push(overlay);
+            }
+        }  
+
+        function setChurchMarkers(map) {        
+            for (var i = 0; i < churchMarkers.length; i++) {  
+                churchMarkers[i].setMap(map);
+            }        
+        }
+
+        function setChurchOverlays(map) {        
+            for (var i = 0; i < churchOverlays.length; i++) {  
+                churchOverlays[i].setMap(map);
+            }        
+        }
+
+        clusterer.addMarkers(churchMarkers);
+        setChurchMarkers(null);
+        setChurchOverlays(null);
+
+        
+        function makeClickListener(map, overlay) {
+          return function() {            
+            if(overlay.getMap()){
+                overlay.setMap(null);
+            }
+            else{
+                setChurchOverlays(null);
+                overlay.setMap(map);
+            }
+            
+          }
+        }
+     
+
+        </script>
+
+</body>
+</html>
+
+
+

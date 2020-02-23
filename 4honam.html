@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+  
+  <meta name="google-site-verification" content="lHHZSMRROLZb_R6U4QSkrvresJ1etB4ml7Roi1r_XEY" />
+  <meta property="og:image" content="/images/kakaocoro.jpg"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>코로코로</title>
+  <link rel="shortcut icon" href="">
+  <link rel='stylesheet' href='/css/style.css'>
+  <link rel="stylesheet" href="/css/w3style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<style>
+  .wrap {position: absolute;left: 0;bottom: 40px;width: 230px;height: 132px;margin-left: -115px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+  .wrap * {padding: 0;margin: 0;}
+  .wrap .info {width: 230px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+  .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+  .info .title {padding: 5px 0 0 10px;height: 30px;background: #fff;border-bottom: 1px solid #fff;font-size: 18px;font-weight: bold;}
+  .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+  .info .close:hover {cursor: pointer;}
+  .info .body {position: relative;overflow: hidden;}
+  .info .desc {white-space:normal;display:block; font-size: 14px; position: relative;margin: 10px 0 0 10px;height: 75px;}
+  .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+  .desc .jibun {font-size: 13px;color: #888;margin-top: -2px;}
+  .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+  .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+  .info .link {color: #5085BB;}
+  .opa {opacity:0.5;}
+  body, h1,h2,h3,h4,h5,h6 {font-family: 'Nanum Gothic', sans-serif;}
+  /*.w3-row-padding img {margin-bottom: 12px}
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {width: 120px;background: #222;}
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  /*#main {margin-left: 120px}
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+  /* .category, .category *{margin:0;padding:0;color:#000;}    */
+  /* .category {background-color:#fff;}
+  .category .menu_selected {background:#FF5F4A;color:#fff;}  */
+  </style>
+
+<body style="height: 100%;">
+  <div class="kubig">
+    <div>고려대학교 빅데이터 연구회 KU-BIG</div>
+  </div>
+  <div class="nav w3-hide-small">
+    <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small opa" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
+    <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small"  style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a>
+</div>
+  
+  <!--Navbar on small screens (Hidden on medium and large screens) -->
+  <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="nav">
+      <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large opa" style="text-align:center; width:50% !important; font-size:13px;">확진자 방문장소</a> 
+      <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large"  style="text-align:center; width:50% !important; font-size:13px;">전국 신천지 위치</a>
+    </div>
+  </div>
+  <div class="logo">
+    <img src="/images/coro.jpg" style="height:70px;width:70px;">
+  </div>
+  <div class="gotoan">
+    <div class='w3-white'>
+      <a href='/analysis.html' class='w3-button w3-block w3-left-align' style="padding:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">확진자 분석 바로가기 ▶</a>
+    </div>
+  </div>
+  <div class="cate">
+    <div class="w3-card w3-round">
+      <div class='w3-white'>
+        <button onclick="location.href='/'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">서울·경기</button>
+        <button onclick="location.href='/2gw.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">강원</button>
+        <button onclick="location.href='/3chung.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">충청</button>
+        <button onclick="location.href='/4honam.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">호남</button>
+        <button onclick="location.href='/5yn.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">영남</button>
+        <button onclick="location.href='/6jeju.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">제주</button>
+      </div>      
+    </div>
+  </div>
+  <div id="map" style="width:100%;height:93%;padding-bottom:0px"></div>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1fb7efe94e828e84dab4f1bdc5d7e89&libraries=clusterer"></script>
+        <script>
+/////////*********여기에 추가
+          var churchpos = [
+          {"title" : "신천지 교회",
+"etc":"광주광역시 남구 송하동 46-2번지" ,
+"lat": 35.110452,
+"lng": 126.893976,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"광주광역시 북구 오치동 992-6번지" ,
+"lat": 35.183095,
+"lng": 126.907848,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전남 광양시 중동 1728-5번지 지하1층 5층" ,
+"lat": 34.944509,
+"lng": 127.696784,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전남 목포시 호남동 89번지, 109번지" ,
+"lat": 34.794267,
+"lng": 126.387415,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전남 순천시 조곡동 370-1번지" ,
+"lat": 34.959502,
+"lng": 127.489866,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전남 여수시 화장동 820번지" ,
+"lat": 34.769913,
+"lng": 127.644297,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전북 군산시 장미동 7-19번지 외 2필지 (합병 : 7-24,7-25)" ,
+"lat": 35.987893,
+"lng": 126.715729,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전북 군산시 조촌동 748-5번지 (단층)" ,
+"lat": 35.969270,
+"lng": 126.740931,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전북 익산시 창인동 258-1외17필지" ,
+"lat": 35.937645,
+"lng": 126.954095,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전북 전주시 덕진구 팔복동2가 774-3번지" ,
+"lat": 35.863896,
+"lng": 127.082264,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 교회",
+"etc":"전북 정읍시 수성동 620-18(1,2층 전체)" ,
+"lat": 35.569037,
+"lng": 126.855486,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 백운동 644-32번지 4,5층" ,
+"lat": 35.135385,
+"lng": 126.898895,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 송하동 40-5번지 3층" ,
+"lat": 35.110795,
+"lng": 126.895957,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 118-10번지 지하~4층" ,
+"lat": 35.163643,
+"lng": 126.906889,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 용봉동 15-5번지 4,5층" ,
+"lat": 35.180507,
+"lng": 126.912735,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 고창군 고창읍 월곡리 681 대경빌딩 3층" ,
+"lat": 35.436019,
+"lng": 126.712361,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 고창군 고창읍 월곡리 681 대경빌딩 4층" ,
+"lat": 35.436019,
+"lng": 126.712361,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 수성동 734-1번지 3층" ,
+"lat": 35.566044,
+"lng": 126.854569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 수성동734-1,8번지 2층" ,
+"lat": 35.566044,
+"lng": 126.854569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 월곡동 538-2 부영아파트 상가 402호" ,
+"lat": 35.166898,
+"lng": 126.807615,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 서구 양동 61-5 삼익상가 2층 12~21호" ,
+"lat": 35.151513,
+"lng": 126.906163,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 서구 양동 61-5 삼익상가 4층 1,2,3호" ,
+"lat": 35.151513,
+"lng": 126.906163,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 매곡동 38-10[중앙로 186] 3층" ,
+"lat": 34.962266,
+"lng": 127.484855,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 쌍암동 663-10번지 4층" ,
+"lat": 35.220853,
+"lng": 126.842788,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 우산동 1578-5번지 3층" ,
+"lat": 35.163635,
+"lng": 126.805818,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 월계동 769-3번지 4층" ,
+"lat": 35.213380,
+"lng": 126.838995,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 월계동 772-5번지 2층" ,
+"lat": 35.212818,
+"lng": 126.835796,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 광산구 월곡동 495-6번지 2층" ,
+"lat": 35.175666,
+"lng": 126.807399,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 동구 장동로 23-3 4층" ,
+"lat": 35.148287,
+"lng": 126.924369,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 각화동 503-57번지 3층" ,
+"lat": 35.181642,
+"lng": 126.928892,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 문흥동 740-1번지 4층" ,
+"lat": 35.177528,
+"lng": 126.918286,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 866-10번지 2층" ,
+"lat": 35.185138,
+"lng": 126.904581,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 869-18번지 3층" ,
+"lat": 35.184939,
+"lng": 126.903530,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 911-13번지 2층" ,
+"lat": 35.191345,
+"lng": 126.902203,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 922-23번지 2층" ,
+"lat": 35.189502,
+"lng": 126.904666,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 922-23번지 3층" ,
+"lat": 35.189502,
+"lng": 126.904666,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 951-4번지외 1필지 2층" ,
+"lat": 35.187323,
+"lng": 126.904936,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 971-3번지 2층" ,
+"lat": 35.187028,
+"lng": 126.904282,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 989-18번지 2층" ,
+"lat": 35.184383,
+"lng": 126.906820,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 989-18번지 3층" ,
+"lat": 35.184383,
+"lng": 126.906820,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 990-7번지 2층" ,
+"lat": 35.185053,
+"lng": 126.908107,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 994-2번지 3층" ,
+"lat": 35.182413,
+"lng": 126.908208,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 용봉동 1149-44번지 2층" ,
+"lat": 35.181790,
+"lng": 126.901113,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 용봉동 1205-2 엔에시스템 2층" ,
+"lat": 35.182462,
+"lng": 126.904705,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 용봉동 1223-12 2,3층" ,
+"lat": 35.181433,
+"lng": 126.901568,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 서구 농성동 114-3번지 푸른빌 201호" ,
+"lat": 35.151885,
+"lng": 126.891539,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 신가동 992-3번지 301호" ,
+"lat": 35.185696,
+"lng": 126.838719,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 월곡동 495-6번지 3층" ,
+"lat": 35.175666,
+"lng": 126.807399,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 월산동 964-1번지 3층" ,
+"lat": 35.144846,
+"lng": 126.890603,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 946-28번지 3층" ,
+"lat": 35.189194,
+"lng": 126.902573,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 971-3번지 3층" ,
+"lat": 35.187028,
+"lng": 126.904282,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 971-3번지 4층" ,
+"lat": 35.187028,
+"lng": 126.904282,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 977-23번지 3층" ,
+"lat": 35.185491,
+"lng": 126.905751,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 운암동 396-31,32번지 2층" ,
+"lat": 35.172555,
+"lng": 126.887812,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 서구 화정동 784-26 6층" ,
+"lat": 35.152386,
+"lng": 126.877484,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 광산구 우산동 1573-4 5층" ,
+"lat": 35.163888,
+"lng": 126.803104,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 남구 백운동 634-20번지 2층" ,
+"lat": 35.133986,
+"lng": 126.901723,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 남구 주월동 398-56외 1필지 3층 4층" ,
+"lat": 35.128022,
+"lng": 126.897096,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 923-13번지 3층" ,
+"lat": 35.190727,
+"lng": 126.905550,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 964-19번지 2층" ,
+"lat": 35.187583,
+"lng": 126.911828,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 969-2번지 2층" ,
+"lat": 35.187008,
+"lng": 126.905995,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 993-4번지 2층" ,
+"lat": 35.182535,
+"lng": 126.907756,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 993-5번지 2층" ,
+"lat": 35.182491,
+"lng": 126.907900,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 북구 오치동 993-5번지 3층" ,
+"lat": 35.182491,
+"lng": 126.907900,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 광양읍 칠성리 436-3번지 2,3층" ,
+"lat": 34.974317,
+"lng": 127.582951,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 구례군 구례읍 봉동리 376번지 2,3층" ,
+"lat": 35.209115,
+"lng": 127.465827,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 나주시 빛가람동 256-2 포스빌딩 3층" ,
+"lat": 35.021492,
+"lng": 126.798082,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 나주시 송월동 1092-4번지 2층" ,
+"lat": 35.017491,
+"lng": 126.712021,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 보성군 벌교읍,리 624-2 2층" ,
+"lat": 34.845852,
+"lng": 127.337877,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 영광군 영광읍 남천리 154외 1필지 2층" ,
+"lat": 35.275398,
+"lng": 126.508846,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 장흥군 장흥읍 건산리 739-22번지 2층" ,
+"lat": 34.679271,
+"lng": 126.906441,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 해남군 해남읍 해리 622-13번지 2층" ,
+"lat": 34.568609,
+"lng": 126.601029,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 화순군 화순읍 교리 101-3번지 2층" ,
+"lat": 35.062623,
+"lng": 126.983433,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 영암군 영암읍 동무리 47-12 2층" ,
+"lat": 34.799142,
+"lng": 126.701505,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 함평군 함평읍 대덕리 505번지 단층" ,
+"lat": 35.074019,
+"lng": 126.504943,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 동흥남동 404-8번지 (2층)" ,
+"lat": 35.973100,
+"lng": 126.721301,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 김제시 요촌동 47-1번지 3층" ,
+"lat": 35.802923,
+"lng": 126.892877,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 남원시 하정동216-4번지 3층" ,
+"lat": 35.409163,
+"lng": 127.377265,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 부안군 부안읍 봉덕리 574-94 부안프라자 6층" ,
+"lat": 35.726882,
+"lng": 126.737429,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 임실군 임실읍 이도리 763-14" ,
+"lat": 35.615594,
+"lng": 127.280144,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 서신동 780-3 (4층)" ,
+"lat": 35.830973,
+"lng": 127.122344,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 중앙동1가 54-1번지 2층" ,
+"lat": 35.815949,
+"lng": 127.142472,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 덕진동2가 200-10 송정빌딩 3층" ,
+"lat": 35.846166,
+"lng": 127.120738,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치1동 463-12번지 2층" ,
+"lat": 35.182660,
+"lng": 126.908611,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 주월동 398-51번지 4층" ,
+"lat": 35.128356,
+"lng": 126.897146,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 995-7번지 1층" ,
+"lat": 35.182251,
+"lng": 126.908265,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 대안동 1-11번지 3층" ,
+"lat": 34.793779,
+"lng": 126.385927,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 용당1동 964-43번지2층" ,
+"lat": 34.805491,
+"lng": 126.390933,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 선원동 1269-6번지 3층" ,
+"lat": 34.776068,
+"lng": 127.652837,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 선원동 1269-6번지 3층" ,
+"lat": 34.776068,
+"lng": 127.652837,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 금광동 165-4번지 (2층)" ,
+"lat": 35.982701,
+"lng": 126.708162,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 나운동 837-23번지(2층)" ,
+"lat": 35.964708,
+"lng": 126.694420,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 우산동 1577-3 2,3층" ,
+"lat": 35.163369,
+"lng": 126.805274,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 월산동 10-9 지하,5,6층" ,
+"lat": 35.148670,
+"lng": 126.903753,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 두암동 566-8번지 3,4층" ,
+"lat": 35.178738,
+"lng": 126.928666,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 두암동 566-8번지 3층일부" ,
+"lat": 35.178738,
+"lng": 126.928666,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 문흥동 743-20번지 2,4층" ,
+"lat": 35.176300,
+"lng": 126.917072,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 서구 쌍촌동 1233-5번지 3,4층" ,
+"lat": 35.144894,
+"lng": 126.869532,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 광양읍 칠성리 37번지" ,
+"lat": 34.978472,
+"lng": 127.588154,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 남내동 8-2번지 2,4층" ,
+"lat": 34.953996,
+"lng": 127.485936,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장천동 60-2번지 4층" ,
+"lat": 34.950452,
+"lng": 127.485695,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 조례동 1602-11번지 2,3층" ,
+"lat": 34.954165,
+"lng": 127.525406,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 공화동 1085번지 2층" ,
+"lat": 34.744655,
+"lng": 127.741530,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 공화동 1085번지 3층" ,
+"lat": 34.744655,
+"lng": 127.741530,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 목포시 상동 978-3번지 2,3층" ,
+"lat": 34.800805,
+"lng": 126.422004,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라북도 익산시 인북로 32길 60 2층" ,
+"lat": 35.947384,
+"lng": 126.962989,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 나운동 794-1외 3필지 코스모프라자 제3층 301호, 302호" ,
+"lat": 35.965908,
+"lng": 126.693735,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 인후동 1가 763-1번지 단층" ,
+"lat": 35.839164,
+"lng": 127.157310,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구백제대로 94(2층) ( 효자동 1가214-52번지 외4필지)" ,
+"lat": 35.802385,
+"lng": 127.126199,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 수성동 919-10번지 2층" ,
+"lat": 35.582417,
+"lng": 126.855075,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 신가동 1010-1번지 2,3층" ,
+"lat": 35.183626,
+"lng": 126.836180,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 운남동 776-4번지 3층" ,
+"lat": 35.177277,
+"lng": 126.825533,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 광산구 월곡동 680-5번지 3층" ,
+"lat": 35.179450,
+"lng": 126.809891,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 월산4동 998-8 2-3층" ,
+"lat": 35.143411,
+"lng": 126.892433,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 주월동 1287-17번지 3층" ,
+"lat": 35.132067,
+"lng": 126.900860,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 주월동 1287-25번지 2층" ,
+"lat": 35.131951,
+"lng": 126.900993,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 남구 주월동 1287-25번지 3층" ,
+"lat": 35.131951,
+"lng": 126.900993,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 동구 계림동 559-15 3층" ,
+"lat": 35.161954,
+"lng": 126.918569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 동구 계림동 559-15 4,5층" ,
+"lat": 35.161954,
+"lng": 126.918569,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 동구 계림동 811번지 7,8층" ,
+"lat": 35.163000,
+"lng": 126.915547,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 누문동 78번지 3,4층" ,
+"lat": 35.154955,
+"lng": 126.906995,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 동림동 1150-2번지 3층" ,
+"lat": 35.187738,
+"lng": 126.865854,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 118-10번지 5층" ,
+"lat": 35.163643,
+"lng": 126.906889,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 149-3번지 2층" ,
+"lat": 35.162240,
+"lng": 126.904197,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 149-3번지 3층" ,
+"lat": 35.162240,
+"lng": 126.904197,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 237-5번지 2,3층" ,
+"lat": 35.168797,
+"lng": 126.902693,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 신안동 264-1번지 2,3층" ,
+"lat": 35.165931,
+"lng": 126.901733,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 오치동 971-5번지 5층" ,
+"lat": 35.186969,
+"lng": 126.904645,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 용봉동 1402-1번지 3층" ,
+"lat": 35.177452,
+"lng": 126.896890,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 운암동 65-1번지 3층" ,
+"lat": 35.178252,
+"lng": 126.878062,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 운암동 65-1번지 4,5층" ,
+"lat": 35.178252,
+"lng": 126.878062,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 유동 16-23번지 5,6층" ,
+"lat": 35.157406,
+"lng": 126.905919,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 유동 50-14번지 2,3층" ,
+"lat": 35.155718,
+"lng": 126.903626,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 북구 풍향동 599-7 3층" ,
+"lat": 35.164350,
+"lng": 126.922445,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주광역시 서구 쌍촌동 1243-10번지 3층" ,
+"lat": 35.142922,
+"lng": 126.858180,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 남구 월산동 972-6번지 2,3층" ,
+"lat": 35.144784,
+"lng": 126.891756,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 남구 주월동 368번지 4층" ,
+"lat": 35.132151,
+"lng": 126.900200,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주시 남구 주월동 368번지 5층" ,
+"lat": 35.132151,
+"lng": 126.900200,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 광양읍 구산리 811-7번지" ,
+"lat": 34.977558,
+"lng": 127.576615,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 광양읍 덕례리 1739-4,5번지 3층" ,
+"lat": 34.963384,
+"lng": 127.578188,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 중동 1317-1번지 5층" ,
+"lat": 34.942264,
+"lng": 127.696607,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 중동 1420-1 2층" ,
+"lat": 34.944796,
+"lng": 127.688835,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 광양시 중동 1420-3 2,3층" ,
+"lat": 34.944606,
+"lng": 127.688825,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 상동 930외 1필지 4층" ,
+"lat": 34.801700,
+"lng": 126.416687,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 옥암동 967-14번지 3층" ,
+"lat": 34.808306,
+"lng": 126.426341,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 용당동 1088-10번지 5,6층" ,
+"lat": 34.806042,
+"lng": 126.401272,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 목포시 용당동 1095-11번지 5층" ,
+"lat": 34.806179,
+"lng": 126.402132,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 매곡동 38-10 2,3층" ,
+"lat": 34.962266,
+"lng": 127.484855,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 연향동 1320-2번지 4층" ,
+"lat": 34.951907,
+"lng": 127.517460,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 연향동 1685-1번지 5층" ,
+"lat": 34.934669,
+"lng": 127.516762,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 왕지동 863-3 5층" ,
+"lat": 34.969668,
+"lng": 127.522437,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장선배기1길 6-49 3층, 4층" ,
+"lat": 34.953556,
+"lng": 127.524129,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장천동 115-19번지 3층, 4층" ,
+"lat": 34.951515,
+"lng": 127.487758,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장천동 56-13 2,3층" ,
+"lat": 34.951224,
+"lng": 127.484968,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 저전동 206-1번지 2,3층" ,
+"lat": 34.950328,
+"lng": 127.484142,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 조례동 1602-14번지 4,5층" ,
+"lat": 34.954019,
+"lng": 127.524915,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 문수동 119-1번지 2,3층" ,
+"lat": 34.754017,
+"lng": 127.704058,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 여서동 213-4번지 (6층)" ,
+"lat": 34.752773,
+"lng": 127.703844,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 여서동 455-3번지 2층" ,
+"lat": 34.750377,
+"lng": 127.700958,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 오림동 406-5번지 2층" ,
+"lat": 34.757636,
+"lng": 127.716792,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 학동 32-14번지 1,2층" ,
+"lat": 34.763943,
+"lng": 127.665996,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 학동 74-1번지 2층" ,
+"lat": 34.762037,
+"lng": 127.664573,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 학동 84-7번지 4층" ,
+"lat": 34.759925,
+"lng": 127.666755,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 학동 99-5번지 3층" ,
+"lat": 34.759413,
+"lng": 127.664015,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 학동 99-5번지 4층" ,
+"lat": 34.759413,
+"lng": 127.664015,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 목포시 상동 923-4 2층" ,
+"lat": 34.802080,
+"lng": 126.414701,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 목포시 영산로 258번길1 (용당동960-237,960-211) 5층" ,
+"lat": 34.803331,
+"lng": 126.394647,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전라남도 목포시 영산로 258번길1 (용당동960-237,960-211) 6층" ,
+"lat": 34.803331,
+"lng": 126.394647,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 고창군 고창읍 읍내리 211-1 헹턴키즈 2층 (중앙로223)" ,
+"lat": 35.435318,
+"lng": 126.699883,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 고창군 고창읍 천변북로 81-1. 2층" ,
+"lat": 35.434499,
+"lng": 126.700899,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 나운동 827-11번지 (5층)" ,
+"lat": 35.967634,
+"lng": 126.699937,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 명산동 2-14번지 (2층,3층)" ,
+"lat": 35.985577,
+"lng": 126.710765,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 명산동 8-1외 2필지 (3층)" ,
+"lat": 35.984741,
+"lng": 126.710091,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 서흥남동 801-29,30번지 (2층)" ,
+"lat": 35.973883,
+"lng": 126.711155,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 서흥남동 801-29,30번지 (3층)" ,
+"lat": 35.973883,
+"lng": 126.711155,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 수송동 429-4번지 (4층)" ,
+"lat": 35.971441,
+"lng": 126.715407,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 영화동 9-7,8번지 (1층)" ,
+"lat": 35.988515,
+"lng": 126.712414,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 영화동 9-7,8번지 (3층)" ,
+"lat": 35.988515,
+"lng": 126.712414,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 중앙로1가 16-6번지  동남빌딩 (4층)" ,
+"lat": 35.986260,
+"lng": 126.713049,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 김제시 요촌동 160-6번지 3층" ,
+"lat": 35.799460,
+"lng": 126.887726,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 김제시 요촌동 212-9번지 2층 (서낭당길)" ,
+"lat": 35.801034,
+"lng": 126.888345,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 남원시 죽항동 259번지 3층 (용성로 132-1)" ,
+"lat": 35.410690,
+"lng": 127.390422,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 남원시 하정동67-2번지 3층" ,
+"lat": 35.407657,
+"lng": 127.382397,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 부안군 부안읍 번영로 111 (2층)" ,
+"lat": 35.726545,
+"lng": 126.732759,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 익산시 고봉로30길 66(영등동773-1) 3층 (302-1호, 3호)" ,
+"lat": 35.955214,
+"lng": 126.977386,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 익산시 부송동 1032-6 3층" ,
+"lat": 35.959420,
+"lng": 126.989880,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 익산시 영등동 835-2 3층" ,
+"lat": 35.959498,
+"lng": 126.975679,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 익산시 중앙동 2가 13-6번지 2층" ,
+"lat": 35.938239,
+"lng": 126.946772,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 익산시 중앙동 2가 13-6번지 3층" ,
+"lat": 35.938239,
+"lng": 126.946772,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 금암동 470-3외1필지 5층" ,
+"lat": 35.837689,
+"lng": 127.132453,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 덕진동 1가 1275-15번지 3층4층" ,
+"lat": 35.842427,
+"lng": 127.124531,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 서노송동648-4번지(4층전체)" ,
+"lat": 35.826718,
+"lng": 127.144725,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 송천동 1가 633-1번지외2필지 4층" ,
+"lat": 35.859955,
+"lng": 127.116865,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 인후동 1가 783-1 대영빌딩 5층" ,
+"lat": 35.836269,
+"lng": 127.154540,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 서신동 831-4번지 3층" ,
+"lat": 35.828382,
+"lng": 127.115555,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 서신동 831-4번지 4층,5층" ,
+"lat": 35.828382,
+"lng": 127.115555,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 전동 3가 23-2번지 (2층)" ,
+"lat": 35.813376,
+"lng": 127.145654,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 효자동 1가 548번지 3층" ,
+"lat": 35.805707,
+"lng": 127.122069,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 수성동 723-9 5층, 6층" ,
+"lat": 35.566085,
+"lng": 126.854138,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 연지3길 110(연지동 252-124)" ,
+"lat": 35.569588,
+"lng": 126.845219,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 연지동 260-1번지 3층" ,
+"lat": 35.571593,
+"lng": 126.845643,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 정읍시 중앙3길 17(수성동 704)" ,
+"lat": 35.567900,
+"lng": 126.854465,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 완산구 효자동1가 591-5번지(2층)" ,
+"lat": 35.812708,
+"lng": 127.115596,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 장미동 6-8번지 (지하층)" ,
+"lat": 35.987627,
+"lng": 126.716143,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 군산시 장미동 6-8번지(1층~2층)" ,
+"lat": 35.987627,
+"lng": 126.716143,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 여수시 화장동 871-3번지 2층" ,
+"lat": 34.773866,
+"lng": 127.639779,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전북 전주시 덕진구 팔복동2가 774-51번지" ,
+"lat": 35.863412,
+"lng": 127.082668,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"광주 북구 오치동 995-2,3번지" ,
+"lat": 35.182173,
+"lng": 126.908552,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장천동 240-2번지 3층" ,
+"lat": 34.952659,
+"lng": 127.485255,
+"imageSrc": "/images/shincheonji.png",
+},
+
+{"title" : "신천지 부속기관",
+"etc":"전남 순천시 장천동 240-2번지 4층" ,
+"lat": 34.952659,
+"lng": 127.485255,
+"imageSrc": "/images/shincheonji.png",
+}
+        ];
+
+          var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+          mapOption = { 
+              center: new kakao.maps.LatLng(35.3402856,126.5810357), // 지도의 중심좌표
+              level:11  // 지도의 확대 레벨
+          };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+          //지도생성
+
+          var clusterer = new kakao.maps.MarkerClusterer({
+              map: map, 
+              averageCenter: true, 
+              minLevel: 10, 
+              calculator: [10,20],
+              styles:[{
+                width : '30px', height : '30px',
+                background: 'rgba(255,255,153, .8)',
+                borderRadius: '15px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '31px'
+            },
+            {
+                width : '50px', height : '50px',
+                background: 'rgba(255, 152, 0, .8)',
+                borderRadius: '25px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '51px'
+            },
+            {
+                width : '70px', height : '70px',
+                background: 'rgba(246, 65, 45, .8)',
+                borderRadius: '35px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '71px'
+            }]
+          });
+
+          
+        var churchMarkers = [],
+        churchOverlays =[];
+
+        createChurchMarkers();
+
+        function createMarkerImage(src, size, options) {
+            var markerImage = new kakao.maps.MarkerImage(src, size, options);
+            return markerImage;            
+        }
+
+        function createMarker(position, image) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                image: image
+            });
+            return marker;  
+        }   
+         
+        function createChurchMarkers() {   
+            for (var i = 0; i < churchpos.length; i++) {
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(churchpos[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(churchpos[i].lat, churchpos[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title" style="color:black">' + churchpos[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc" style="word-break:break-all;color:black">'+churchpos[i].etc+'</div>' +
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  churchMarkers.push(marker);
+                  churchOverlays.push(overlay);
+            }
+        }  
+
+        function setChurchMarkers(map) {        
+            for (var i = 0; i < churchMarkers.length; i++) {  
+                churchMarkers[i].setMap(map);
+            }        
+        }
+
+        function setChurchOverlays(map) {        
+            for (var i = 0; i < churchOverlays.length; i++) {  
+                churchOverlays[i].setMap(map);
+            }        
+        }
+
+        clusterer.addMarkers(churchMarkers);
+        setChurchMarkers(null);
+        setChurchOverlays(null);
+
+        
+        function makeClickListener(map, overlay) {
+          return function() {            
+            if(overlay.getMap()){
+                overlay.setMap(null);
+            }
+            else{
+                setChurchOverlays(null);
+                overlay.setMap(map);
+            }
+            
+          }
+        }
+     
+
+        </script>
+
+</body>
+</html>
+
+
+

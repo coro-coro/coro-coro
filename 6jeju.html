@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+  
+  <meta name="google-site-verification" content="lHHZSMRROLZb_R6U4QSkrvresJ1etB4ml7Roi1r_XEY" />
+  <meta property="og:image" content="/images/kakaocoro.jpg"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>코로코로</title>
+  <link rel="shortcut icon" href="">
+  <link rel='stylesheet' href='/css/style.css'>
+  <link rel="stylesheet" href="/css/w3style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<style>
+  .wrap {position: absolute;left: 0;bottom: 40px;width: 230px;height: 132px;margin-left: -115px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+  .wrap * {padding: 0;margin: 0;}
+  .wrap .info {width: 230px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+  .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+  .info .title {padding: 5px 0 0 10px;height: 30px;background: #fff;border-bottom: 1px solid #fff;font-size: 18px;font-weight: bold;}
+  .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+  .info .close:hover {cursor: pointer;}
+  .info .body {position: relative;overflow: hidden;}
+  .info .desc {white-space:normal;display:block; font-size: 14px; position: relative;margin: 10px 0 0 10px;height: 75px;}
+  .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+  .desc .jibun {font-size: 13px;color: #888;margin-top: -2px;}
+  .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+  .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+  .info .link {color: #5085BB;}
+  .opa {opacity:0.5;}
+  body, h1,h2,h3,h4,h5,h6 {font-family: 'Nanum Gothic', sans-serif;}
+  /*.w3-row-padding img {margin-bottom: 12px}
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {width: 120px;background: #222;}
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  /*#main {margin-left: 120px}
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+  /* .category, .category *{margin:0;padding:0;color:#000;}    */
+  /* .category {background-color:#fff;}
+  .category .menu_selected {background:#FF5F4A;color:#fff;}  */
+  </style>
+
+<body style="height: 100%;">
+  <div class="kubig">
+    <div>고려대학교 빅데이터 연구회 KU-BIG</div>
+  </div>
+  <div class="nav w3-hide-small">
+    <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small opa" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
+    <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small"  style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a>
+</div>
+  
+  <!--Navbar on small screens (Hidden on medium and large screens) -->
+  <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="nav">
+      <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large opa" style="text-align:center; width:50% !important; font-size:13px;">확진자 방문장소</a> 
+      <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large"  style="text-align:center; width:50% !important; font-size:13px;">전국 신천지 위치</a>
+    </div>
+  </div>
+  <div class="logo">
+    <img src="/images/coro.jpg" style="height:70px;width:70px;">
+  </div>
+  <div class="gotoan">
+    <div class='w3-white'>
+      <a href='/analysis.html' class='w3-button w3-block w3-left-align' style="padding:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">확진자 분석 바로가기 ▶</a>
+    </div>
+  </div>
+  <div class="cate">
+    <div class="w3-card w3-round">
+      <div class='w3-white'>
+        <button onclick="location.href='/'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">서울·경기</button>
+        <button onclick="location.href='/2gw.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">강원</button>
+        <button onclick="location.href='/3chung.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">충청</button>
+        <button onclick="location.href='/4honam.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">호남</button>
+        <button onclick="location.href='/5yn.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">영남</button>
+        <button onclick="location.href='/6jeju.html'" class="w3-button w3-block" style="text-align: center; border: .2px solid rgba(0, 0, 0, .3);">제주</button>
+      </div>      
+    </div>
+  </div>
+  <div id="map" style="width:100%;height:93%;padding-bottom:0px"></div>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1fb7efe94e828e84dab4f1bdc5d7e89&libraries=clusterer"></script>
+        <script>
+/////////*********여기에 추가
+          var churchpos = [
+          {"title" : "신천지 교회",
+            "etc":"제주특별자치도 제주시 이도이동 315 5층" ,
+            "lat": 33.505208,
+            "lng": 126.538236,
+            "imageSrc": "/images/shincheonji.png",
+            },
+
+            {"title" : "신천지 부속기관",
+            "etc":"제주특별자치도 서귀포 서귀동 289-8번지 2층" ,
+            "lat": 33.250870,
+            "lng": 126.562155,
+            "imageSrc": "/images/shincheonji.png",
+            },
+
+            {"title" : "신천지 부속기관",
+            "etc":"제주특별자치도 제주시 연동 293-86번지 2층" ,
+            "lat": 33.485937,
+            "lng": 126.494974,
+            "imageSrc": "/images/shincheonji.png",
+            },
+
+            {"title" : "신천지 부속기관",
+            "etc":"제주특별자치도 제주시 이도1동 1687-1번지 4층" ,
+            "lat": 33.503260,
+            "lng": 126.526776,
+            "imageSrc": "/images/shincheonji.png",
+            },
+
+            {"title" : "신천지 부속기관",
+            "etc":"제주특별자치도 제주시 일도2동 339-18(신산로 97) 3층" ,
+            "lat": 33.505361,
+            "lng": 126.535931,
+            "imageSrc": "/images/shincheonji.png",
+            }
+        ];
+
+          var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+          mapOption = { 
+              center: new kakao.maps.LatLng(33.3616837,126.5204118), // 지도의 중심좌표
+              level:9  // 지도의 확대 레벨
+          };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+          //지도생성
+
+          var clusterer = new kakao.maps.MarkerClusterer({
+              map: map, 
+              averageCenter: true, 
+              minLevel: 8, 
+              calculator: [10,20],
+              styles:[{
+                width : '30px', height : '30px',
+                background: 'rgba(255,255,153, .8)',
+                borderRadius: '15px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '31px'
+            },
+            {
+                width : '50px', height : '50px',
+                background: 'rgba(255, 152, 0, .8)',
+                borderRadius: '25px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '51px'
+            },
+            {
+                width : '70px', height : '70px',
+                background: 'rgba(246, 65, 45, .8)',
+                borderRadius: '35px',
+                color: '#000',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                lineHeight: '71px'
+            }]
+          });
+
+          
+        var churchMarkers = [],
+        churchOverlays =[];
+
+        createChurchMarkers();
+
+        function createMarkerImage(src, size, options) {
+            var markerImage = new kakao.maps.MarkerImage(src, size, options);
+            return markerImage;            
+        }
+
+        function createMarker(position, image) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                image: image
+            });
+            return marker;  
+        }   
+         
+        function createChurchMarkers() {   
+            for (var i = 0; i < churchpos.length; i++) {
+                var imageSize = new kakao.maps.Size(35, 35),
+                    imageOptions = {  
+                        spriteOrigin: new kakao.maps.Point(0, 0),    
+                        //spriteSize: new kakao.maps.Size(35, 70)  
+                    };     
+                
+                var markerImage = createMarkerImage(churchpos[i].imageSrc, imageSize, imageOptions),    
+                    marker = createMarker(new kakao.maps.LatLng(churchpos[i].lat, churchpos[i].lng), markerImage);
+                var content=   '<div class="w3-text-grey wrap">' + 
+                                '    <div class="info">' + 
+                                '        <div class="title" style="color:black">' + churchpos[i].title +
+                                '        </div>' + 
+                                '        <div class="body">' + 
+                                '            <div class="desc" style="word-break:break-all;color:black">'+churchpos[i].etc+'</div>' +
+                                '        </div>' + 
+                                '    </div>' +    
+                                '</div>';
+                  var overlay =  new kakao.maps.CustomOverlay({
+                                  content: content,
+                                  map: map,
+                                  position: marker.getPosition()       
+                              });
+
+                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
+                  churchMarkers.push(marker);
+                  churchOverlays.push(overlay);
+            }
+        }  
+
+        function setChurchMarkers(map) {        
+            for (var i = 0; i < churchMarkers.length; i++) {  
+                churchMarkers[i].setMap(map);
+            }        
+        }
+
+        function setChurchOverlays(map) {        
+            for (var i = 0; i < churchOverlays.length; i++) {  
+                churchOverlays[i].setMap(map);
+            }        
+        }
+
+        clusterer.addMarkers(churchMarkers);
+        setChurchMarkers(null);
+        setChurchOverlays(null);
+
+        
+        function makeClickListener(map, overlay) {
+          return function() {            
+            if(overlay.getMap()){
+                overlay.setMap(null);
+            }
+            else{
+                setChurchOverlays(null);
+                overlay.setMap(map);
+            }
+            
+          }
+        }
+     
+
+        </script>
+
+</body>
+</html>
+
+
+

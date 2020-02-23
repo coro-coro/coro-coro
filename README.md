@@ -22,6 +22,6 @@
 <img src="https://user-images.githubusercontent.com/45965766/73954255-e6fa7980-4944-11ea-8ad9-ab872327563c.jpg" height="70%" width="70%">
 
 
-#### 3. 시간 업데이트(index.html)
+#### 3. 시간 업데이트(location.html)
 
 ![그림2](https://user-images.githubusercontent.com/45965766/73856406-c1a03980-4878-11ea-9ee2-5c827a6fe28f.png)

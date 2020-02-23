@@ -2,7 +2,7 @@
 
 ### KU-BIG 신종 코로나바이러스 데이터분석팀 사이트 corocoro
 
-#### 변경사항: 마크 업데이트 파일 index.html -> location.html
+<h4 style="color:red">변경사항: 마크 업데이트 파일 index.html -> location.html</h4>
 
 #### <마크 업데이트 시 해야할 것>
 

@@ -131,41 +131,6 @@
           var map = new kakao.maps.Map(mapContainer, mapOption);
           //지도생성
 
-          var clusterer = new kakao.maps.MarkerClusterer({
-              map: map, 
-              averageCenter: true, 
-              minLevel: 8, 
-              calculator: [10,20],
-              styles:[{
-                width : '30px', height : '30px',
-                background: 'rgba(255,255,153, .8)',
-                borderRadius: '15px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '31px'
-            },
-            {
-                width : '50px', height : '50px',
-                background: 'rgba(255, 152, 0, .8)',
-                borderRadius: '25px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '51px'
-            },
-            {
-                width : '70px', height : '70px',
-                background: 'rgba(246, 65, 45, .8)',
-                borderRadius: '35px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '71px'
-            }]
-          });
-
-          
         var churchMarkers = [],
         churchOverlays =[];
 
@@ -227,8 +192,7 @@
             }        
         }
 
-        clusterer.addMarkers(churchMarkers);
-        setChurchMarkers(null);
+        setChurchMarkers(map);
         setChurchOverlays(null);
 
         

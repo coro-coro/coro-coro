@@ -108,18 +108,18 @@
               <li><b>6번확진자: </b>50대 남자, 3번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>7번확진자: </b>20대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>8번확진자: </b>60대 여자, 우한 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>9번확진자: </b>20대 여자, 5번 확진자의 지인</li>
+              <li><b>9번확진자: </b>20대 여자, 5번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>10번확진자: </b>50대 여자, 6번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>11번확진자: </b>20대 남자, 6번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>12번확진자: </b>40대 남자, 중국인 관광객 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>13번확진자: </b>20대 남자, 우한 교민</li>
+              <li><b>13번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>14번확진자: </b>40대 여자, 12번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p> </li>
-              <li><b>15번확진자: </b>40대 남자, 우한 방문자</li>
+              <li><b>15번확진자: </b>40대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>16번확진자: </b>40대 여자, 태국 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>17번확진자: </b>30대 남자, 싱가폴 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>18번확진자: </b>20대 여자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>19번확진자: </b>30대 남자, 싱가폴 방문자</li>
-              <li><b>20번확진자: </b>40대 여자, 15번 확진자의 가족</li>
+              <li><b>20번확진자: </b>40대 여자, 15번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>21번확진자: </b>50대 여자, 6번 확진자의 지인</li>
               <li><b>22번확진자: </b>40대 남자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>23번확진자: </b>50대 여자, 중국인 관광객</li>
@@ -223,12 +223,12 @@
                 ['2/21',  100,     204, 1,17,0],
                 ['2/22',  229,     433, 1,18,1],
 		['2/23',  169,     602, 0,18,3],
-		      ['2/24',  161,     763, 0,18,3]
+		      ['2/24',  231,     833, 0,22,7]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:800,min:0,interval:50}},
+                vAxis: {viewWindow:{max:1000,min:0,interval:100}},
                 seriesType: 'bars',
                 series: {0:{color:'red'}, 2: {color:'#6593F5'}, 1: {type: 'line', color: 'red'},3:{type:'line',color:'#6593F5'},4:{color:'#2c2c2c'}},
                 legend: {position: 'top'},
@@ -243,19 +243,19 @@
 
 
           <!--date_plot-->
-          <div class="w3-padding-small" id="main">
+          <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <h5 style="color:black"><b> 날짜별 확진자 수(명)</b></h5>
               <div id="e4db709abd304791b821e37e17996387" class="chart-container" style="height:250%; width:100%;"></div>
-          </div></div>
+          </div></div> -->
 
 
           <!--cum_patient-->
-          <div class="w3-padding-small" id="main">
+          <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <h5 style="color:black"><b> 감염단계별 누적 확진자 수(명)</b></h5>
               <div id="ddf2e40d17684537bad05889a17cd869" class="chart-container" style="height:250%; width:100%;"></div>
-          </div></div>
+          </div></div> -->
 
           <!--지역별(googlechart)-->
           <div class="w3-padding-small" id="main">
@@ -317,54 +317,54 @@
 
 
           <!--hospital_plot-->
-          <div class="w3-padding-small" id="main">
+          <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <div id="2c09d31abdac45419eb61fc886bde8bd" class="chart-container" style="height:250%; width:100%;"></div>
           </div>
-        </div>
+        </div> -->
 
 
         <!--pieplot-->
-        <div class="w3-padding-small" id="main">
+        <!-- <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
             <h5 style="color:black"><b> 확진자 특성별 분류</b></h5>
 	    <h6 style="color:black"><b>&nbsp;&nbsp;감염 차수(명)</b></h6>
-            <div id="ed6ca260892442959f68c945a8aa2bb7" class="chart-container" style="height:250%; width:100%;"></div>  <!--차수-->
+            <div id="ed6ca260892442959f68c945a8aa2bb7" class="chart-container" style="height:250%; width:100%;"></div>  
           </div>
         </div>
         <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-              <div id="2c10c650b2de44f5aaae4f753d1c5f55" class="chart-container" style="height:250%; width:100%;"></div> <!--상태-->
+              <div id="2c10c650b2de44f5aaae4f753d1c5f55" class="chart-container" style="height:250%; width:100%;"></div> 
           </div>
         </div>
 
         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-            <div id="8ed660dd0d094fbe8b6fe64b3f8502a1" class="chart-container" style="height:250%; width:100%;"></div> <!--성별-->
+            <div id="8ed660dd0d094fbe8b6fe64b3f8502a1" class="chart-container" style="height:250%; width:100%;"></div>
         </div>
       </div>
 
       <div class="w3-padding-small" id="main">
         <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
          <h5 style="color:black"><b> 감염 경로(명)</b></h5>
-          <div id="dc4b3a8e2f93475caa2009080668af61" class="chart-container" style="height:250%; width:100%;"></div> <!--감염경로-->
+          <div id="dc4b3a8e2f93475caa2009080668af61" class="chart-container" style="height:250%; width:100%;"></div> 
       </div>
     </div>
 
     <div class="w3-padding-small" id="main">
       <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-        <div id="7de45c65e9ed43ce80b2650170a2468f" class="chart-container" style="height:250%; width:100%;"></div> <!--국적-->
+        <div id="7de45c65e9ed43ce80b2650170a2468f" class="chart-container" style="height:250%; width:100%;"></div>
     </div>
-  </div>
+  </div> -->
 
 
       <!--age_plot-->
-      <div class="w3-padding-small" id="main">
+      <!-- <div class="w3-padding-small" id="main">
         <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
           <h5 style="color:black"><b> 연령대 별 확진자 수</b></h5>
           <div id="ed07df1b66f7438aa8249493c556e0d7" class="chart-container" style="height:250%; width:100%;"></div>
         </div>
-      </div>
+      </div> -->
 
 
   <!--JOURNAL-->

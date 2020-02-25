@@ -57,7 +57,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
                     <div class="w3-right w3-padding-16">
-                      <h3>893</h3>
+                      <h3>977</h3>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -75,7 +75,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>8</h3>
+                            <h3>10</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -84,7 +84,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #565656; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>8057</h3>
+                            <h3>13,880</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -224,7 +224,7 @@
                 ['2/22',  229,     433, 1,18,1],
 		            ['2/23',  169,     602, 0,18,3],
 		            ['2/24',  231,     833, 4,22,2],
-		      ['2/25',  60,     893, 0,22,1]
+		      ['2/25',  144,     977, 0,22,3]
               ]);
     
               var options = {
@@ -272,24 +272,25 @@
                 function schedulerSuccessAndFailChart() {
                     var data = google.visualization.arrayToDataTable([
                           ["Title","전체", {role:'annotation'}, "신천지대구교회 관련",'청도 대남병원 관련'],
-                          ["대구",500,500,376,0],
-                          ['경북', 243,243,38,112],
-			    ['경기', 41,41,8,0],
-                            ['서울', 33,33,1,0],
-                            ['부산',33,33,4,0],
-			                    ['경남', 21,21,13,0],
+                          ["대구",544,544,376,0],
+                          ['경북', 266,266,38,112],
+			    ['경기', 43,43,8,0],
+			    ['부산',38,38,4,0],
+                            ['서울', 37,37,1,0],
+			                    ['경남', 23,23,13,0],
 			                    ['광주', 9,9,7,0],
 			                    ['강원',7,7,3,0],
-                            ['충북', 3,3,3,0],
+                            ['충북', 5,5,3,0],
                             ['대전',3,3,0,0],
                             ['전북', 3,3, 0,0],
-			                      
+			          ['울산',3,3,1,0],            
                             ['제주', 2,2,0,0],
-			                      ['울산',2,2,1,0],
+			    ['충남', 2,2,0,0],
+			                      
 			    ['인천', 2,2,1,0],
 			    ['전남', 1,1,0,0],
-                            ['세종',1,1,1,0],
-                            ['충남', 1,1,0,0]
+                            ['세종',1,1,1,0]
+                            
                             
                   ]);
             

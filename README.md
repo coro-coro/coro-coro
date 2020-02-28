@@ -2,7 +2,10 @@
 
 ### KU-BIG 신종 코로나바이러스 데이터분석팀 사이트 corocoro
 
+
+<h4 style="color:red">▶변경사항: 분석 파일 analysis.html -> index.html로 변경◀</h4>
 <h4 style="color:red">▶변경사항: 이동경로 마크 업데이트 파일 index.html -> location.html로 변경◀</h4>
+
 
 #### <마크 업데이트 시 해야할 것>
 
@@ -12,7 +15,7 @@
 
 
 
-#### 1. 확진자/완치자/유증상자 수 업데이트 (analysis.html)
+#### 1. 확진자/완치자/유증상자 수 업데이트 (index.html)
 <img src="https://user-images.githubusercontent.com/45965766/73855983-2a3ae680-4878-11ea-9af4-dd7ee87fd579.png" height="70%" width="70%">
 
 

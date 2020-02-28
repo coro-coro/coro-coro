@@ -1,3360 +1,763 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
-<head>
-  
-  <meta name="google-site-verification" content="lHHZSMRROLZb_R6U4QSkrvresJ1etB4ml7Roi1r_XEY" />
-  <meta property="og:image" content="/images/kakaocoro.jpg"/>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>코로코로</title>
-  <meta name="description" content="한눈에 보는 코로나 바이러스/우한폐렴 - 전국 신천지 정보 및 코로나 현황을 제공합니다.">
-  <meta property="og:title" content="코로코로">
-  <meta property="og:description" content="한눈에 보는 코로나 바이러스/우한폐렴 - 전국 신천지 정보 및 코로나 현황을 제공합니다.">
-  <link rel="shortcut icon" href="">
-  <link rel='stylesheet' href='/css/style.css'>
-  <link rel="stylesheet" href="/css/w3style.css">
-  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-<style>
-  .wrap {position: absolute;left: 0;bottom: 40px;width: 230px;height: 132px;margin-left: -115px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-  .wrap * {padding: 0;margin: 0;}
-  .wrap .info {width: 230px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-  .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-  .info .title {padding: 5px 0 0 10px;height: 30px;background: #fff;border-bottom: 1px solid #fff;font-size: 18px;font-weight: bold;}
-  .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
-  .info .close:hover {cursor: pointer;}
-  .info .body {position: relative;overflow: hidden;}
-  .info .desc {white-space:normal;display:block; font-size: 14px; position: relative;margin: 10px 0 0 10px;height: 75px;}
-  .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-  .desc .jibun {font-size: 13px;color: #888;margin-top: -2px;}
-  .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-  .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-  .info .link {color: #5085BB;}
-  .opa {opacity:0.5;}
-  body, h1,h2,h3,h4,h5,h6 {font-family: 'Nanum Gothic', sans-serif;}
-  /*.w3-row-padding img {margin-bottom: 12px}
-  /* Set the width of the sidebar to 120px */
-  .w3-sidebar {width: 120px;background: #222;}
-  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-  /*#main {margin-left: 120px}
-  /* Remove margins from "page content" on small screens */
-  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-  /* .category, .category *{margin:0;padding:0;color:#000;}    */
-  /* .category {background-color:#fff;}
-  .category .menu_selected {background:#FF5F4A;color:#fff;}  */
-  </style>
+<html>
+    <head>
+        <meta property="og:image" content="/images/kakaocoro.jpg"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>코로코로</title>
+        <link rel="shortcut icon" href="">
+        <link rel='stylesheet' href='/css/style.css'>
+        <link rel="stylesheet" href="/css/w3style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="d3.layout.cloud.js"></script>
 
-<body style="height: 100%;">
-  <div class="kubig">
-    <div>고려대학교 빅데이터 연구회 KU-BIG</div>
+      </head>
+    <style>
+        body, h1,h2,h3,h4,h5,h6,p {font-family: 'Nanum Gothic', sans-serif;}
+        /*.w3-row-padding img {margin-bottom: 12px}
+        /* Set the width of the sidebar to 120px */
+        @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+	    text:hover {
+        	stroke: black;
+    	}
+    </style>
+
+    <body class="w3-white">
+      <div class="nav">
+        <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
+        <a href="/church.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a> 
+        <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">분석</a>
+        <a href="/jebo.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">제보하기</a> 
   </div>
-  <div class="nav w3-hide-small">
-    <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small opa" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
-    <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small"  style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a>
-</div>
-  
-  <!--Navbar on small screens (Hidden on medium and large screens) -->
-  <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
-    <div class="nav">
-      <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large opa" style="text-align:center; width:50% !important; font-size:13px;">확진자 방문장소</a> 
-      <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large"  style="text-align:center; width:50% !important; font-size:13px;">전국 신천지 위치</a>
-    </div>
-  </div>
-  <div class="logo">
-    <img src="/images/coro.jpg" style="height:70px;width:70px;">
-  </div>
-  <div class="gotoan">
-    <div class='w3-white'>
-      <a href='/analysis.html' class='w3-button w3-block w3-left-align' style="font-size:11px;padding:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">확진자 분석 바로가기 ▶</a>
-    </div>
-  </div>
-  <div class="cate">
-    <div class="w3-card w3-round">
-      <div class='w3-white'>
-        <button onclick="location.href='/1all.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">전체보기</button>
-        <button onclick="location.href='/'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">서울·경기</button>
-        <button onclick="location.href='/2gw.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">강원</button>
-        <button onclick="location.href='/3chung.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">충청</button>
-        <button onclick="location.href='/4honam.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">호남</button>
-        <button onclick="location.href='/5yn.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">영남</button>
-        <button onclick="location.href='/6jeju.html'" class="w3-button w3-block" style="padding:5px;font-size:10px;text-align: center; border: .2px solid rgba(0, 0, 0, .3);">제주</button>
-      </div>      
-    </div>
-  </div>
-  <div id="map" style="width:100%;height:93%;padding-bottom:0px"></div>
-
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1fb7efe94e828e84dab4f1bdc5d7e89&libraries=clusterer"></script>
-        <script>
-/////////*********여기에 추가
-          var churchpos = [
-          {"title" : "신천지 교회",
-            "etc":"경기도 가평군 청평면 청평리 301-4 7층" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 7층 전체" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 과천시 별양동 1-19 뉴코아아울렛 9층, 10층" ,
-            "lat": 37.426302,
-            "lng": 126.991861,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 김포시 사우동 253-3 유림회관 5층 505호" ,
-            "lat": 37.616659,
-            "lng": 126.715738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 남양주시 별내동 931-3 삼호프라자 2~6층" ,
-            "lat": 37.657737,
-            "lng": 127.125375,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 7층" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 수원시 장안구 경수대로 1082-7, 3층전체 4층 전체" ,
-            "lat": 37.310013,
-            "lng": 126.994340,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 8층전체" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 의정부시 호원동455-8 2층,3층(일부)" ,
-            "lat": 37.711874,
-            "lng": 127.047854,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 이천시 사음동 11외 1필지" ,
-            "lat": 37.303950,
-            "lng": 127.426713,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 파주시 금촌동 765-1외 1필지 광우프라자 702호~706호" ,
-            "lat": 37.759092,
-            "lng": 126.775242,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 평택시 합정동 762-7 4층, 5층" ,
-            "lat": 36.991611,
-            "lng": 127.100045,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 하남시 감일동 176번지" ,
-            "lat": 37.514113,
-            "lng": 127.150356,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 하남시 덕풍동 744번지 케이엔몰 801,802,803,804,805호" ,
-            "lat": 37.551815,
-            "lng": 127.207681,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"경기도 화성시 진안동 524-1 메트로프라자 4층 401~404호" ,
-            "lat": 37.210971,
-            "lng": 127.038344,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 강서구 화곡3동 1034-13,19번지" ,
-            "lat": 37.543934,
-            "lng": 126.837048,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 3층" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 동대문구 왕산로 147(제기동) 경동빌딩 2,3,4,5,6층" ,
-            "lat": 37.578869,
-            "lng": 127.039655,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 동작구 신대방동 565-22우성스포츠센터 4~7층" ,
-            "lat": 37.492261,
-            "lng": 126.909894,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 2층 201,202호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 2층 203,204호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"서울시 용산구 한강로3가 40-147 신세기한덕빌딩 4층,5층" ,
-            "lat": 37.525573,
-            "lng": 126.964019,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"성남시 중원구 원터로 105번길 28" ,
-            "lat": 37.434850,
-            "lng": 127.139693,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 5,6층" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 계양구 계양대로 82(작전동) 5층, 지하1층" ,
-            "lat": 37.531151,
-            "lng": 126.722987,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 남구 주안동 1543-11외 2필지 4, 5층" ,
-            "lat": 37.457187,
-            "lng": 126.691807,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 남동구 만수동 967-8번지 2층, 5층" ,
-            "lat": 37.450225,
-            "lng": 126.731801,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 부평구 산곡동 369-277번지,370-372번지" ,
-            "lat": 37.491259,
-            "lng": 126.704432,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 서구 연희동 686-4 계정빌딩3,4층" ,
-            "lat": 37.550174,
-            "lng": 126.676615,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 연수구 연수동 592번지 401-1호" ,
-            "lat": 37.417083,
-            "lng": 126.678090,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 중구 신흥동 3가 31-35,38번지" ,
-            "lat": 37.449380,
-            "lng": 126.627106,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 교회",
-            "etc":"인천광역시 연수구 연수동 592번지 402호" ,
-            "lat": 37.417083,
-            "lng": 126.678090,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 2층 201호,202호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 2층 203호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 3층 304호, 4층 407,408호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 416번지 금오빌딩 2층 1호, 3층 1호" ,
-            "lat": 37.737134,
-            "lng": 127.420246,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 906-3번지 3층" ,
-            "lat": 37.638194,
-            "lng": 126.834674,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1  (8층 1.2.7.8호)" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1 ( 9층 전관 )" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1 ( 지하2층 전관 )" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 304호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 605,606호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 803호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 806호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 사우동 253-3 유림회관 5층 501호-1,2호" ,
-            "lat": 37.616659,
-            "lng": 126.715738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 8층 801호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 8층 802호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 8층 804호,805호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 8층 806호,807호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 8층 808호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 성남시 중원구 광명로 100번길 9 3층" ,
-            "lat": 37.435001,
-            "lng": 127.140663,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 성남시 중원구 성남동 2612번지 5층" ,
-            "lat": 37.436836,
-            "lng": 127.142688,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 권선구 세류동 1157번지 223호" ,
-            "lat": 37.244536,
-            "lng": 127.016277,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 209-1번지112,125,126,127호" ,
-            "lat": 37.309978,
-            "lng": 126.994397,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 팔달구 팔달로 3가 79 송산빌딩 4층 전체" ,
-            "lat": 37.275710,
-            "lng": 127.015849,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1465-6번지 지하1층~지상5층" ,
-            "lat": 37.404170,
-            "lng": 126.967613,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1505-25, 삼우프라자 제9층 901호" ,
-            "lat": 37.400767,
-            "lng": 126.977339,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양평군 양평읍 오빈리 431-3" ,
-            "lat": 37.505357,
-            "lng": 127.462434,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 501호" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 502호" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 701,2호" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 호원동 119-32 2층(전체)" ,
-            "lat": 37.708171,
-            "lng": 127.046767,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 호원동 454-27 4층(전체)" ,
-            "lat": 37.709467,
-            "lng": 127.047715,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 이천시 창전동 457-2 1동 2층 전체" ,
-            "lat": 37.281566,
-            "lng": 127.447373,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 금촌동 958-9 4층" ,
-            "lat": 37.757671,
-            "lng": 126.772951,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 시청로 25 광우프라자 4층" ,
-            "lat": 37.759165,
-            "lng": 126.776251,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 비전동 764-12 4층" ,
-            "lat": 36.991269,
-            "lng": 127.105958,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡동 1032, 3층 전체" ,
-            "lat": 37.544099,
-            "lng": 126.837295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 2층 212호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 405호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 401호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 402호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 404호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 407호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 지하1층 3호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동324-4 상계제일빌딩4층" ,
-            "lat": 37.656086,
-            "lng": 127.065272,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동764-1 하라프라자 2층 209호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 565-22 제202호" ,
-            "lat": 37.492261,
-            "lng": 126.909894,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 565-22번지 3층 301.302,304호" ,
-            "lat": 37.492261,
-            "lng": 126.909894,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 565-22번지 3층 303호" ,
-            "lat": 37.492261,
-            "lng": 126.909894,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 565-22번지 우성스포츠센터 B4" ,
-            "lat": 37.492261,
-            "lng": 126.909894,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 588-2번지 2층" ,
-            "lat": 37.490924,
-            "lng": 126.908546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 588-2번지 4층" ,
-            "lat": 37.490924,
-            "lng": 126.908546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 신대방동 692-10  2층,3층,5층" ,
-            "lat": 37.487313,
-            "lng": 126.910747,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 3층 301~302호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 3층 303,304호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 4층 401호,402호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 4층 403호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 4층 404호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 490번지 홍익사랑빌딩 5층 501호,502호" ,
-            "lat": 37.561224,
-            "lng": 126.927295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 506-20번지 아륭빌딩 지하1층 제2호" ,
-            "lat": 37.558515,
-            "lng": 126.928658,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 효령로 50 서천빌딩 2층전체" ,
-            "lat": 37.478710,
-            "lng": 126.990049,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 영등포구 대림동 960-4번지 2층,3층" ,
-            "lat": 37.491641,
-            "lng": 126.908139,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 구로구 경인로 342, 3층" ,
-            "lat": 37.496990,
-            "lng": 126.858212,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 구로구 경인로 342, 4층" ,
-            "lat": 37.496990,
-            "lng": 126.858212,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 310~311호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 312-2호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 312호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 313호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔로 122 유림빌딩 401호" ,
-            "lat": 37.318602,
-            "lng": 126.839920,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계산동 304-2번지 6층" ,
-            "lat": 37.536942,
-            "lng": 126.728613,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남구 주안동 1543-11외 2필지 2층" ,
-            "lat": 37.457187,
-            "lng": 126.691807,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수1동 983번지 신명상가 3층" ,
-            "lat": 37.449858,
-            "lng": 126.731999,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동960-4 2층 201호" ,
-            "lat": 37.453645,
-            "lng": 126.734738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동968-3 2층" ,
-            "lat": 37.450502,
-            "lng": 126.732395,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동981-1 제2층 201호" ,
-            "lat": 37.449918,
-            "lng": 126.731715,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 미추홀구 구월로 8번길 16, 3층 302호" ,
-            "lat": 37.457187,
-            "lng": 126.691807,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 251-1 5층 전층" ,
-            "lat": 37.500253,
-            "lng": 126.703010,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 369-246번지 3층,4층" ,
-            "lat": 37.491654,
-            "lng": 126.705137,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 371-19 2층,3층,4층" ,
-            "lat": 37.493789,
-            "lng": 126.703483,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 서구 심곡동 257-1번지 2층" ,
-            "lat": 37.541958,
-            "lng": 126.674327,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 서구 연희동 686-4번지 계정빌딩5층" ,
-            "lat": 37.550174,
-            "lng": 126.676615,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 연수동 568-9 6층" ,
-            "lat": 37.418911,
-            "lng": 126.678804,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 주안동 1592-2 세일빌딩 3층" ,
-            "lat": 37.459133,
-            "lng": 126.693412,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계산동 988-6 4층 전체" ,
-            "lat": 37.536619,
-            "lng": 126.722939,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계양대로 82(작전동) 4층 408호" ,
-            "lat": 37.531151,
-            "lng": 126.722987,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 연수동 592 브랫슬 제2층 206호" ,
-            "lat": 37.417083,
-            "lng": 126.678090,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 369-306번지 늘샘프라자5층 6층7층" ,
-            "lat": 37.490597,
-            "lng": 126.704862,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강남구 삼성동 124-8번지" ,
-            "lat": 37.509276,
-            "lng": 127.052345,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산동구 장항동 898-1 금강프라자빌딩 504호" ,
-            "lat": 37.650259,
-            "lng": 126.777757,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산서구 탄현동 1563-3 예일큰프라자  303호" ,
-            "lat": 37.691576,
-            "lng": 126.762748,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 초월읍 산이리 91-4 1층일부" ,
-            "lat": 37.364810,
-            "lng": 127.313277,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 구리시 수택동 516-28 3층" ,
-            "lat": 37.598526,
-            "lng": 127.144607,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 구리시 왕숙천로 507 2층" ,
-            "lat": 37.619783,
-            "lng": 127.142279,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 군포시 산본동 81-29 제상가동 208호외 6호" ,
-            "lat": 37.371740,
-            "lng": 126.938003,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 사우동 253-3 유림회관 3층 303호" ,
-            "lat": 37.616659,
-            "lng": 126.715738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 월곶면 군하리 55-11 2층" ,
-            "lat": 37.716315,
-            "lng": 126.555743,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 동두천시 생연동 612-23 2.3층" ,
-            "lat": 37.907781,
-            "lng": 127.054773,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 동두천시 지행동 695-5, 내행프라자 803호" ,
-            "lat": 37.893068,
-            "lng": 127.054768,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 성남시 중원구 성남동 2612번지 4층" ,
-            "lat": 37.436836,
-            "lng": 127.142688,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 영화동 446-3 2층 201호" ,
-            "lat": 37.286377,
-            "lng": 127.005955,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1446-1번지 3층" ,
-            "lat": 37.403230,
-            "lng": 126.960036,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1446-1번지 4층" ,
-            "lat": 37.403230,
-            "lng": 126.960036,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1452번지 2층" ,
-            "lat": 37.403167,
-            "lng": 126.962171,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양주시 덕계동 418-9, 4층" ,
-            "lat": 37.816785,
-            "lng": 127.046485,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양평군 양평읍 남북로75번지 1층,2층" ,
-            "lat": 37.489490,
-            "lng": 127.501538,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양평군 양평읍 양근리 170-5 3층 301호" ,
-            "lat": 37.492339,
-            "lng": 127.495639,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 가남읍 태평리 268-3외 7필지 11층 제1107호" ,
-            "lat": 37.213801,
-            "lng": 127.542082,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 대신면 대신로 295-32" ,
-            "lat": 37.368241,
-            "lng": 127.638217,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 하동 126-19외 1필지 2층" ,
-            "lat": 37.298982,
-            "lng": 127.629536,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 가능동 647-30 3층(전부)" ,
-            "lat": 37.746966,
-            "lng": 127.042037,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 이천시 창전동 469-13 한솔아파트생활편익시설  제4층 제401호" ,
-            "lat": 37.278226,
-            "lng": 127.450115,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 비전동 760-3" ,
-            "lat": 36.992635,
-            "lng": 127.100775,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 봉담읍 동화리 600-2 쏘시엘봉담빌딩 401호" ,
-            "lat": 37.216941,
-            "lng": 126.959906,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강북구 수유동 569-18 세화빌딩3층" ,
-            "lat": 37.647108,
-            "lng": 127.010663,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 남현동 1056-29 301호" ,
-            "lat": 37.476256,
-            "lng": 126.976063,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 신림동1668-15 이화빌딩 3층" ,
-            "lat": 37.480176,
-            "lng": 126.903818,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 금천구 시흥대로71길34, 보광빌딩302호" ,
-            "lat": 37.455435,
-            "lng": 126.899183,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 공릉동 653-10, 2층 좌측" ,
-            "lat": 37.619284,
-            "lng": 127.079632,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 708-2 이화빌딩 제4층" ,
-            "lat": 37.654520,
-            "lng": 127.058696,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동763-7 동일빌딩 503호" ,
-            "lat": 37.648501,
-            "lng": 127.062001,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 방배동 941-2번지 2층" ,
-            "lat": 37.486153,
-            "lng": 126.990096,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 잠원동 22-1 원창빌딩 2층" ,
-            "lat": 37.514777,
-            "lng": 127.017661,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 송파구 송이로 23길 4, 티제이빌딩 2층 전체" ,
-            "lat": 37.494827,
-            "lng": 127.124033,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 송파구 올림픽로 12길 4-23(잠실동 180-6) 4층 전부" ,
-            "lat": 37.511111,
-            "lng": 127.081606,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 영등포구 여의도동 53 우정상가 제5층 제501호" ,
-            "lat": 37.519330,
-            "lng": 126.932782,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 녹번동 197외1필지 5층 일부" ,
-            "lat": 37.601836,
-            "lng": 126.928648,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 수색동 154-2번지 흥남빌딩 3층 305,6호" ,
-            "lat": 37.581471,
-            "lng": 126.897115,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 응암동 103-1 2층 203호" ,
-            "lat": 37.600123,
-            "lng": 126.922569,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 응암동 109-17 4층 전체" ,
-            "lat": 37.599191,
-            "lng": 126.921155,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 종로구 동숭동 1-41 우성빌딩 4층" ,
-            "lat": 37.583323,
-            "lng": 127.003050,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중랑구 상봉동 118, 118-4(A동 301호, B동302호)" ,
-            "lat": 37.595349,
-            "lng": 127.082656,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 천호동 550번지 광천빌딩 2층 전체" ,
-            "lat": 37.540365,
-            "lng": 127.128785,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 광진구 중곡동 132-9번지 3층" ,
-            "lat": 37.555803,
-            "lng": 127.083933,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 서초구 양재동 17-1외 1필지 제2층 201호" ,
-            "lat": 37.481972,
-            "lng": 127.038715,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 용산구 갈월동 70-3 2층 전체" ,
-            "lat": 37.546993,
-            "lng": 126.971497,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 203호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 411호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩412호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 강화군 강화읍 용정리 1076-4 1,2층" ,
-            "lat": 37.738007,
-            "lng": 126.513436,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 간석동 49-28 3층" ,
-            "lat": 37.465400,
-            "lng": 126.714430,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 369-256외 2필지 2층" ,
-            "lat": 37.492220,
-            "lng": 126.705037,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 중구 운서동 2796-1 제5층 501호" ,
-            "lat": 37.493709,
-            "lng": 126.489027,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 포천시 소흘읍 솔모루로109번길 13 (송우리) 메가프라자 3층 306호(송우리 222-61)" ,
-            "lat": 37.830984,
-            "lng": 127.147440,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 포천시 소흘읍 송우로 53 (송우리, 우덕프라자) 5층 501호" ,
-            "lat": 37.828674,
-            "lng": 127.143150,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 포천시 선단동 526-7 2층" ,
-            "lat": 37.849217,
-            "lng": 127.163286,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 703,4호" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 진안동 524-1 메트로프라자 501호" ,
-            "lat": 37.210971,
-            "lng": 127.038344,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 408호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 5층 501호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 5층 502호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동대문구 제기동 1138번지 정우빌딩5층" ,
-            "lat": 37.578461,
-            "lng": 127.037147,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"성남시 중원구 광명로 110 지하,2층,3층" ,
-            "lat": 37.435805,
-            "lng": 127.140869,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 1층 104호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 5층 508호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 301-4 6층 602, 608호" ,
-            "lat": 37.741499,
-            "lng": 127.422822,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 가평군 청평면 청평리 317-4번지 2층,3층" ,
-            "lat": 37.739593,
-            "lng": 127.421986,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1 (805호)" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1,2번지 한솔타워 609호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 10층 1001,2,5~8호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 10층 1003호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 10층 1004호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 967-1번지 한솔타워 614호" ,
-            "lat": 37.635902,
-            "lng": 126.832546,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 사우동 253-3 유림회관 3층 306호" ,
-            "lat": 37.616659,
-            "lng": 126.715738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 사우동 253-3 유림회관 4층 404호" ,
-            "lat": 37.616659,
-            "lng": 126.715738,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 4층 408호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 성남시 분당구 이매동 91-1 미래빌딩 2층 전체" ,
-            "lat": 37.398150,
-            "lng": 127.129937,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 209-1 115호" ,
-            "lat": 37.309978,
-            "lng": 126.994397,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 209-1 205호" ,
-            "lat": 37.309978,
-            "lng": 126.994397,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 209-1 대영프라자 1층 122호" ,
-            "lat": 37.309978,
-            "lng": 126.994397,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 209-1 대영프라자 제203호, 204호" ,
-            "lat": 37.309978,
-            "lng": 126.994397,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 팔달구 매산로 46 4층 전체" ,
-            "lat": 37.268368,
-            "lng": 127.006350,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 581 아트프라자 601호" ,
-            "lat": 37.271298,
-            "lng": 127.126494,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 호원동 455-3 다메오상가 2층 211호" ,
-            "lat": 37.711514,
-            "lng": 127.047995,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 호원동 85-19 3층,4층(전체)" ,
-            "lat": 37.713592,
-            "lng": 127.046426,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 진안동 524-1 매트로프라자 1층 107호" ,
-            "lat": 37.210971,
-            "lng": 127.038344,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"과천시 별양동 1-11 벽산상가 (5층)" ,
-            "lat": 37.428032,
-            "lng": 126.992945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"과천시 별양동 1-11번지 벽산빌딩 305-1호" ,
-            "lat": 37.428032,
-            "lng": 126.992945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"과천시 별양동 1-13 제일쇼핑 4층" ,
-            "lat": 37.427330,
-            "lng": 126.992999,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 강서로 33가길 58  201호" ,
-            "lat": 37.544108,
-            "lng": 126.837272,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡동 1032, 2층 남측" ,
-            "lat": 37.544099,
-            "lng": 126.837295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 신림동 1419-17번지 105호" ,
-            "lat": 37.486183,
-            "lng": 126.931082,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 764-1 하라프라자 4층 406호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 767-6 주공1단지유치원상가 2층" ,
-            "lat": 37.647247,
-            "lng": 127.059524,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동764-1하라프라자 2층 211호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동764-1하라프라자403호" ,
-            "lat": 37.646812,
-            "lng": 127.062623,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 마포구 양화로 7길 6-16 지하 102호" ,
-            "lat": 37.551684,
-            "lng": 126.915752,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성동구 행당동 128-22 칠성빌딩 3층 301호" ,
-            "lat": 37.557976,
-            "lng": 127.038724,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 구로구 개봉동 178-13, 4층" ,
-            "lat": 37.496277,
-            "lng": 126.859071,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"성남시 중원구 광명로 81 3층 301호" ,
-            "lat": 37.434776,
-            "lng": 127.138112,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 304호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 314호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 315호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 410호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 413-2호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 414호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 542-2 우진빌딩 415호" ,
-            "lat": 37.317183,
-            "lng": 126.842209,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남구 주안동 1580-17 2층" ,
-            "lat": 37.456941,
-            "lng": 126.692399,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동 981-1 제2층 202호" ,
-            "lat": 37.449918,
-            "lng": 126.731715,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 366-11 2층" ,
-            "lat": 37.494717,
-            "lng": 126.702664,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 연수동 592번지 브랫슬 빌딩 403-1호" ,
-            "lat": 37.417083,
-            "lng": 126.678090,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 사우동 251-4 창대빌딩 2,3층" ,
-            "lat": 37.616832,
-            "lng": 126.716664,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산서구 주엽동 114번지 남수빌딩 4층 401호,402호" ,
-            "lat": 37.670335,
-            "lng": 126.758884,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 송정동 334-1 가동 2-3층 전부" ,
-            "lat": 37.427319,
-            "lng": 127.256913,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 동두천시 생연동 601-19번지 7층(전부)" ,
-            "lat": 37.906327,
-            "lng": 127.054417,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 중동 798-1 3층" ,
-            "lat": 37.487682,
-            "lng": 126.769364,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 성남시 수정구 위례광장로 19, 아이페리온 1001호~1003호" ,
-            "lat": 37.465690,
-            "lng": 127.140437,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 영화동 438-11번지 외 1필지 3층 전체" ,
-            "lat": 37.287532,
-            "lng": 127.010428,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 만안구 안양동 622-181 2층, 3층" ,
-            "lat": 37.397942,
-            "lng": 126.923945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 오산시 오산로 235(오산동) 5층 501, 502호" ,
-            "lat": 37.147980,
-            "lng": 127.068264,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 수지구 죽전1동 452번지 그린피아 상가 5층" ,
-            "lat": 37.327099,
-            "lng": 127.112771,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 민락동 732-12 마에스트로빌딩 9층(전체)" ,
-            "lat": 37.741393,
-            "lng": 127.086836,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 문산읍 문산리 31-36외 1필지 우율빌딩 2,3층" ,
-            "lat": 37.854739,
-            "lng": 126.782957,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 야당동 1066-2 삼융프라자 601호,602호,603호" ,
-            "lat": 37.712582,
-            "lng": 126.759654,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 비전동 608-7 2층" ,
-            "lat": 36.996715,
-            "lng": 127.092132,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강북구 수유동 47-4 2층" ,
-            "lat": 37.634895,
-            "lng": 127.022042,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡동 793-9" ,
-            "lat": 37.531662,
-            "lng": 126.859222,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 남부순환로 1740 3층 전체" ,
-            "lat": 37.481941,
-            "lng": 126.943275,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 중계동 142-11 우암에이스타워4층401호" ,
-            "lat": 37.660192,
-            "lng": 127.075194,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 남부순환로 2013(사당동) 3층전체" ,
-            "lat": 37.476144,
-            "lng": 126.972469,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 마포구 잔다리로 7길 16 교평빌딩 4층" ,
-            "lat": 37.553226,
-            "lng": 126.916816,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성동구 청계천로 10가길 102 희운빌딩 5층" ,
-            "lat": 37.571535,
-            "lng": 127.037429,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성북구 동소문동3가 63동도빌딩 501호" ,
-            "lat": 37.590346,
-            "lng": 127.010996,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성북구 동소문동4가 103-27 3층" ,
-            "lat": 37.591235,
-            "lng": 127.010656,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 영등포구 대림동 1122 신대림자이 2충201호,3층301호" ,
-            "lat": 37.485604,
-            "lng": 126.902257,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 영등포구 문래동3가 77-59번지 5층1호,6층전체" ,
-            "lat": 37.517396,
-            "lng": 126.889122,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중랑구 중화동 288-23 제2층" ,
-            "lat": 37.599830,
-            "lng": 127.080664,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중랑구 중화동 288-23 지하1층" ,
-            "lat": 37.599830,
-            "lng": 127.080664,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 둔촌동 452-1번지 3층,4층" ,
-            "lat": 37.532177,
-            "lng": 127.141405,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 은평구 응암동 103-20번지 파인빌딩 지하1층 전체" ,
-            "lat": 37.598897,
-            "lng": 126.921477,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 729 밀레니엄프라자 301~305호" ,
-            "lat": 37.314510,
-            "lng": 126.837005,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 서구 공촌동 308-8번지 2층" ,
-            "lat": 37.551447,
-            "lng": 126.684910,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 십정동 297-51 3,4층" ,
-            "lat": 37.473663,
-            "lng": 126.698857,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 지산동 1070번지 2층 전체" ,
-            "lat": 37.079854,
-            "lng": 127.061090,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 원흥동 629-1 반도유스퀘어 4층 416호" ,
-            "lat": 37.649680,
-            "lng": 126.875347,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 원흥동 629-1 반도유스퀘어 4층 417호" ,
-            "lat": 37.649680,
-            "lng": 126.875347,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 덕양구 화정동 909-1 대경프라자 4층" ,
-            "lat": 37.638172,
-            "lng": 126.832442,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산동구 장항동 890-3 로스텔 제3층 제302호" ,
-            "lat": 37.653264,
-            "lng": 126.776473,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산동구 중앙로 1194(마두동) 금강프라자 502-2호" ,
-            "lat": 37.653489,
-            "lng": 126.777342,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 고양시 일산서구 주엽동 19 대덕빌딩 6층" ,
-            "lat": 37.671641,
-            "lng": 126.759769,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광명시 시청로 34, 2층" ,
-            "lat": 37.479766,
-            "lng": 126.864195,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광명시 시청로 34, 2층" ,
-            "lat": 37.479766,
-            "lng": 126.864195,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 경안동 74-18번지 외 1필지 3층" ,
-            "lat": 37.412949,
-            "lng": 127.257225,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 역동로 34번길 33 덕상빌딩 2층" ,
-            "lat": 37.407885,
-            "lng": 127.257275,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 역동로 34번길 33 덕상빌딩 3층" ,
-            "lat": 37.407885,
-            "lng": 127.257275,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 광주시 초월읍 산이리 91-4 3층" ,
-            "lat": 37.364810,
-            "lng": 127.313277,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 구리시 수택동 487-7번지 2층" ,
-            "lat": 37.596868,
-            "lng": 127.144535,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 구리시 수택동 534-2 502호, 503호" ,
-            "lat": 37.602531,
-            "lng": 127.145218,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 군포시 산본동 80번지 3층 301호" ,
-            "lat": 37.372475,
-            "lng": 126.937575,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 군포시 산본동 80번지 5층 501호, 502호" ,
-            "lat": 37.372475,
-            "lng": 126.937575,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 북변동 277-17 (2층,3층)" ,
-            "lat": 37.627896,
-            "lng": 126.710877,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 월곶면 포내리 111-3 3층 2호" ,
-            "lat": 37.728736,
-            "lng": 126.546733,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 김포시 풍무로 145-1" ,
-            "lat": 37.608793,
-            "lng": 126.723190,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 가운로 1길 19 3층" ,
-            "lat": 37.604514,
-            "lng": 127.156589,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 금곡동 419-11 4층 401호" ,
-            "lat": 37.634218,
-            "lng": 127.208042,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 별내동 1006-1 별내로데오몰 5층 502호" ,
-            "lat": 37.645935,
-            "lng": 127.125672,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 와부읍 덕소리 112-3 덕소빌딩상가 4층" ,
-            "lat": 37.585657,
-            "lng": 127.212916,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 퇴계원면 퇴계원리 60-31 2층" ,
-            "lat": 37.657344,
-            "lng": 127.145610,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 평내동 578-3 평내메인프라자 10층 1001호" ,
-            "lat": 37.645406,
-            "lng": 127.234961,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 평내동 596-3 부원빌딩 2층, 3층 301호" ,
-            "lat": 37.647692,
-            "lng": 127.242904,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 화도읍 마석우리 220-18 4층" ,
-            "lat": 37.653338,
-            "lng": 127.306855,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 화도읍 마석우리 253-2번지 2층" ,
-            "lat": 37.650928,
-            "lng": 127.310674,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 남양주시 화도읍 창현리 495-1 3층" ,
-            "lat": 37.652581,
-            "lng": 127.303768,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 소사구 송내동 396-4 광성빌딩 4층" ,
-            "lat": 37.483446,
-            "lng": 126.762389,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 상동 546-8 그린프라자 3층 301호,302호" ,
-            "lat": 37.503889,
-            "lng": 126.751070,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 역곡동 220-1 현대프라자 4층" ,
-            "lat": 37.488083,
-            "lng": 126.815639,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 권선구 효원로 90 4층 전체" ,
-            "lat": 37.266286,
-            "lng": 127.011665,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 영통구 영통로214번길 17, ASK빌딩, 5층 전체" ,
-            "lat": 37.246607,
-            "lng": 127.058146,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 송죽동 444-1 2층 201호" ,
-            "lat": 37.304969,
-            "lng": 127.000950,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 627-9 4층 1/2" ,
-            "lat": 37.307373,
-            "lng": 126.999576,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 장안구 파장동 627-9 4층 1/2" ,
-            "lat": 37.307373,
-            "lng": 126.999576,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 수원시 팔달구 화서동 644-4 정자프라자 501,504호" ,
-            "lat": 37.285196,
-            "lng": 126.990938,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 시흥시 정왕동 1881-1 고려프라자 4층 402,403호" ,
-            "lat": 37.364347,
-            "lng": 126.731769,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안산시 단원구 고잔1길 16 중앙마케이트 306, 307호" ,
-            "lat": 37.317988,
-            "lng": 126.835191,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안산시 단원구 고잔동 729-7 씨티프라자 306호" ,
-            "lat": 37.314336,
-            "lng": 126.840380,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안산시 단원구 고잔동 729-7 씨티프라자 404호" ,
-            "lat": 37.314336,
-            "lng": 126.840380,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안산시 상록구 이동 720 신도프라자 401,402,403호" ,
-            "lat": 37.306489,
-            "lng": 126.848826,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안성시 공도읍 용두리 104-2 2층 전체" ,
-            "lat": 37.006852,
-            "lng": 127.169608,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1490-44번지 2층" ,
-            "lat": 37.401705,
-            "lng": 126.974254,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 관양동 1505-27번지 6층" ,
-            "lat": 37.400515,
-            "lng": 126.977354,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 동안구 호계1동 949-17번지 6층" ,
-            "lat": 37.372452,
-            "lng": 126.957311,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 안양시 만안구 안양동 782-7외 1필지 2층 전체" ,
-            "lat": 37.399630,
-            "lng": 126.919381,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양주시 덕계동 451-12" ,
-            "lat": 37.820962,
-            "lng": 127.049328,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양평군 양서면 양수리 537-9외 3필지" ,
-            "lat": 37.548919,
-            "lng": 127.321505,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 양평군 양평읍 양근리 410-11,13번지 3층" ,
-            "lat": 37.490184,
-            "lng": 127.491051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 세종로 45번길 8-16" ,
-            "lat": 37.293385,
-            "lng": 127.637719,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 창동 148번지" ,
-            "lat": 37.294423,
-            "lng": 127.635300,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 여주시 창동 148번지 4층" ,
-            "lat": 37.294423,
-            "lng": 127.635300,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 오산시 성호대로 122 (원동,오산메디칼프라자 6층) 4층 402호,403호" ,
-            "lat": 37.148509,
-            "lng": 127.074798,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동 594-1 306~308호" ,
-            "lat": 37.271442,
-            "lng": 127.127744,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 용인시 기흥구 구갈동353-6번지 5층" ,
-            "lat": 37.280397,
-            "lng": 127.112992,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 의정부동 567-1 3층(전체)" ,
-            "lat": 37.735608,
-            "lng": 127.043647,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 의정부시 의정부동 9-24 원승빌딩 3층(전체)" ,
-            "lat": 37.744188,
-            "lng": 127.051729,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 이천시 관고동 7-24번지 1.2,3층" ,
-            "lat": 37.282210,
-            "lng": 127.440568,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 이천시 송정동 346-32 2층 우측" ,
-            "lat": 37.295158,
-            "lng": 127.440551,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 이천시 창전동 416외 1필지 3층 상가" ,
-            "lat": 37.284884,
-            "lng": 127.440097,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 금빛로 27 광장프라자 6층 605호,607호" ,
-            "lat": 37.752259,
-            "lng": 126.766266,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 금촌동 329-99 녹십자건물 3층 전체" ,
-            "lat": 37.764539,
-            "lng": 126.774029,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 파주시 금촌동 988-1 우평프라자 제6층 601호" ,
-            "lat": 37.751986,
-            "lng": 126.766872,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 평택동 46-9, 2층 일부" ,
-            "lat": 36.992165,
-            "lng": 127.087536,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 평택시 평택시 세교동 569-7 2,3,4층" ,
-            "lat": 36.999170,
-            "lng": 127.079857,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 포천시 소흘읍 솔모루로 109번길 13, 3층 306호 (송우리 222-61)" ,
-            "lat": 37.830984,
-            "lng": 127.147440,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 포천시 소흘읍 솔모루로 124-32 2.3층" ,
-            "lat": 37.832918,
-            "lng": 127.150758,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 하남시 대청로 5 우성빌딩 601호" ,
-            "lat": 37.539767,
-            "lng": 127.213048,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 반송동 88-12 리더스프라자 5층 501, 502호" ,
-            "lat": 37.205992,
-            "lng": 127.072699,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 반송동 88-12 리더스프라자 5층 503호" ,
-            "lat": 37.205992,
-            "lng": 127.072699,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 봉담읍 동화리 415-2외 2필지 2층 전체" ,
-            "lat": 37.223855,
-            "lng": 126.953050,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 향남읍 상신하길로328번길 26, 키움프라자 401호" ,
-            "lat": 37.116359,
-            "lng": 126.913518,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울 강서구 등촌동 664-2, 태현빌딩 402호" ,
-            "lat": 37.558178,
-            "lng": 126.845168,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울 송파구 송파동 84-2, 3 3층 전체" ,
-            "lat": 37.505769,
-            "lng": 127.108783,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강동구 성내동 439-14 3층" ,
-            "lat": 37.524955,
-            "lng": 127.134621,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강동구 성내동 439-14 4층" ,
-            "lat": 37.524955,
-            "lng": 127.134621,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 등촌동 667번지 2층" ,
-            "lat": 37.559002,
-            "lng": 126.843729,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡동 111-70 3충" ,
-            "lat": 37.545465,
-            "lng": 126.844233,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡동 873-12 동연빌딩 3층" ,
-            "lat": 37.530714,
-            "lng": 126.851588,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 봉천동 952-18 7층 전체" ,
-            "lat": 37.486404,
-            "lng": 126.938565,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 신림동 1409-1 광진빌딩 4층" ,
-            "lat": 37.486522,
-            "lng": 126.933667,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 신림동 570-2번지 2층" ,
-            "lat": 37.481628,
-            "lng": 126.905945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 관악구 신림동 570-2번지 4층 일부" ,
-            "lat": 37.481628,
-            "lng": 126.905945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 광진구 자양동 13-42 3층 전부" ,
-            "lat": 37.540459,
-            "lng": 127.065608,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 광진구 화양동 10-1 한아름쇼핑센터 3층 일부" ,
-            "lat": 37.543475,
-            "lng": 127.069893,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 금천구 시흥동 879-16외 1필지 3층" ,
-            "lat": 37.455150,
-            "lng": 126.901459,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 708-2 이화빌딩 3층" ,
-            "lat": 37.654520,
-            "lng": 127.058696,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동 749-6 제5층 501호 502호" ,
-            "lat": 37.649557,
-            "lng": 127.062249,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 노원구 상계동733-2 3층" ,
-            "lat": 37.653457,
-            "lng": 127.059865,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 도봉구 창4동 9-1 대성빌딩 7층 701호" ,
-            "lat": 37.652480,
-            "lng": 127.050267,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 도봉구 창4동 9-1 대성빌딩 7층 702호" ,
-            "lat": 37.652480,
-            "lng": 127.050267,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 도봉구 창4동 9-1 대성빌딩 제5층1호" ,
-            "lat": 37.652480,
-            "lng": 127.050267,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 도봉구 창4동 9-1 대성빌딩 제5층2호 2분의1" ,
-            "lat": 37.652480,
-            "lng": 127.050267,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 도봉구 창5동 333-1 202호" ,
-            "lat": 37.651732,
-            "lng": 127.045812,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동대문구 이문동 324-49 3층" ,
-            "lat": 37.594593,
-            "lng": 127.058794,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동대문구 이문동 77-13 계림빌딩 2층" ,
-            "lat": 37.594853,
-            "lng": 127.064272,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동대문구 이문동 77-13 계림빌딩 4층 402호" ,
-            "lat": 37.594853,
-            "lng": 127.064272,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동대문구 제기동 1138번지 정우빌딩 4층" ,
-            "lat": 37.578461,
-            "lng": 127.037147,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 노량진동 267-6번지 4층" ,
-            "lat": 37.512868,
-            "lng": 126.934604,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 사당동 1010-28 자매빌딩 3층 전체" ,
-            "lat": 37.481898,
-            "lng": 126.980452,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 동작구 상도동 478-23 2층,3층" ,
-            "lat": 37.497664,
-            "lng": 126.953367,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 마포구 서교동 449-39번지 2,3층 전체" ,
-            "lat": 37.557208,
-            "lng": 126.917766,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 북가좌동 371-11번지 2,3층 전관" ,
-            "lat": 37.575581,
-            "lng": 126.905149,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 북가좌동 385-8외 2필지 가호 3층 일부" ,
-            "lat": 37.575362,
-            "lng": 126.906828,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 57-20번지 외 4필지 6층" ,
-            "lat": 37.557422,
-            "lng": 126.935362,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서대문구 창천동 57-20외 4필지 7층 일부" ,
-            "lat": 37.557422,
-            "lng": 126.935362,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 나루터로 59 2층 전체" ,
-            "lat": 37.515299,
-            "lng": 127.016467,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 양재동 13-10호 5층전체" ,
-            "lat": 37.483170,
-            "lng": 127.036381,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 서초구 양재동 6-34번지 2층" ,
-            "lat": 37.482134,
-            "lng": 127.040872,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성동구 도선동 40외 1필지 3층 전부" ,
-            "lat": 37.562233,
-            "lng": 127.034889,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성동구 행당동 286-13, 3층" ,
-            "lat": 37.561712,
-            "lng": 127.033945,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 성북구 동소문동6가 231" ,
-            "lat": 37.595017,
-            "lng": 127.015758,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 송파구 송파대로42길 22 성현빌딩 3층" ,
-            "lat": 37.505662,
-            "lng": 127.110164,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 송파구 잠실동 185-3번지 3층" ,
-            "lat": 37.510181,
-            "lng": 127.084774,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 송파구 잠실동 199(우화빌딩) 3층 전체" ,
-            "lat": 37.509338,
-            "lng": 127.080723,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 양천구 목4동 807-1번지 5층" ,
-            "lat": 37.530747,
-            "lng": 126.864248,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 양천구 신정동 881-19외 1필지 성은빌딩" ,
-            "lat": 37.528144,
-            "lng": 126.858789,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 양천구 신정동 948-1 제3층 301호" ,
-            "lat": 37.524573,
-            "lng": 126.854726,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 영등포구 문래동2가 24번지, 조양빌딩 3층" ,
-            "lat": 37.512415,
-            "lng": 126.894094,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 용산구 동자동 35-14번지 3층, 4층" ,
-            "lat": 37.551080,
-            "lng": 126.974123,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 용산구 원효로1가 43-9  4층,5층" ,
-            "lat": 37.539318,
-            "lng": 126.969589,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 녹번동 117-112 (4,5층)" ,
-            "lat": 37.608162,
-            "lng": 126.931649,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 은평구 녹번동 197외1필지 5층 일부" ,
-            "lat": 37.601836,
-            "lng": 126.928648,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 종로구 교남동 10번지 3층" ,
-            "lat": 37.567421,
-            "lng": 126.965477,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 종로구 교남동 10번지 4층" ,
-            "lat": 37.567421,
-            "lng": 126.965477,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중구 남산동2가 41-2 신화빌딩 4층" ,
-            "lat": 37.558747,
-            "lng": 126.985506,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중구 신당동 357-10 해원빌딩 2층 전체" ,
-            "lat": 37.555588,
-            "lng": 127.009362,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중구 장충동 114-3번지 오양빌딩 2층" ,
-            "lat": 37.562380,
-            "lng": 127.004801,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중구 장충동 114-3번지 오양빌딩 3,4층" ,
-            "lat": 37.562380,
-            "lng": 127.004801,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 중랑구 상봉동 101-15 주연빌딩6층" ,
-            "lat": 37.595906,
-            "lng": 127.085990,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 길동 384-1번지 길동 골드빌아파트 2층" ,
-            "lat": 37.538447,
-            "lng": 127.136309,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 길동 410-1번지 콤비월즈빌딩 2층 전체" ,
-            "lat": 37.536631,
-            "lng": 127.140607,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 둔촌동 486-7번지 준영빌딩 6층 전체" ,
-            "lat": 37.531784,
-            "lng": 127.138140,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 강동구 성내2동 77-37번지 양성빌딩 4층" ,
-            "lat": 37.537767,
-            "lng": 127.123452,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 광진구 군자동 466-17번지 군자빌딩 3층" ,
-            "lat": 37.558439,
-            "lng": 127.075310,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 광진구 군자동 466-17번지 군자빌딩 5층 502호" ,
-            "lat": 37.558439,
-            "lng": 127.075310,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 광진구 자양동 766-2, 5층 전부" ,
-            "lat": 37.540696,
-            "lng": 127.083213,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 광진구 중곡동 47-14번지 201호,401호" ,
-            "lat": 37.559674,
-            "lng": 127.081147,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 구로구 오류동 6-318, 3층" ,
-            "lat": 37.495143,
-            "lng": 126.840644,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 영등포구 당산동3가 466번지 4층" ,
-            "lat": 37.525095,
-            "lng": 126.894336,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 은평구 수색동 154-2번지 흥남빌딩 지층 및 3층" ,
-            "lat": 37.581471,
-            "lng": 126.897115,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울특별시 중랑구 망우동 487-16 6층" ,
-            "lat": 37.599799,
-            "lng": 127.098875,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"성남시 분당구 황새울로258번길 10-3 2층 전체" ,
-            "lat": 37.380299,
-            "lng": 127.116424,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"성남시 중원구 성남대로1147번길 10 2,3,4층" ,
-            "lat": 37.432106,
-            "lng": 127.127973,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 고잔동 703-3 트윈타운B동 305,306호" ,
-            "lat": 37.314771,
-            "lng": 126.828799,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 단원구 원곡동 800-13 4층" ,
-            "lat": 37.328419,
-            "lng": 126.791690,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 상록구 이동 716-4 고잔프라자 406호" ,
-            "lat": 37.307509,
-            "lng": 126.851833,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안산시 상록구 이동 716-4 고잔프라자403호" ,
-            "lat": 37.307509,
-            "lng": 126.851833,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"안양시 만안구 안양동 1195-55 3층" ,
-            "lat": 37.399195,
-            "lng": 126.918100,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계산동 18-17번지 3층 (전층)" ,
-            "lat": 37.542734,
-            "lng": 126.734309,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계산동 932-20 3층 (경명대로 1025)" ,
-            "lat": 37.543939,
-            "lng": 126.720755,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남구 석바위로 75, 3층(주안동157-18)" ,
-            "lat": 37.461218,
-            "lng": 126.681541,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남구 주안동 1532-5번지 5층 전층" ,
-            "lat": 37.450565,
-            "lng": 126.688611,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 간석동 237-1 제4층 제401호" ,
-            "lat": 37.467430,
-            "lng": 126.703905,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 간석동 616-58 2층 전체" ,
-            "lat": 37.467075,
-            "lng": 126.687260,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 간석동 616-76번지 5층" ,
-            "lat": 37.466367,
-            "lng": 126.687657,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 구월동 1119-2번지 우진빌딩 5 ,6층" ,
-            "lat": 37.450772,
-            "lng": 126.693467,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 구월동 1249-4 2층" ,
-            "lat": 37.460518,
-            "lng": 126.721205,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 논현동 645-2 다올프라자 제2층 201호" ,
-            "lat": 37.403070,
-            "lng": 126.708967,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동 1031 4층 전부" ,
-            "lat": 37.443603,
-            "lng": 126.740275,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동 860-2 제4층, 제5층 전체" ,
-            "lat": 37.460476,
-            "lng": 126.724834,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동 947-6번지 만수빌딩 3층" ,
-            "lat": 37.454940,
-            "lng": 126.729449,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동910-1 3층" ,
-            "lat": 37.455463,
-            "lng": 126.723653,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 미추홀구 인주대로 464 3층 전부" ,
-            "lat": 37.450506,
-            "lng": 126.688205,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 부평동 152-1외 12필지 다운타운일레븐빌딩 제508호" ,
-            "lat": 37.493573,
-            "lng": 126.726680,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 부평동 464-28번지 3층" ,
-            "lat": 37.501131,
-            "lng": 126.721519,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 산곡동 366-11 3층" ,
-            "lat": 37.494717,
-            "lng": 126.702664,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 삼산동 460-7 창성프라자 5층 501호" ,
-            "lat": 37.507560,
-            "lng": 126.735378,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 부평구 십정동 414-9번지 3층" ,
-            "lat": 37.468465,
-            "lng": 126.702191,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 서구 마전동 904-6 4층 전체" ,
-            "lat": 37.603059,
-            "lng": 126.655509,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 서구 연희동 687-4번지 서광빌딩 5층" ,
-            "lat": 37.548427,
-            "lng": 126.676645,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 청학동 497-6 석광프라자 4층" ,
-            "lat": 37.417187,
-            "lng": 126.675310,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 학나래로 6번길 58번지 4층 전부(선학동 영재빌딩)" ,
-            "lat": 37.425550,
-            "lng": 126.698199,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 중구 운남동 1523번지 원빌딩 3층전체" ,
-            "lat": 37.492521,
-            "lng": 126.533400,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 중구 운서동 2804-3 503호" ,
-            "lat": 37.494008,
-            "lng": 126.492651,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 계양구 계산동 964-82 대양빌딩 3층" ,
-            "lat": 37.538457,
-            "lng": 126.727909,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 연수구 연수동 568-10 6층" ,
-            "lat": 37.418747,
-            "lng": 126.678649,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 마포구 신수동 288-1번지 2층" ,
-            "lat": 37.545387,
-            "lng": 126.935601,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 부천시 원미구 중동 1146 하이베라스 204호,205호" ,
-            "lat": 37.502017,
-            "lng": 126.771051,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"경기도 화성시 진안동 524-1 메트로프라자 101, 102호" ,
-            "lat": 37.210971,
-            "lng": 127.038344,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"서울시 강서구 화곡3동 1032번지 1층" ,
-            "lat": 37.544099,
-            "lng": 126.837295,
-            "imageSrc": "/images/shincheonji.png",
-            },
-
-            {"title" : "신천지 부속기관",
-            "etc":"인천광역시 남동구 만수동 967-8번지 3층" ,
-            "lat": 37.450225,
-            "lng": 126.731801,
-            "imageSrc": "/images/shincheonji.png",
+      <!--Navbar on small screens (Hidden on medium and large screens) -->
+      <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
+        <div class="nav">
+          <a href="/location.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">확진자 방문장소</a>
+          <a href="/church.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">전국 신천지 위치</a>
+          <a href="/" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">분석</a>
+          <a href="/jebo.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">제보하기</a>
+        </div>
+      </div>
+      <div style="display: block;padding: 0px 10px 10px 0px;position: absolute; right:0px;">
+        <p style="font-size:12px;">*출처: 질병관리본부</p>
+      </div>
+
+
+      <!--감염 현황-->
+      <div class="w3-padding-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey" style="padding-top:32px!important;padding-bottom:7px!important">
+                <h5 style="color:black"><b> 감염 현황</b></h5>
+              <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-quarter">
+                  <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
+                    <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
+                    <div class="w3-right w3-padding-16">
+                      <h3>2,337</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
+                        <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
+                          <div class="w3-right w3-padding-16">
+                            <h3>27</h3>
+                          </div>
+                        <div class="w3-clear"></div>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
+                        <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
+                          <div class="w3-right w3-padding-16">
+                            <h3>13</h3>
+                          </div>
+                        <div class="w3-clear"></div>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div class="w3-container w3-padding-16" style="background-color: #565656; opacity: .7;">
+                        <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
+                          <div class="w3-right w3-padding-16">
+                            <h3>24,751</h3>
+                          </div>
+                        <div class="w3-clear"></div>
+                  </div>
+                </div>
+              </div>            
+          </div>  
+        </div>
+
+
+        <!--확진자 리스트-->
+        <div class="w3-padding-small" id="main">
+          <div class="w3-content w3-justify">
+            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1" style="text-align: center;color:black; background-color: rgb(204,204,204);">▼ 확진자 리스트 보기</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <ul>
+              <li><b>1번확진자: </b>30대 여자, 중국인 관광객 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>2번확진자: </b>50대 남자, 우한 교민 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>3번확진자: </b>50대 남자, 우한 교민 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>4번확진자: </b>50대 남자, 우한 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>5번확진자: </b>30대 남자, 우한 방문자</li>
+              <li><b>6번확진자: </b>50대 남자, 3번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>7번확진자: </b>20대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>8번확진자: </b>60대 여자, 우한 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>9번확진자: </b>20대 여자, 5번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>10번확진자: </b>50대 여자, 6번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>11번확진자: </b>20대 남자, 6번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>12번확진자: </b>40대 남자, 중국인 관광객 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>13번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>14번확진자: </b>40대 여자, 12번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p> </li>
+              <li><b>15번확진자: </b>40대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>16번확진자: </b>40대 여자, 태국 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>17번확진자: </b>30대 남자, 싱가폴 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>18번확진자: </b>20대 여자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>19번확진자: </b>30대 남자, 싱가폴 방문자</li>
+              <li><b>20번확진자: </b>40대 여자, 15번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>21번확진자: </b>50대 여자, 6번 확진자의 지인</li>
+              <li><b>22번확진자: </b>40대 남자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>23번확진자: </b>50대 여자, 중국인 관광객</li>
+              <li><b>24번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>25번확진자: </b>70대 여자, 26번/27번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>26번확진자: </b>50대 남자,  광둥성 방문자</li>
+              <li><b>27번확진자: </b>30대 여자, 광둥성 방문자</li>
+              <li><b>28번확진자: </b>30대 여자, 3번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>29번확진자: </b>80대 남자, 확인 중</li>
+	      <li><b>30번확진자: </b>60대 여자, 29번 확진자의 가족</li>
+	      <li><b>31번확진자: </b>60대 여자, 확인 중</li>
+	      <li><b>32번확진자: </b>10대 여자, 15번/20번 확진자의 가족</li>
+	      <li><b>33번확진자: </b>40대 여자, 31번 확진자 접족차</li> 
+	      <li><b>34번확진자: </b>20대 남자, 31번 확진자와 같은 교회</li>
+	      <li><b>35번확진자: </b>20대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>36번확진자: </b>40대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>37번확진자: </b>40대 남자, 31번 확진자와 같은 교회<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+	      <li><b>38번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>39번확진자: </b>60대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>40번확진자: </b>70대 남자, 확인 중</li>
+	      <li><b>41번확진자: </b>60대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>42번확진자: </b>20대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>43번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>44번확진자: </b>40대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>45번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
+	      <li><b>46번확진자: </b>20대 남자, 확인 중</li>
+	      <li><b>47번확진자: </b>60대 여자, 31번 확진자 접촉자</li>
+	      <li><b>48번확진자: </b>70대 여자, 31번 확진자 접촉자</li>
+	      <li><b>49번확진자: </b>50대 남자, 31번 확진자 접촉자</li>
+	      <li><b>50번확진자: </b>70대 남자, 31번 확진자 접촉자</li>
+	      <li><b>51번확진자: </b>60대 여자, 31번 확진자 접촉자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+	      <li><b>52번확진자: </b>20대 남자, 확인 중</li>   
+	      <li><b>53번확진자: </b>30대 여자, 확인 중</li> 
+              <li><b>54번확진자: </b>40대 남자, 확인 중</li>   
+	      <li><b>55번확진자: </b>50대 남자, 확인 중</li>
+	      <li><b>56번확진자: </b>70대 남자, 확인 중</li>   
+	      <li><b>57번확진자: </b>30대 남자, 확인 중</li>
+              <li><b>58번확진자: </b>20대 여자, 확인 중</li>   
+	      <li><b>59번확진자: </b>30대 여자, 확인 중</li> 
+              <li><b>60번확진자: </b>50대 여자, 확인 중</li>   
+	      <li><b>61번확진자: </b>50대 여자, 확인 중</li>
+	      <li><b>62번확진자: </b>60대 남자, 확인 중</li>   
+	      <li><b>63번확진자: </b>50대 여자, 확인 중<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
+              <li><b>64번확진자: </b>50대 여자, 확인 중</li>   
+	      <li><b>65번확진자: </b>50대 여자, 확인 중<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li> 
+              <li><b>66번확진자: </b>20대 남자, 확인 중</li>   
+	      <li><b>67번확진자: </b>30대 여자, 확인 중</li>
+	      <li><b>68번확진자: </b>50대 여자, 확인 중</li>   
+	      <li><b>69번확진자: </b>20대 남자, 확인 중</li>
+              <li><b>70번확진자: </b>40대 여자, 확인 중</li>   
+	      <li><b>71번확진자: </b>50대 여자, 확인 중</li> 
+              <li><b>72번확진자: </b>30대 여자, 확인 중</li>   
+	      <li><b>73번확진자: </b>20대 여자, 확인 중</li>
+	      <li><b>74번확진자: </b>40대 남자, 확인 중</li>   
+	      <li><b>75번확진자: </b>20대 여자, 확인 중</li>
+              <li><b>76번확진자: </b>30대 남자, 확인 중</li>   
+	      <li><b>77번확진자: </b>50대 여자, 확인 중</li> 
+              <li><b>78번확진자: </b>50대 남자, 확인 중</li>   
+	      <li><b>79번확진자: </b>20대 여자, 확인 중</li>
+	      <li><b>80번확진자: </b>30대 여자, 확인 중</li>   
+	      <li><b>81번확진자: </b>60대 여자, 확인 중</li>
+	      <li><b>82번확진자: </b>60대 남자, 확인 중</li>
+	      <li><b>83번확진자 이상: </b>확인 중</li>
+		    
+          </ul>
+          </div>
+          </div>
+        </div>
+
+
+        <!--감염추이-->
+        <div class="w3-padding-small" id="main">
+          <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+            <h5 style="color:black"><b> 감염 추이</b></h5>              
+            <div id="current" style="width: 100%;height:400%;"></div>
+          </div></div>
+          <script>
+            google.charts.load('current', {'packages':['corechart']}); //id통일
+            google.charts.setOnLoadCallback(drawVisualization);
+    
+            function drawVisualization() {
+              // Some raw data (not necessarily accurate)
+              var data = google.visualization.arrayToDataTable([
+                ['날짜', '확진자','누적확진자','완치자','누적완치자','사망자','예측 누적확진자'],
+                ['2/10',  1,     28, 1,4,0,null],
+                ['2/11',  0,     28, 0,4,0,null],
+                ['2/12',  0,     28, 3,7,0,null],
+                ['2/13',  0,     28, 0,7,0,null],
+                ['2/14',  0,     28, 0,7,0,null],
+                ['2/15',  0,     28, 2,9,0,null],
+                ['2/16',  1,     29, 0,9,0,null],
+                ['2/17',  1,     30, 1,10,0,null],
+                ['2/18',  1,     31, 2,12,0,null],
+                ['2/19',  20,    51, 4,16,0,null],
+		            ['2/20',  53,    104, 0,16,1,null],
+                ['2/21',  100,   204,1,17,0,null],
+                ['2/22',  229,   433, 1,18,1,null],
+		            ['2/23',  169,   602, 0,18,3,null],
+		            ['2/24',  231,   833, 4,22,2,null],
+		            ['2/25',  144,   977, 0,22,3,null],
+                ['2/26',  284,   1261, 2,24,4,null],
+		            ['2/27',  505,   1766, 2,26,1,null],
+		            ['2/28',  571,   2337, 1,27,0,2337],
+		            ['2/29',  null,null, null,null,null,3060],
+		            ['3/1',  null, null, null,null,null,3840]
+              ]);
+    
+              var options = {
+                hAxis: {title: '날짜'},
+                vAxis: {viewWindow:{max:4000,min:0,interval:100}},
+                seriesType: 'bars',
+                series: {0:{color:'red'}, 1: {type: 'line', color: 'red'},5: {type: 'line', color: '#ffb000'},2: {color:'#6593F5'},3:{type:'line',color:'#6593F5'},4:{color:'#2c2c2c'}},
+                legend: {position: 'top'},
+                chartArea:{width:'83%'},
+                height:350
+                };
+    
+              var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
+              chart.draw(data, options);
             }
-        ];
+          </script>
 
-          var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-          mapOption = { 
-              center: new kakao.maps.LatLng(37.5533129,126.9705856), // 지도의 중심좌표
-              level:11  // 지도의 확대 레벨
+
+          <!--date_plot-->
+          <!-- <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black"><b> 날짜별 확진자 수(명)</b></h5>
+              <div id="e4db709abd304791b821e37e17996387" class="chart-container" style="height:250%; width:100%;"></div>
+          </div></div> -->
+
+
+          <!--cum_patient-->
+          <!-- <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black"><b> 감염단계별 누적 확진자 수(명)</b></h5>
+              <div id="ddf2e40d17684537bad05889a17cd869" class="chart-container" style="height:250%; width:100%;"></div>
+          </div></div> -->
+
+          <!--지역별(googlechart)-->
+          <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black; margin-bottom:0px;"><b> 지역별 감염현황</b></h5>                                   
+              <!-- <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p> -->
+              <div id="region" style="width: 100%;height:400%;"></div>
+          </div></div>
+          <script>
+            google.charts.load('current', {'packages':['bar','corechart']});
+            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
+
+                function schedulerSuccessAndFailChart() {
+                    var data = google.visualization.arrayToDataTable([
+                          ["Title","전체", {role:'annotation'}],
+                          ["대구",1579,1579],
+                          ['경북', 409,409],
+			    ['경기', 72,72],
+                          ['부산',65,65],       
+                          ['서울', 62,62],
+			                    ['경남', 49,49],
+			    ['충남', 35,35],
+			    ['대전',14,14],
+			    ['울산',14,14], 
+			                    ['광주', 9,9],
+			    ['충북', 9,9],
+			    
+			                    ['강원',7,7],
+                          ['전북', 5,5],
+			    
+			  ['인천', 4,4],                             
+                          ['제주', 2,2],
+			                    
+			                    ['전남', 1,1],
+                          ['세종',1,1]      
+                  ]);
+            
+                  var barChartOption = {
+                          bars: 'vertical',
+                          height :400,
+                          vAxis:{textStyle:{fontSize:13}},
+                          hAxis:{textStyle:{fontSize:13}},
+                          legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
+                          colors: ['#ca3433'],// '#5e64c1','#d3e9ff'
+                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
+                          annotations: {
+                              textStyle: {
+                                fontSize: 11,
+                                color: '#871b47'
+                              }
+                          },
+                          bar: { groupWidth: "85%" },
+                          chartArea:{width:'85%',top:'30',bottom:'0'}
+                    };
+            
+                  var chart = new google.visualization.BarChart(document.getElementById('region'));
+            
+                  chart.draw(data, barChartOption);
+                  
+                }
+          </script>
+
+
+          <!--hospital_plot-->
+          <!-- <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <div id="2c09d31abdac45419eb61fc886bde8bd" class="chart-container" style="height:250%; width:100%;"></div>
+          </div>
+        </div> -->
+
+
+        <!--pieplot-->
+        <!-- <div class="w3-padding-small" id="main">
+          <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+            <h5 style="color:black"><b> 확진자 특성별 분류</b></h5>
+	    <h6 style="color:black"><b>&nbsp;&nbsp;감염 차수(명)</b></h6>
+            <div id="ed6ca260892442959f68c945a8aa2bb7" class="chart-container" style="height:250%; width:100%;"></div>  
+          </div>
+        </div>
+        <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <div id="2c10c650b2de44f5aaae4f753d1c5f55" class="chart-container" style="height:250%; width:100%;"></div> 
+          </div>
+        </div>
+
+        <div class="w3-padding-small" id="main">
+          <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+            <div id="8ed660dd0d094fbe8b6fe64b3f8502a1" class="chart-container" style="height:250%; width:100%;"></div>
+        </div>
+      </div>
+
+      <div class="w3-padding-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+         <h5 style="color:black"><b> 감염 경로(명)</b></h5>
+          <div id="dc4b3a8e2f93475caa2009080668af61" class="chart-container" style="height:250%; width:100%;"></div> 
+      </div>
+    </div>
+
+    <div class="w3-padding-small" id="main">
+      <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+        <div id="7de45c65e9ed43ce80b2650170a2468f" class="chart-container" style="height:250%; width:100%;"></div>
+    </div>
+  </div> -->
+
+
+      <!--age_plot-->
+      <!-- <div class="w3-padding-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black"><b> 연령대 별 확진자 수</b></h5>
+          <div id="ed07df1b66f7438aa8249493c556e0d7" class="chart-container" style="height:250%; width:100%;"></div>
+        </div>
+      </div> -->
+
+
+  <!--JOURNAL-->
+  <div class="w3-padding-small" id="main">
+    <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+      <h4 style="color:black"><b>"신종 코로나 바이러스로 사람들의 관심 정도가 변화한 키워드들을 알아보자."</b></h4>
+      <ul>
+        <li style="color:black;font-size:12px;">created at : 2020-02-16 17:28</li>
+        <li style="color:black;font-size:12px;">created by : Jae Won Jung</li>
+      </ul><hr>
+        <p style="color:black;font-size:13px;">2020년 1월 19일 한국에서는 첫 신종 코로나 바이러스 확진자가 나왔다.</p>
+        <p style="color:black;font-size:13px;">이후 2차 감염자와 추가 확진자가 나오면서 신종 코로나에 대한 사람들의 관심은 극에 달하기 시작했다.</p>
+        <p style="color:black;font-size:13px;">뉴스에서는 신종 코로나 환자 현황을 보도하는 내용들이 쏟아지고, 신종 코로나를 예방하는 데 도움을 줄 수 있을 거라고 생각되는 마스크와 손소독제는 품절이 되기에 이르렀다.</p>
+        <p style="color:black;font-size:13px;">실제로 사람들이 해당 키워드를 검색한 빈도를 수치로 나타내주는 구글 트렌드를 통해 사람들이 신종 코로나에 가지는 관심이 어떻게 변화했는지 알아보자.</p>
+        <p><script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+          <script type="text/javascript"> 
+            trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"신종 코로나","geo":"KR","time":"2020-01-16 2020-02-16"}],"category":0,"property":""}, 
+            {"exploreQuery":"date=today%201-m&geo=KR&q=%EC%8B%A0%EC%A2%85%20%EC%BD%94%EB%A1%9C%EB%82%98","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); 
+          </script></p>
+        <p style="color:black;font-size:13px;">구글 트렌드는 설정된 기간 동안 키워드가 가장 많은 검색량을 가졌던 기간을 100으로 표시하며 기간 마다 해당 키워드가 가졌던 상대적인 검색량을 그래프로 보여준다.<br>
+          즉, 주어진 기간 동안 해당 키워드가 가장 많은 검색량을 보였던 기간은 100으로, 가장 적은 검색량을 가졌던 기간은 0으로 표현하는 식이다.</p>
+        <p style="color:black;font-size:13px;">위의 그래프를 통해 신종 코로나를 키워드로 사람들이 구글에서 검색한 빈도는 한국에서 첫 확진자가 나왔던 1월 19일 다음 날인 1월 20일부터 서서히 증가하는 패턴을 보이는데, 1월 26일 평택에서 4번 환자가 확진 판정을 받고 나서는 신종 코로나에 대한 사람들의 검색량이 급증한다는 걸 확인할 수 있다. 
+          <br>이후 신종 코로나에 대한 사람들의 검색량은 지속적인 상승세를 보이다가 2월 3일부터 지속적으로 감소한다.</p>
+        <p style="color:black;font-size:13px;">사람들에게 신종 코로나의 익숙한 이름 중 하나인 우한 폐렴에 대한 검색량 역시 신종 코로나 검색량과 비슷한 패턴을 보인다.</p>  
+        <p><script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+          <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"우한 폐렴","geo":"KR","time":"2020-01-16 2020-02-16"}],"category":0,"property":""}, 
+          {"exploreQuery":"date=today%201-m&geo=KR&q=%EC%9A%B0%ED%95%9C%20%ED%8F%90%EB%A0%B4","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); 
+          </script></p>
+        <p style="color:black;font-size:13px;">국내에서 첫 확진자가 나왔던 1월 19일부터 서서히 우한 폐렴에 대한 검색량이 증가하는 경향을 보이며 1월 23일 이후부터 우한 폐렴의 검색량이 급증하는 걸 확인할 수 있다.</p>
+        <p style="color:black;font-size:13px;">신종 코로나를 키워드로 하는 검색량과 비교해봤을 때 흥미로운 점은 우한 폐렴의 검색량이 정점에 달했던 시기와 감소를 시작하는 시기가 신종 코로나보다 모두 앞선다는 것이다.</p>
+        <p style="color:black;font-size:13px;">신종 코로나는 2월 2일 검색량이 정점에 달했고 이후 지속적으로 감소하는 경향을 보인다. 반면, 우한 폐렴은 1월 27일 검색량이 정점에 달했고 이후 지속적으로 감소하는 경향을 보인다.</p>
+        <p style="color:black;font-size:13px;">동일한 질병을 가라키는데 우한 폐렴이 신종 코로나보다 검색량이 정점에 달하는 시기와 감소하는 시기가 모두 뚜렷하게 앞선다는 건, 사람들이 2019-nCoV를 지칭하는 용어가 우한 폐렴에서 신종 코로나로 옮겨갔다는 것을 의미한다. 1월 27일 청와대에서 출입기자들에게 우한 폐렴의 공식 명칭을 신종 코로나 바이러스로 사용해달라는 요청을 했다고 전해지는데, 바로 그 다음날인 1월 28일부터 지속적으로 우한 폐렴 검색량은 감소하고 신종 코로나 검색량은 여전히 증가하는 경향을 보인다는 점이 흥미롭다.</p>
+        <p style="color:black;font-size:13px;"><a href="https://www.hankyung.com/society/article/2020012895447">'우한 폐렴' 단어 쓰지 말라는 청와대?…"신종 코로나바이러스"사용 권고-'한국경제,2020-01-28'</a></p>
+        <p style="color:black;font-size:13px;">지금까지는 신종 코로나에 대한 사람들의 관심이 시간이 지남에 따라 어떻게 변화해왔는지를 사람들의 검색량을 보여주는 구글 트렌드를 통해 살펴봤다.</p>
+        <p style="color:black;font-size:13px;">이제부터는 국내에서 신종 코로나 첫 확진자가 나온 후로 검색량이 크게 달라진 몇가지 키워드를 살펴보자.</p>
+        <p style="color:black;font-size:13px;">필자의 가설은 ‘신종 코로나에 사람들의 관심이 집중되었을 때, 온라인 쇼핑 채널에 대한 관심 역시 증가했을 것’이다.</p>
+        <p style="color:black;font-size:13px;">‘외출을 자제하는 분위기 속에서 사람이 많은 곳을 가기 꺼려하고 온라인 장보기를 이용하는 사람이 증가했을 것이다.’라는 생각에 바탕을 둔 것인데, 실제로 이커머스 시장에서 상당한 시장 점유율을 차지하고 빠르게 성장하고 있는 쿠팡을 사례로 살펴봤다.</p>
+        <p><script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+        <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"쿠팡","geo":"KR","time":"2019-02-16 2020-02-16"}],"category":0,"property":""}, 
+        {"exploreQuery":"geo=KR&q=%EC%BF%A0%ED%8C%A1&date=today 12-m","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); 
+        </script></p>
+        <p style="color:black;font-size:13px;">쿠팡은 사람들이 우한 폐렴이라는 키워드의 검색량이 절정에 달했던 1월 27일이 있는 주간에 검색량이 급증했고 이 때 증가한 검색량이 유지되고 있음을 확인할 수 있다.</p>
+        <p style="color:black;font-size:13px;">이와 같이 신종 코로나 이후 온라인 쇼핑에서 사람들의 변화를 두드러지게 확인할 수 있는 데이터 중 하나는 바로 네이버 데이터랩의 생활/건강 클릭량 추이다.</p>
+        <div id="datalab1" style="width: 100%;height:250%;"></div>
+        <script>
+          google.charts.load('datalab1', {packages: ['corechart', 'line']});
+          google.charts.setOnLoadCallback(drawLogScales);
+
+          function drawLogScales() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', '날짜');
+                data.addColumn('number', '생활/건강 카테고리 클릭량')
+
+                data.addRows([
+                    ['01-15',  41],
+                    ['01-16',  39],
+                    ['01-17',  36],
+                    ['01-18',  33],
+                    ['01-19',  37],
+                    ['01-20',  40],
+                    ['01-21',  36],
+                    ['01-22',  34],
+                    ['01-23',  29],
+                    ['01-24',  26],
+                    ['01-25',  27],
+                    ['01-26',  35],
+                    ['01-27',  52],
+                    ['01-28',  87],
+                    ['01-29',  95],
+                    ['01-30',  95],
+                    ['01-31',  100],
+                    ['02-01',  81],
+                    ['02-02',  85],
+                    ['02-03',  91],
+                    ['02-04',  87],
+                    ['02-05',  81],
+                    ['02-06',  75],
+                    ['02-07',  67],
+                    ['02-08',  58],
+                    ['02-09',  59],
+                    ['02-10',  63],
+                    ['02-11',  60],
+                    ['02-12',  58],
+                    ['02-13',  53],
+                    ['02-14',  45],
+                    ['02-15',  42]
+                ]);
+
+                var options = {
+                  hAxis: {
+                    title: '날짜',
+                    logScale: true,
+                    textStyle: {
+                      fontSize: 8
+                  }  
+                  },
+                  vAxis: {
+                    title: '일일 클릭량 (max= 100)',
+                    logScale: false
+                  },
+                  colors: ['#097138']
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('datalab1'));
+                chart.draw(data, options);
+              }
+        </script>
+        <p style="color:black;font-size:13px;">네이버 데이터랩의 생활/건강 클릭량 추이를 보면 우한 폐렴 키워드 기준으로 검색량이 절정에 달했던 1월 27일부터 클릭량이 급증했음을 확인할 수 있다.<br>
+          이와 같은 변화가 생긴 이유로는 네이버 쇼핑에서 생활/건강 카테고리에 마스크, 손 소독제 등 신종 코로나를 예방한다고 알려진 상품들이 포함되어 있기 때문이라고 생각한다.</p>          
+        <p style="color:black;font-size:13px;">이와 반대로, 신종 코로나에 대한 사람들의 관심이 증가한 후로 사람들의 클릭량이 줄어든 소비 카테고리로는 여행/문화 카테고리를 발견했다.</p>
+        <div id="datalab2" style="width: 100%;height:250%;"></div>
+        <script>
+          google.charts.load('datalab2', {packages: ['corechart', 'line']});
+          google.charts.setOnLoadCallback(drawLogScales);
+
+          function drawLogScales() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', '날짜');
+                data.addColumn('number', "여행/문화 카테고리 클릭량");
+
+                data.addRows([
+                    ['01-15',  98],
+                    ['01-16',  98],
+                    ['01-17',  99],
+                    ['01-18',  98],
+                    ['01-19',  100],
+                    ['01-20',  99],
+                    ['01-21',  93],
+                    ['01-22',  89],
+                    ['01-23',  83],
+                    ['01-24',  74],
+                    ['01-25',  73],
+                    ['01-26',  84],
+                    ['01-27',  83],
+                    ['01-28',  75],
+                    ['01-29',  71],
+                    ['01-30',  67],
+                    ['01-31',  61],
+                    ['02-01',  62],
+                    ['02-02',  59],
+                    ['02-03',  57],
+                    ['02-04',  68],
+                    ['02-05',  61],
+                    ['02-06',  57],
+                    ['02-07',  56],
+                    ['02-08',  56],
+                    ['02-09',  59],
+                    ['02-10',  66],
+                    ['02-11',  68],
+                    ['02-12',  69],
+                    ['02-13',  70],
+                    ['02-14',  70],
+                    ['02-15',  68]
+                ]);
+
+                var options = {
+                  hAxis: {
+                    title: '날짜',
+                    logScale: true,
+                    textStyle: {
+                      fontSize: 8
+                  }  
+                  },
+                  vAxis: {
+                    title: '일일 클릭량(max=100)',
+                    logScale: false
+                  },
+                  colors: ['#a52714', '#097138']
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('datalab2'));
+                chart.draw(data, options);
+              }
+        </script>
+        <p style="color:black;font-size:13px;">기간을 2020년 1월 15일부터 2020년 2월 15일까지로 했을 때, 네이버 쇼핑에서 여행/문화 카테고리는 지속적으로 감소하는 경향을 보이는데,
+          <br> 국내에서 첫 확진자가 나온 1월 19일 이후인 1월 20일부터 그 클릭량이 급격하게 감소하는 경향이 눈에 띈다.
+          <br> 연휴였던 1월 26일과 27일에는 여행/문화 카테고리의 클릭량이 일시적으로 증가했던 현상도 확인이 된다.</p>
+        <p style="color:black;font-size:13px;">다소 당연한 결과지만, 마스크와 손 세정제를 키워드로 한 검색량은 신종 코로나에 대한 사람들의 검색량이 증가할 때, 같이 증가하는 경향을 보였다.
+          <br> 마스크를 키워드로 한 검색량은 1월 26일부터 급증하며 1월 31일에 정점에 달한다.</p>
+        <p><script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+          <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"마스크","geo":"KR","time":"2019-02-16 2020-02-16"}],
+          "category":0,"property":""}, {"exploreQuery":"geo=KR&q=%EB%A7%88%EC%8A%A4%ED%81%AC&date=today 12-m","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); 
+          </script></p>
+        <p style="color:black;font-size:13px;">마찬가지로, 손 세정제를 키워드로 한 검색량 역시 1월 26일부터 급증하기 시작한다.</p>
+        <p><script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+          <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"손 세정제","geo":"KR","time":"2019-02-16 2020-02-16"}],
+          "category":0,"property":""}, {"exploreQuery":"geo=KR&q=%EC%86%90%20%EC%84%B8%EC%A0%95%EC%A0%9C&date=today 12-m","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); 
+        </script></p>
+        <p style="color:black;font-size:13px;">필자가 한 가지 궁금했던 건, <strong>“신종 코로나와 같이 특정 이슈로 인해 마스크처럼 판매가 급증하는 상품이 있다면, 사람들이 그 이슈에 가지는 관심이 그 상품을 주로 판매하는 회사의 주가와 관련이 있을까?”</strong> 였다.</p>
+        <p style="color:black;font-size:13px;">호기심에 마스크 관련주로 불리는 ‘모나리자’의 종가와 ‘신종 코로나’를 키워드로 한 구글 트렌드 그래프를 겹쳐 그려보았다.</p>
+        <img src="/images/coro_monalisa.jpg" style="width:80%;display: block; margin: 0px auto;"class="w3-center">
+        <p class="w3-center" style="color:black;font-size:13px;">['신종 코로나' 구글 트렌드와 모나리자의 종가를 겹쳐 그린 그래프]</p>
+        <p style="color:black;font-size:13px;"><br>
+          흥미롭게도 두 그래프는 매우 비슷한 형태를 띄었는데, 두 그래프 모두 정점에 이르는 순간이 1월 31일로 동일하다는 점은 놀라웠다.</p>
+        <p style="color:black;font-size:13px;">마찬가지로, ‘우한 폐렴’을 키워드로 하는 구글 트렌드 그래프와 ‘모나리자’의 종가를 겹쳐 그려 보았다.</p>
+        <img src="/images/wuhan_monalisa.jpg" style="width:80%;display: block; margin: 0px auto;"class="w3-center">
+        <p style="color:black;font-size:13px;">‘우한 폐렴’ 검색량과 ‘모나리자’의 종가 그래프 역시 극대점과 극소점이 발생하는 시점이 두 그래프 간에 동일하거나 매우 가깝다는 점이 흥미로웠다.</p>
+        <p style="color:black;font-size:13px;">이 두 그래프를 통해 필자는 “전염병과 같이 특정 이슈로 인해 마스크처럼 판매가 급증하는 상품이 있다면, 사람들이 그 이슈에 가지는 관심과 그 상품을 주로 판매하는 회사의 주가와 긴밀한 관련이 있다.”라고 결론을 내렸다.</p>
+        <p style="color:black;font-size:13px;">지금까지 대한민국에서 신종 코로나에 대한 사람들의 관심이 어떻게 변화해왔는지서부터 신종 코로나 이슈로 인해 관심 정도가 변화한 여러 항목들을 살펴보았다. 마지막으로는 신종 코로나와 같은 이슈가 있을 때, 판매량이 급증하는 상품을 생산하는 회사의 주가와 사람들이 해당 이슈에 관심을 가지는 정도를 나타내는 구글 트렌드 간의 관련성을 살펴보았다.</p>
+        <p style="color:black;font-size:13px;">신종 코로나가 대한민국에서 완전히 종식되기 위해 올바른 대처 방안을 강구 하는 것 못지 않게, 신종 코로나가 사람들의 관심 사항을 어떻게 변화시켰는지 알아보는 것도 중요한 부분 중 하나라고 생각한다.<br><br> 갑작스럽게 사람들의 관심 사항을 변화시키는 이슈들의 영향을 정확히 알고 있어야 그 이슈 자체의 문제뿐만 아니라 그 이슈의 파급효과까지 놓치지 않고 정확히 대처할 수 있기 때문이다.</p>
+        <p style="color:black;font-size:13px;">마지막으로 인류의 건강을 위협하는 신종 코로나가 사라지고 신종 코로나로부터 비롯된 전 세계적인 혼란이 소멸되기를 바라며 글을 마친다.</p>
+        <ul>
+          <li style="color:black;font-size:12px;"><p><em>'신종 코로나', '우한 폐렴'을 키워드로한 구글 트렌드와 모나리자 종가 그래프 겹쳐 그리는 주피터 노트북</em><br>
+          :<a href="https://github.com/jaewonalive/plots/blob/master/search_rate_closing_price_plot.ipynb">github link</a></p>
+          </li>
+          <li style="color:black;font-size:12px;"><p><em>문의사항 및 피드백</em><br>
+          : jjw1112@korea.ac.kr</p>
+          </li>
+          </ul>
+
+        </div>
+      </div>
+
+
+    <!-- 트위터 구글차트 -->
+    <div class="w3-padding-small" id="main">
+      <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+        <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     <!--제목-->
+        <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  <!--하위설명-->
+        <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
+      </div></div>
+      <script>
+        google.charts.load('tweet', {
+          packages: ['corechart', 'line']
+        });
+        google.charts.setOnLoadCallback(drawLineColors);
+
+        function drawLineColors() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', '날짜');
+          data.addColumn('number', '누적확진자');
+          data.addColumn('number', '트윗 건수');
+
+          data.addRows([
+            ['1/19', 1, 74],
+            ['1/20', 1, 623],
+            ['1/21', 1, 727],
+            ['1/22', 2, 1240],
+            ['1/23', 2, 1483],
+            ['1/24', 2, 2093],
+            ['1/25', 3, 7519],
+            ['1/26', 4, 5510],
+            ['1/27', 4, 6876],
+            ['1/28', 4, 7777],
+            ['1/29', 4, 5430],
+            ['1/30', 7, 5924],
+            ['1/31', 11, 7356],
+            ['2/1', 12, 5514],
+            ['2/2', 15, 5201],
+            ['2/3', 16, 4986],
+            ['2/4', 16, 4918],
+            ['2/5', 19, 4916],
+            ['2/6', 23, 4683],
+            ['2/7', 24, 4409],
+            ['2/8', 24, 3145],
+            ['2/9', 27, 2501],
+            ['2/10', 28, 2912],
+            ['2/11', 28, 2353],
+            ['2/12', 28, 2298]
+          ]);
+
+          var options = {
+            hAxis: {
+              title: '날짜',
+        textStyle: {
+          fontSize: 5
+        }
+            },
+        
+            vAxes: {
+              0: {
+                title: '누적확진자수'
+              },
+              1: {
+                title: '트윗 건수'
+              }
+            },
+            series: [{
+                targetAxisIndex: 0
+              },
+              {
+                targetAxisIndex: 1
+              }
+            ],
+
+            colors: ['#a52714', '#097138']
           };
 
-          var map = new kakao.maps.Map(mapContainer, mapOption);
-          //지도생성
-
-          var clusterer = new kakao.maps.MarkerClusterer({
-              map: map, 
-              averageCenter: true, 
-              minLevel: 9, 
-              calculator: [10,20],
-              styles:[{
-                width : '30px', height : '30px',
-                background: 'rgba(255,255,153, .8)',
-                borderRadius: '15px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '31px'
-            },
-            {
-                width : '50px', height : '50px',
-                background: 'rgba(255, 152, 0, .8)',
-                borderRadius: '25px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '51px'
-            },
-            {
-                width : '70px', height : '70px',
-                background: 'rgba(246, 65, 45, .8)',
-                borderRadius: '35px',
-                color: '#000',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                lineHeight: '71px'
-            }]
-          });
-
-          
-        var churchMarkers = [],
-        churchOverlays =[];
-
-        createChurchMarkers();
-
-        function createMarkerImage(src, size, options) {
-            var markerImage = new kakao.maps.MarkerImage(src, size, options);
-            return markerImage;            
+          var chart = new google.visualization.LineChart(document.getElementById('tweet')); //id통일
+          chart.draw(data, options);
         }
+      </script>  
 
-        function createMarker(position, image) {
-            var marker = new kakao.maps.Marker({
-                position: position,
-                image: image
-            });
-            return marker;  
-        }   
-         
-        function createChurchMarkers() {   
-            for (var i = 0; i < churchpos.length; i++) {
-                var imageSize = new kakao.maps.Size(35, 35),
-                    imageOptions = {  
-                        spriteOrigin: new kakao.maps.Point(0, 0),    
-                        //spriteSize: new kakao.maps.Size(35, 70)  
-                    };     
-                
-                var markerImage = createMarkerImage(churchpos[i].imageSrc, imageSize, imageOptions),    
-                    marker = createMarker(new kakao.maps.LatLng(churchpos[i].lat, churchpos[i].lng), markerImage);
-                var content=   '<div class="w3-text-grey wrap">' + 
-                                '    <div class="info">' + 
-                                '        <div class="title" style="color:black">' + churchpos[i].title +
-                                '        </div>' + 
-                                '        <div class="body">' + 
-                                '            <div class="desc" style="word-break:break-all;color:black">'+churchpos[i].etc+'</div>' +
-                                '        </div>' + 
-                                '    </div>' +    
-                                '</div>';
-                  var overlay =  new kakao.maps.CustomOverlay({
-                                  content: content,
-                                  map: map,
-                                  position: marker.getPosition()       
-                              });
+      <!--트위터 wordcloud-->
+      <div class="w3-padding-small w3-hide-small" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
+          <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
+        <img src="/images/wordc.png" style="width:80%;height:250%;display: block; margin: 0px auto;"></div>
+      </div></div>
+      <!--on small screens-->
+      <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
+        <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+          <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
+          <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
+        <div id="cloud" class="chart-container" style="width:100%;height:250%;text-align:center;"></div>
+      </div></div>
+      <div class="w3-padding-small" id="main">
+        <div class="w3-content w3-justify w3-text-grey w3-padding-32">
+          <footer class="w3-content w3-text-grey w3-xlarge" style="text-align: right;">
+            <p class="w3-medium">고려대학교 빅데이터 연구회 KU-BIG<br><a href="/aboutus.html" class="w3-hover-text-green">About us</a></p>
+          <!-- End footer -->
+          </footer>
+        </div></div>
 
-                  kakao.maps.event.addListener(marker, 'click', makeClickListener(map, overlay)); 
-                  churchMarkers.push(marker);
-                  churchOverlays.push(overlay);
+
+
+      <!-------------------------------------javascript부분--------------------------------------->
+
+        <!--확진자리스트 dropdown-->
+        <script>
+          // Accordion
+          function myFunction(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+              x.className += " w3-show";
+              x.previousElementSibling.className += " w3-theme-d1";
+            } else { 
+              x.className = x.className.replace("w3-show", "");
+              x.previousElementSibling.className = 
+              x.previousElementSibling.className.replace(" w3-theme-d1", "");
             }
-        }  
-
-        function setChurchMarkers(map) {        
-            for (var i = 0; i < churchMarkers.length; i++) {  
-                churchMarkers[i].setMap(map);
-            }        
-        }
-
-        function setChurchOverlays(map) {        
-            for (var i = 0; i < churchOverlays.length; i++) {  
-                churchOverlays[i].setMap(map);
-            }        
-        }
-
-        clusterer.addMarkers(churchMarkers);
-        setChurchMarkers(null);
-        setChurchOverlays(null);
-
-        
-        function makeClickListener(map, overlay) {
-          return function() {            
-            if(overlay.getMap()){
-                overlay.setMap(null);
-            }
-            else{
-                setChurchOverlays(null);
-                overlay.setMap(map);
-            }
-            
           }
-        }
-     
-
         </script>
 
-</body>
-</html>
+        <!-- <script type="text/javascript" src="/js/bydate.js"></script> 
+        <script type="text/javascript" src="/js/cum_patient2.js"></script>
+        <script type="text/javascript" src="/js/hosp.js"></script>  
+        <script type="text/javascript" src="/js/chasu.js"></script> 
+        <script type="text/javascript" src="/js/status.js"></script> 
+        <script type="text/javascript" src="/js/gend.js"></script> 
+        <script type="text/javascript" src="/js/how.js"></script> 
+        <script type="text/javascript" src="/js/nat.js"></script> 
+        <script type="text/javascript" src="/js/age.js"></script>  -->
 
+        <!--wordcloud-->
+        <script type="text/javascript">
+          var weight = 2,   // change me
+              width = 384,
+              height = 200;
+      
+          var fill = d3.scale.category20();
+          d3.csv("words_freq.csv", function(d) {
+              return {
+                text: d.word,
+                size: +d.freq*weight
+              }
+            },
+            function(data) {
+              d3.layout.cloud().size([width, height]).words(data)
+                //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+                .rotate(0)
+                .font("Impact")
+                .fontSize(function(d) { return d.size; })
+                .on("end", draw)
+                .start();
+      
+              function draw(words) {
+                d3.select("#cloud").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                  .append("g")
+                    .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+                  .selectAll("text")
+                    .data(words)
+                  .enter().append("text")
+                    .style("font-size", function(d) { return d.size + "px"; })
+                    .style("font-family", "Impact")
+                    .style("fill", function(d, i) { return fill(i); })
+                    .attr("text-anchor", "middle")
+                    .attr("transform", function(d) {
+                      return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                  .text(function(d) { return d.text; });
+              }
+            });
+        </script>
+        <!-------------------------------------javascript부분--------------------------------------->
+        </body>
+</html>
 
 

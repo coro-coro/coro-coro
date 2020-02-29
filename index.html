@@ -57,7 +57,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
                     <div class="w3-right w3-padding-16">
-                      <h3>2,931</h3>
+                      <h3>3,150</h3>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -66,7 +66,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>27</h3>
+                            <h3>28</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -75,7 +75,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>16</h3>
+                            <h3>17</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -120,9 +120,9 @@
               <li><b>18번확진자: </b>20대 여자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>19번확진자: </b>30대 남자, 싱가폴 방문자</li>
               <li><b>20번확진자: </b>40대 여자, 15번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>21번확진자: </b>50대 여자, 6번 확진자의 지인</li>
+              <li><b>21번확진자: </b>50대 여자, 6번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>22번확진자: </b>40대 남자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>23번확진자: </b>50대 여자, 중국인 관광객</li>
+              <li><b>23번확진자: </b>50대 여자, 중국인 관광객<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>24번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>25번확진자: </b>70대 여자, 26번/27번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
               <li><b>26번확진자: </b>50대 남자,  광둥성 방문자</li>
@@ -217,8 +217,8 @@
 		            ['2/25',  144,   977,977, 0,22,3,null,null],
                 ['2/26',  284,   1261,1261, 2,24,4,null,null],
 		            ['2/27',  505,   1766,1766, 2,26,1,null,null],
-		            ['2/28',  571,   2337,2337, 1,27,0,2337,null],
-		            ['2/29',  null,null, null,null,null,null,3060,'예측:3,060'],
+		            ['2/28',  571,   2337,2337, 1,27,0,null,null],
+		            ['2/29',  813,3150, 3150,1,28,1,3150,null],
 		            ['3/1',  null, null,null, null,null,null,3840,'예측:3,840']
               ]);
     
@@ -267,25 +267,26 @@
                 function schedulerSuccessAndFailChart() {
                     var data = google.visualization.arrayToDataTable([
                           ["Title","전체", {role:'annotation'}],
-                          ["대구",1579,1579],
-                          ['경북', 409,409],
-			    ['경기', 72,72],
-                          ['부산',65,65],       
-                          ['서울', 62,62],
-			                    ['경남', 49,49],
-			    ['충남', 35,35],
-			    ['대전',14,14],
-			    ['울산',14,14], 
-			                    ['광주', 9,9],
-			    ['충북', 9,9],
-			    
+                          ["대구",2236,2236],
+                          ['경북', 488,488],
+			    ['경기', 82,82],
+                          ['부산',80,80],       
+                          ['서울', 77,77],
+			                    ['경남', 59,59],
+			    ['충남', 55,55],
+			   
+			    ['울산',17,17], 
+			          ['대전',13,13],           
+			    ['충북', 10,10],
+			    ['광주', 9,9],
 			                    ['강원',7,7],
-                          ['전북', 5,5],
+                         
 			    
-			  ['인천', 4,4],                             
-                          ['제주', 2,2],
-			                    
-			                    ['전남', 1,1],
+			  ['인천', 6,6],                             
+                          
+			                    ['전북', 5,5], 
+			                    ['전남', 3,3],
+			    ['제주', 2,2],
                           ['세종',1,1]      
                   ]);
             

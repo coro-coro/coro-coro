@@ -231,7 +231,8 @@
                 series: {0:{color:'red'}, 1: {type: 'line', color: 'red'},2: {type: 'line', color: '#ffb000'}},
                 legend: {position: 'top'},
                 chartArea:{width:'83%'},
-                height:400
+                height:400,
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}
                 };
     
               var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
@@ -272,7 +273,8 @@
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5'},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},
                 chartArea:{width:'83%'},
-                height:400
+                height:400,
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}
                 };
     
               var chart = new google.visualization.ComboChart(document.getElementById('curedead')); //id통일

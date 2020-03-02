@@ -57,7 +57,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
                     <div class="w3-right w3-padding-16">
-                      <h3>3,736</h3>
+                      <h3>4,212</h3>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -66,7 +66,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>30</h3>
+                            <h3>31</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -75,7 +75,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>18</h3>
+                            <h3>22</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -219,7 +219,8 @@
 		            ['2/27',  505,   1766,1766, 2,26,1,null,null],
 		            ['2/28',  571,   2337,2337, 1,27,0,null,null],
 		            ['2/29',  813,3150, 3150,1,28,1,null,null],
-		            ['3/1',  586, 3736,3736,2,30,1,3736,null]
+		            ['3/1',  586, 3736,3736,2,30,1,null,null],
+		      ['3/2',  476, 4212,4212,1,31,4,4212,null],
               ]);
     
               var options = {
@@ -267,28 +268,24 @@
                 function schedulerSuccessAndFailChart() {
                     var data = google.visualization.arrayToDataTable([
                           ["Title","전체", {role:'annotation'}],
-                          ["대구",2705,2705],
-                          ['경북', 555,555],
-			    ['경기', 89,89],
-			    ['서울', 87,87],
-                          ['부산',83,83],       
-                          
-			                   
-			    ['충남', 68,68],
-			    ['경남', 63,63],
+                          ["대구",3081,3081],
+                          ['경북', 624,624],
+			    ['경기', 92,92],
+			    ['서울', 91,91],
+                          ['부산',88,88],              
+			    ['충남', 78,78],
+			    ['경남', 64,64],
 			    ['울산',20,20], 
 			             
-			    ['강원',15,15],
-			    ['대전',13,13],
+			    ['강원',19,19],
+			    ['대전',14,14],
 			    ['충북', 11,11],
 			    ['광주', 9,9],
-			                    
-                         
-			    
-			  ['인천', 6,6],                             
+ 
+			  ['인천', 7,7],                             
                           
 			                    ['전북', 6,6], 
-			                    ['전남', 3,3],
+			                    ['전남', 5,5],
 			    ['제주', 2,2],
                           ['세종',1,1]      
                   ]);

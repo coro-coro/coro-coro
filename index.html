@@ -57,7 +57,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
                     <div class="w3-right w3-padding-16">
-                      <h3>4,335</h3>
+                      <h3>4,812</h3>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -66,7 +66,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>31</h3>
+                            <h3>34</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -75,7 +75,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>26</h3>
+                            <h3>28</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -84,7 +84,7 @@
                   <div class="w3-container w3-padding-16" style="background-color: #565656; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
                           <div class="w3-right w3-padding-16">
-                            <h3>33,799</h3>
+                            <h3>35,555</h3>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -221,7 +221,8 @@
 		            ['2/28',  571,   2337,2337,null,null],
 		            ['2/29',  813,3150, 3150,null,null],
 		            ['3/1',  586, 3736,3736,null,null],
-		      ['3/2',  476, 4212,4212,4212,null],
+		      ['3/2',  476, 4212,4212,null,null],
+		      ['3/3',  600, 4812,4812,4812,null],
               ]);
     
               var options = {
@@ -263,7 +264,8 @@
 		            ['2/28',   1,27,0,13],
 		            ['2/29', 1,28,4,17],
 		            ['3/1', 2,30,1,18],
-		      ['3/2', 1,31,4,22]
+		      ['3/2', 1,31,4,22],
+		      ['3/3', 3,34,6,28]
               ]);
     
               var options = {
@@ -313,26 +315,22 @@
                 function schedulerSuccessAndFailChart() {
                     var data = google.visualization.arrayToDataTable([
                           ["Title","전체", {role:'annotation'}],
-                          ["대구",3081,3081],
-                          ['경북', 624,624],
-			    ['경기', 92,92],
-			    ['서울', 91,91],
-                          ['부산',88,88],              
-			    ['충남', 78,78],
-			    ['경남', 64,64],
-			    ['울산',20,20], 
-			             
-			    ['강원',19,19],
-			    ['대전',14,14],
-			    ['충북', 11,11],
-			    ['광주', 9,9],
- 
-			  ['인천', 7,7],                             
-                          
-			                    ['전북', 6,6], 
-			                    ['전남', 5,5],
-			    ['제주', 2,2],
-                          ['세종',1,1]      
+                          ['대구', 3600, 3600],
+ ['경북', 685, 685],
+ ['서울', 98, 98],
+ ['경기', 94, 94],
+ ['부산', 90, 90],
+ ['충남', 81, 81],
+ ['경남', 64, 64],
+ ['울산', 20, 20],
+ ['강원', 20, 20],
+ ['대전', 14, 14],
+ ['충북', 12, 12],
+ ['광주', 11, 11],
+ ['인천', 7, 7],
+ ['전북', 7, 7],
+ ['전남', 5, 5],
+ ['세종', 1, 1]    
                   ]);
             
                   var barChartOption = {

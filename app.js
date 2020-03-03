@@ -41,7 +41,7 @@
 
 
 
-    const preObject5 = document.getElementById('사망자');
+    const preObject5 = document.getElementById('지역별');
     const dbRefObject5 = firebase.database().ref().child('지역별확진자수');
 
     dbRefObject5.on('value',snap=>{

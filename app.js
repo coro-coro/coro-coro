@@ -12,28 +12,28 @@
     firebase.initializeApp(config);
 
     const preObject = document.getElementById('사망자');
-    const dbRefObject = firebase.database().ref().child('사망자');
+    const dbRefObject = firebase.database().ref().child('종합').child('사망자');
 
     dbRefObject.on('value',snap=>{
         preObject.innerText=JSON.stringify(snap.val(),null,3);
     });
 
     const preObject2 = document.getElementById('완치자');
-    const dbRefObject2 = firebase.database().ref().child('완치자');
+    const dbRefObject2 = firebase.database().ref().child('종합').child('완치자');
 
     dbRefObject2.on('value',snap=>{
         preObject2.innerText=JSON.stringify(snap.val(),null,3);
     });
 
     const preObject3 = document.getElementById('유증상자');
-    const dbRefObject3 = firebase.database().ref().child('유증상자');
+    const dbRefObject3 = firebase.database().ref().child('종합').child('유증상자');
 
     dbRefObject3.on('value',snap=>{
         preObject3.innerText=JSON.stringify(snap.val(),null,3);
     });
 
     const preObject4 = document.getElementById('확진자');
-    const dbRefObject4 = firebase.database().ref().child('확진자');
+    const dbRefObject4 = firebase.database().ref().child('종합').child('확진자');
 
     dbRefObject4.on('value',snap=>{
         preObject4.innerText=JSON.stringify(snap.val(),null,3);

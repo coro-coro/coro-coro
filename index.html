@@ -312,57 +312,7 @@
               <!-- <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p> -->
               <div id="region" style="width: 100%;height:400%;"></div>
           </div></div>
-          <script>
-            google.charts.load('current', {'packages':['bar','corechart']});
-            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
-
-                function schedulerSuccessAndFailChart() {
-                    var data = google.visualization.arrayToDataTable([
-                          ["Title","전체", {role:'annotation'}],
-                          ['대구', 3600, 3600],
- ['경북', 685, 685],
- ['서울', 98, 98],
- ['경기', 94, 94],
- ['부산', 90, 90],
- ['충남', 81, 81],
- ['경남', 64, 64],
- ['울산', 20, 20],
- ['강원', 20, 20],
- ['대전', 14, 14],
- ['충북', 12, 12],
- ['광주', 11, 11],
- ['인천', 7, 7],
- ['전북', 7, 7],
- ['전남', 5, 5],
- ['세종', 1, 1]    
-                  ]);
-            
-                  var barChartOption = {
-                          bars: 'vertical',
-                          height :400,
-                          vAxis:{textStyle:{fontSize:13}},
-                          hAxis:{textStyle:{fontSize:13}},
-                          legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
-                          colors: ['#ca3433'],// '#5e64c1','#d3e9ff'
-                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
-                          annotations: {
-                              textStyle: {
-                                fontSize: 11,
-                                color: '#871b47'
-                              }
-                          },
-                          bar: { groupWidth: "85%" },
-                          chartArea:{width:'85%',top:'30',bottom:'0'}
-                    };
-            
-                  var chart = new google.visualization.BarChart(document.getElementById('region'));
-            
-                  chart.draw(data, barChartOption);
-                  
-                }
-          </script>
-
-
+        
           <!--hospital_plot-->
           <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">

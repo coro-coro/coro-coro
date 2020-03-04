@@ -99,68 +99,68 @@
                 }
     });
 
-    const preObject6 = document.getElementById('서울지역별');
-    const dbRefObject6 = firebase.database().ref().child('구별확진자수');
+    // const preObject6 = document.getElementById('서울지역별');
+    // const dbRefObject6 = firebase.database().ref().child('구별확진자수');
 
-    dbRefObject6.on('value',snap=>{
-        preObject6.innerText=JSON.stringify(snap.val(),null,3);
-        var json = JSON.parse(preObject6.innerText)
-        for (key in json){
-            console.log('key:' + key + ' / ' + 'value:' + json[key])
-        }
-        google.charts.load('current', {'packages':['bar','corechart']});
-            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
+    // dbRefObject6.on('value',snap=>{
+    //     preObject6.innerText=JSON.stringify(snap.val(),null,3);
+    //     var json = JSON.parse(preObject6.innerText)
+    //     for (key in json){
+    //         console.log('key:' + key + ' / ' + 'value:' + json[key])
+    //     }
+    //     google.charts.load('current', {'packages':['bar','corechart']});
+    //         google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 
-                function schedulerSuccessAndFailChart() {
-                    var data = google.visualization.arrayToDataTable([
-                          ["Title","전체", {role:'annotation'}],
-                          ["강남구", json['강남구'],json['강남구']],
-                            ["강동구", json['강동구'],json['강동구']],
-                            ["강서구", json['강서구'],json['강서구']],
-                            ["관악구", json['관악구'],json['관악구']],
-                            ['광진구', json['광진구'],json['광진구']],
-                            ['구로구', json['구로구'],json['구로구']],
-                            ['금천구', json['금천구'],json['금천구']],
-                            ['노원구', json['노원구'],json['노원구']],
-                            ['도봉구', json['도봉구'],json['도봉구']],
-                            ['동대문구', json['동대문구'],json['동대문구']],
-                            ['동작구', json['동작구'],json['동작구']],
-                            ['마포구', json['마포구'],json['마포구']],
-                            ['서대문구', json['서대문구'],json['서대문구']],
-                            ['서초구', json['서초구'],json['서초구']],
-                            ['성동구', json['성동구'],json['성동구']],
-                            ['성북구', json['성북구'],json['성북구']],
-                            ['송파구', json['송파구'],json['송파구']],
-                            ['양천구', json['양천구'],json['양천구']],
-                            ['영등포구', json['영등포구'],json['영등포구']],
-                            ['은평구', json['은평구'],json['은평구']],
-                            ['종로구', json['종로구'],json['종로구']],
-                            ['중랑구', json['중랑구'],json['중랑구']]
-                  ]);
+    //             function schedulerSuccessAndFailChart() {
+    //                 var data = google.visualization.arrayToDataTable([
+    //                       ["Title","전체", {role:'annotation'}],
+    //                       ["강남구", json['강남구'],json['강남구']],
+    //                         ["강동구", json['강동구'],json['강동구']],
+    //                         ["강서구", json['강서구'],json['강서구']],
+    //                         ["관악구", json['관악구'],json['관악구']],
+    //                         ['광진구', json['광진구'],json['광진구']],
+    //                         ['구로구', json['구로구'],json['구로구']],
+    //                         ['금천구', json['금천구'],json['금천구']],
+    //                         ['노원구', json['노원구'],json['노원구']],
+    //                         ['도봉구', json['도봉구'],json['도봉구']],
+    //                         ['동대문구', json['동대문구'],json['동대문구']],
+    //                         ['동작구', json['동작구'],json['동작구']],
+    //                         ['마포구', json['마포구'],json['마포구']],
+    //                         ['서대문구', json['서대문구'],json['서대문구']],
+    //                         ['서초구', json['서초구'],json['서초구']],
+    //                         ['성동구', json['성동구'],json['성동구']],
+    //                         ['성북구', json['성북구'],json['성북구']],
+    //                         ['송파구', json['송파구'],json['송파구']],
+    //                         ['양천구', json['양천구'],json['양천구']],
+    //                         ['영등포구', json['영등포구'],json['영등포구']],
+    //                         ['은평구', json['은평구'],json['은평구']],
+    //                         ['종로구', json['종로구'],json['종로구']],
+    //                         ['중랑구', json['중랑구'],json['중랑구']]
+    //               ]);
             
-                  var barChartOption = {
-                          bars: 'vertical',
-                          height :600,
-                          vAxis:{textStyle:{fontSize:13}},
-                          hAxis:{textStyle:{fontSize:13}},
-                          legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
-                          colors: ['#ca3433'],// '#5e64c1','#d3e9ff'
-                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
-                          annotations: {
-                              textStyle: {
-                                fontSize: 11,
-                                color: '#871b47'
-                              }
-                          },
-                          bar: { groupWidth: "85%" },
-                          chartArea:{width:'85%',top:'30',bottom:'0'}
-                    };
+    //               var barChartOption = {
+    //                       bars: 'vertical',
+    //                       height :600,
+    //                       vAxis:{textStyle:{fontSize:13}},
+    //                       hAxis:{textStyle:{fontSize:13}},
+    //                       legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
+    //                       colors: ['#ca3433'],// '#5e64c1','#d3e9ff'
+    //                       tooltip:{textStyle : {fontSize:12}, showColorCode : true},
+    //                       annotations: {
+    //                           textStyle: {
+    //                             fontSize: 11,
+    //                             color: '#871b47'
+    //                           }
+    //                       },
+    //                       bar: { groupWidth: "85%" },
+    //                       chartArea:{width:'85%',top:'30',bottom:'0'}
+    //                 };
             
-                  var chart = new google.visualization.BarChart(document.getElementById('seoul'));
+    //               var chart = new google.visualization.BarChart(document.getElementById('seoul'));
             
-                  chart.draw(data, barChartOption);
+    //               chart.draw(data, barChartOption);
                   
-                }
-    });
+    //             }
+    // });
 
 }());

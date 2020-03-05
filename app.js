@@ -156,7 +156,7 @@
                               }
                           },
                           bar: { groupWidth: "85%" },
-                          chartArea:{width:'76%',top:'30',bottom:'0'}
+                          chartArea:{width:'70%',top:'30',bottom:'0'}
                     };
             
                   var chart = new google.visualization.BarChart(document.getElementById('seoul'));

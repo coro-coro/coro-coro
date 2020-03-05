@@ -145,7 +145,7 @@
                           bars: 'vertical',
                           height :450,
                           vAxis:{textStyle:{fontSize:13}},
-                          hAxis:{textStyle:{fontSize:13}},
+                          hAxis:{textStyle:{fontSize:10}},
                           legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
                           colors: ['#a6b1e1'],// '#5e64c1','#d3e9ff'
                           tooltip:{textStyle : {fontSize:12}, showColorCode : true},

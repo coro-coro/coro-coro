@@ -144,8 +144,8 @@
                   var barChartOption = {
                           bars: 'vertical',
                           height :450,
-                          vAxis:{textStyle:{fontSize:10}},
-                          hAxis:{textStyle:{fontSize:10}},
+                          vAxis:{textStyle:{fontSize:11}},
+                          hAxis:{textStyle:{fontSize:11}},
                           legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
                           colors: ['#a6b1e1'],// '#5e64c1','#d3e9ff'
                           tooltip:{textStyle : {fontSize:12}, showColorCode : true},
@@ -156,7 +156,7 @@
                               }
                           },
                           bar: { groupWidth: "85%" },
-                          chartArea:{width:'85%',top:'30',bottom:'0'}
+                          chartArea:{width:'80%',top:'30',bottom:'0'}
                     };
             
                   var chart = new google.visualization.BarChart(document.getElementById('seoul'));

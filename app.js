@@ -1,13 +1,12 @@
 (function(){
     const config = {
-        apiKey: "AIzaSyA7gHUpEf2ZMeQVNTesS2R5XNlK6cm-clw",
-        authDomain: "corodb-5d4ac.firebaseapp.com",
-        databaseURL: "https://corodb-5d4ac.firebaseio.com",
-        projectId: "corodb-5d4ac",
-        storageBucket: "corodb-5d4ac.appspot.com",
-        messagingSenderId: "1050192511366",
-        appId: "1:1050192511366:web:f0e3fe20cf58562647ec07",
-        measurementId: "G-XJMVTHXBL4"
+        apiKey: "AIzaSyAV4MDYaPt7EIeukEY4U3nOlBW3By60XdU",
+      authDomain: "coro-be6e9.firebaseapp.com",
+      databaseURL: "https://coro-be6e9.firebaseio.com",
+      projectId: "coro-be6e9",
+      storageBucket: "coro-be6e9.appspot.com",
+      messagingSenderId: "794191732681",
+      appId: "1:794191732681:web:5264ba7b0ad1e5950ad218"
     };
     firebase.initializeApp(config);
 

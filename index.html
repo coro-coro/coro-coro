@@ -139,7 +139,8 @@
           ['3/5',  438, 5766,5766,null,null],
           ['3/6',  518, 6284,6284,null,null],
           ['3/7',  483, 6767,6767,null,null],
-          ['3/8',  367, 7134,7134,7134,null]
+          ['3/8',  367, 7134,7134,null,null],
+		      ['3/9',  248, 7382,7382,7382,null]
               ]);
     
               var options = {
@@ -184,13 +185,14 @@
           ['3/5', 47,88,3,35],
           ['3/6', 20,108,7,42],
           ['3/7', 10,118,2,44],
-          ['3/8', 12,130,6,50]
+          ['3/8', 12,130,6,50],
+		      ['3/9', 36,166,1,52]
     
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:150,min:0,interval:10}},
+                vAxis: {viewWindow:{max:200,min:0,interval:10}},
                 seriesType: 'bars',
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5'},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},

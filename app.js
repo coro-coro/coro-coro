@@ -37,6 +37,29 @@
     dbRefObject4.on('value',snap=>{
         preObject4.innerText=JSON.stringify(snap.val(),null,3);
     });
+    
+    
+    const preObject7 = document.getElementById('확진자증감');
+    const dbRefObject7 = firebase.database().ref().child('종합').child('확진자증감');
+
+    dbRefObject7.on('value',snap=>{
+        preObject7.innerText=JSON.stringify(snap.val(),null,3);
+    });
+    
+    const preObject8 = document.getElementById('사망자증감');
+    const dbRefObject8 = firebase.database().ref().child('종합').child('사망자증감');
+
+    dbRefObject8.on('value',snap=>{
+        preObject8.innerText=JSON.stringify(snap.val(),null,3);
+    });
+    
+
+    const preObject9 = document.getElementById('완치자증감');
+    const dbRefObject9 = firebase.database().ref().child('종합').child('완치자증감');
+
+    dbRefObject9.on('value',snap=>{
+        preObject9.innerText=JSON.stringify(snap.val(),null,3);
+    });
 
 
 

@@ -119,39 +119,38 @@
             function drawVisualization() {
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
-                ['날짜', '확진자','누적확진자',{role:'annotation'},'예측 누적확진자',{role:'annotation'}],
-                ['2/22',  229,   433,433, null,null],
-		            ['2/23',  169,   602,602, null,null],
-		            ['2/24',  231,   833,833, null,null],
-		            ['2/25',  144,   977,977,null,null],
-                ['2/26',  284,   1261,1261, null,null],
-		            ['2/27',  505,   1766,1766, null,null],
-		            ['2/28',  571,   2337,2337,null,null],
-		            ['2/29',  813,3150, 3150,null,null],
-		            ['3/1',  586, 3736,3736,null,null],
-		      ['3/2',  476, 4212,4212,null,null],
-          ['3/3',  600, 4812,4812,null,null],
-          ['3/4',  516, 5328,5328,null,null],
-          ['3/5',  438, 5766,5766,null,null],
-          ['3/6',  518, 6284,6284,null,null],
-          ['3/7',  483, 6767,6767,null,null],
-          ['3/8',  367, 7134,7134,null,null],
-		      ['3/9',  248, 7382,7382,null,null],
-		      ['3/10',  131, 7513,7513,null,null],
-		      ['3/11',  242, 7755,7755,7755,null],
-		      ['3/12',  null, null,null,7879,7879],
-		      ['3/13',  null, null,null,8045,8045]
+                ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'},'예측 누적확진자',{role:'annotation'}],
+                ['2/26',  284,284,   1261,1261, null,null],
+		            ['2/27',  505,505,   1766,1766, null,null],
+		            ['2/28',  571,571,   2337,2337,null,null],
+		            ['2/29',  813,813,3150, 3150,null,null],
+		            ['3/1',  586, 586, 3736,3736,null,null],
+		      ['3/2',  476,476, 4212,4212,null,null],
+          ['3/3',  600,600, 4812,4812,null,null],
+          ['3/4',  516,516, 5328,5328,null,null],
+          ['3/5',  438,438, 5766,5766,null,null],
+          ['3/6',  518,518, 6284,6284,null,null],
+          ['3/7',  483,483, 6767,6767,null,null],
+          ['3/8',  367,367, 7134,7134,null,null],
+		      ['3/9',  248,248, 7382,7382,null,null],
+		      ['3/10',  131,131, 7513,7513,null,null],
+		      ['3/11',  242,242, 7755,7755,7755,null],
+		      ['3/12',  null, null, null,null,7879,7879],
+		      ['3/13',  null,  null,null,null,8045,8045]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
                 vAxis: {viewWindow:{max:8500,min:0,interval:200}},
                 seriesType: 'bars',
-                series: {0:{color:'red'}, 1: {type: 'line', color: 'red'},2: {type: 'line', color: '#ffb000'}},
+                series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}, 
+                1: {type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
+                2: {type: 'line', color: '#ffb000', annotations: { stem: {color: 'gray', length: 5  }, textStyle: {fontSize:12 }}}},
                 legend: {position: 'top'},
                 chartArea:{width:'83%'},
                 height:400,
 		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
+     
                 };
     
               var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일

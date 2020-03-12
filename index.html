@@ -123,7 +123,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'},'예측 누적확진자',{role:'annotation'}],
-          ['3/3',  600,600, 4812,4812,null,null],
           ['3/4',  516,516, 5328,5328,null,null],
           ['3/5',  438,438, 5766,5766,null,null],
           ['3/6',  518,518, 6284,6284,null,null],
@@ -131,8 +130,9 @@
           ['3/8',  367,367, 7134,7134,null,null],
 		      ['3/9',  248,248, 7382,7382,null,null],
 		      ['3/10',  131,131, 7513,7513,null,null],
-		      ['3/11',  242,242, 7755,7755,7755,null],
-		      ['3/12',  null, null, null,null,7879,7879]
+		      ['3/11',  242,242, 7755,7755,null,null],
+		      ['3/12',  114,114, 7869,7869,7869,null],
+		      ['3/13',  null, null, null,null,8045,8045]
               ]);
     
               var options = {
@@ -161,7 +161,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '완치자','누적완치자','사망자','누적사망자'],
-          ['3/3', 3,34,6,28],
           ['3/4', 7,41,4,32],
           ['3/5', 47,88,3,35],
           ['3/6', 20,108,7,42],
@@ -169,13 +168,14 @@
           ['3/8', 12,130,6,50],
 		      ['3/9', 36,166,1,52],
 		      ['3/10', 81,247,2,54],
-		      ['3/11', 41,288,6,60]
+		      ['3/11', 41,288,6,60],
+		      ['3/12', 45,333,6,66]
     
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:300,min:0,interval:10}},
+                vAxis: {viewWindow:{max:350,min:0,interval:10}},
                 seriesType: 'bars',
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5'},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},

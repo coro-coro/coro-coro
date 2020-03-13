@@ -131,13 +131,13 @@
 		      ['3/9',  248,248, 7382,7382,null,null],
 		      ['3/10',  131,131, 7513,7513,null,null],
 		      ['3/11',  242,242, 7755,7755,null,null],
-		      ['3/12',  114,114, 7869,7869,7869,null],
-		      ['3/13',  null, null, null,null,8045,8045]
+		      ['3/12',  114,114, 7869,7869,null,null],
+		      ['3/13',  110, 110, 7979,7979,7979,null]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:8500,min:0,interval:200}},
+                vAxis: {viewWindow:{max:8500,min:0,interval:500}},
                 seriesType: 'bars',
                 series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}, 
                 1: {type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
@@ -169,13 +169,14 @@
 		      ['3/9', 36,166,1,52],
 		      ['3/10', 81,247,2,54],
 		      ['3/11', 41,288,6,60],
-		      ['3/12', 45,333,6,66]
+		      ['3/12', 45,333,6,66],
+		      ['3/13', 177,510,1,67]
     
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:350,min:0,interval:10}},
+                vAxis: {viewWindow:{max:600,min:0,interval:100}},
                 seriesType: 'bars',
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5'},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},

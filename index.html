@@ -133,7 +133,8 @@
 		      ['3/11',  242,242, 7755,7755],
 		      ['3/12',  114,114, 7869,7869],
 		      ['3/13',  110, 110, 7979,7979],
-		      ['3/14',  107, 107, 8086,8086]
+		      ['3/14',  107, 107, 8086,8086],
+		      ['3/15',  76, 76, 8162,8162],
               ]);
     
               var options = {
@@ -145,7 +146,7 @@
                 },
                 legend: {position: 'top'},
                 chartArea:{width:'90%',left:'10%'},
-                height:400,
+                height:450,
 		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
      
                 };
@@ -172,13 +173,14 @@
 		      ['3/11', 41,288,6,60],
 		      ['3/12', 45,333,6,66],
 		      ['3/13', 177,510,1,67],
-		      ['3/14', 204,714,5,72]
+		      ['3/14', 204,714,5,72],
+		      ['3/15', 120,834,3,75]
     
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:800,min:0,interval:100}},
+                vAxis: {viewWindow:{max:1000,min:0,interval:100}},
                 seriesType: 'bars',
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5'},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},

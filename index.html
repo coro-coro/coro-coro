@@ -123,9 +123,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'}],
-          ['3/5',  438,438, 5766,5766],
-          ['3/6',  518,518, 6284,6284],
-          ['3/7',  483,483, 6767,6767],
           ['3/8',  367,367, 7134,7134],
 		      ['3/9',  248,248, 7382,7382],
 		      ['3/10',  131,131, 7513,7513],
@@ -135,7 +132,8 @@
 		      ['3/14',  107, 107, 8086,8086],
 		      ['3/15',  76, 76, 8162,8162],
 		      ['3/16',  74, 74, 8236,8236],
-		      ['3/17',  84, 84, 8320,8320]
+		      ['3/17',  84, 84, 8320,8320],
+		      ['3/18',  93, 93, 8413,8413]
               ]);
     
               var options = {
@@ -164,9 +162,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '완치자','누적완치자',{role:'annotation'},'사망자','누적사망자'],
-          ['3/5', 47,88,88,3,35],
-          ['3/6', 20,108,108,7,42],
-          ['3/7', 10,118,118,2,44],
           ['3/8', 12,130,130,6,50],
 		      ['3/9', 36,166,166,1,52],
 		      ['3/10', 81,247,247,2,54],
@@ -176,13 +171,14 @@
 		      ['3/14', 204,714,714,5,72],
 		      ['3/15', 120,834,834,3,75],
 		      ['3/16', 303,1137,1137,0,75],
-		      ['3/17', 264,1401,1401,6,81]
+		      ['3/17', 264,1401,1401,6,81],
+		      ['3/18', 139,1540,1540,3,84]
     
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:1500,min:0,interval:500}},
+                vAxis: {viewWindow:{max:1600,min:0,interval:500}},
                 seriesType: 'bars',
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},2:{color:'#2c2c2c'}},
                 legend: {position: 'top'},

@@ -123,7 +123,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'}],
-          ['3/8',  367,367, 7134,7134],
 		      ['3/9',  248,248, 7382,7382],
 		      ['3/10',  131,131, 7513,7513],
 		      ['3/11',  242,242, 7755,7755],
@@ -139,7 +138,7 @@
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:8500,min:0,interval:500}},
+                vAxis: {viewWindow:{max:9000,min:0,interval:1000}},
                 seriesType: 'bars',
                 series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}, 
                 1: {type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
@@ -163,7 +162,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                 ['날짜', '완치자','누적완치자',{role:'annotation'},'사망자','누적사망자'],
-          ['3/8', 12,130,130,6,50],
 		      ['3/9', 36,166,166,1,52],
 		      ['3/10', 81,247,247,2,54],
 		      ['3/11', 41,288,288,6,60],

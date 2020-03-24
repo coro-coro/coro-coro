@@ -123,7 +123,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'}],
-		      ['3/12',  114,114, 7869,7869],
 		      ['3/13',  110, 110, 7979,7979],
 		      ['3/14',  107, 107, 8086,8086],
 		      ['3/15',  76, 76, 8162,8162],
@@ -134,12 +133,13 @@
 		      ['3/20',  87, 87, 8652,8652],
 		      ['3/21',  147, 147, 8799,8799],
 		      ['3/22',  98, 98, 8897,8897],
-		      ['3/23',  64, 64, 8961,8961]
+		      ['3/23',  64, 64, 8961,8961],
+		      ['3/24',  76, 76, 9037,9037]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:9000,min:0,interval:1000}},
+                vAxis: {viewWindow:{max:9500,min:0,interval:1000}},
                 seriesType: 'bars',
                 series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}, 
                 1: {type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
@@ -174,13 +174,14 @@
 		      ['3/20', 286,2233,2233,3,94],
 		      ['3/21', 379,2612,2612,8,102],
 		      ['3/22', 297,2909,2909,2,104],
-		      ['3/23', 257,3166,3166,7,111]
+		      ['3/23', 257,3166,3166,7,111],
+		      ['3/24', 341,3507,3507,9,120]
 
               ]);	
 
               var options = {	
                 hAxis: {title: '날짜'},	
-                vAxis: {viewWindow:{max:3000,min:0,interval:500}},	
+                vAxis: {viewWindow:{max:4000,min:0,interval:500}},	
                 seriesType: 'bars',	
                 series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},2:{color:'#2c2c2c'}},	
                 legend: {position: 'top'},	

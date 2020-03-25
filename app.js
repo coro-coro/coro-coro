@@ -159,7 +159,7 @@
             return b[1]-a[1];
         });
 
-        console.log(items);
+        console.log(items[0]);
         // var aux = 'na';
         // for (key in json){
         //     if (aux=='na'){

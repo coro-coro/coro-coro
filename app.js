@@ -149,6 +149,9 @@
     dbRefObject6.on('value',snap=>{
         preObject6.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject6.innerText)
+        json.sort(function(a,b){
+            return b-a;
+        });
         for (key in json){
             console.log('key:' + key + ' / ' + 'value:' + json[key])
         }

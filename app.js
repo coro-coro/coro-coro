@@ -61,6 +61,13 @@
         preObject9.innerText=JSON.stringify(snap.val(),null,3);
     });
 
+    const preObject10 = document.getElementById('유증상자증감');
+    const dbRefObject10 = firebase.database().ref().child('종합').child('유증상자증감');
+
+    dbRefObject10.on('value',snap=>{
+        preObject10.innerText=JSON.stringify(snap.val(),null,3);
+    });
+
 
 
     const preObject5 = document.getElementById('지역별');

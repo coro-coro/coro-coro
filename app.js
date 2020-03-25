@@ -158,8 +158,14 @@
         items.sort(function(a,b){
             return b[1]-a[1];
         });
-
         console.log(items[0]);
+        console.log(items[0][1]);
+        for (var i=0;i<items.length;i++){
+            lst.push([items[i][0],items[i][1],items[i][1]])
+        }
+        console.log(lst);
+        console.log(lst[1]);
+        console.log(lst[2]);
         // var aux = 'na';
         // for (key in json){
         //     if (aux=='na'){

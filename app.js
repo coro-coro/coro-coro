@@ -76,48 +76,25 @@
     dbRefObject5.on('value',snap=>{
         preObject5.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject5.innerText)
-        for (key in json){
-            console.log('key:' + key + ' / ' + 'value:' + json[key])
+        var lst = [["Title","전체", {role:'annotation'}]];
+        var items = Object.keys(json).map(function(key){
+            return [key,json[key]];
+        });
+
+        items.sort(function(a,b){
+            return b[1]-a[1];
+        });
+        for (var i=0;i<items.length;i++){
+            if (items[i][0].includes('증감')||items[i][0].includes('검역')){
+                continue;
+            }
+            lst.push([items[i][0],items[i][1],items[i][1]])
         }
         google.charts.load('current', {'packages':['bar','corechart']});
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 
                 function schedulerSuccessAndFailChart() {
-                    var data = google.visualization.arrayToDataTable([
-                          ["Title","전체", {role:'annotation'}],
-                          ['대구', json['대구'], json['대구']],
-                            ['경북',json['경북'], json['경북']],
-                         ['경기', json['경기'], json['경기']],
-                        ['서울', json['서울'], json['서울']],
-                           
-                            
-                            ['충남', json['충남'], json['충남']],
-                            ['부산', json['부산'], json['부산']],
-                            
-                            ['경남', json['경남'], json['경남']],
-                        ['세종', json['세종'], json['세종']],
-                        ['울산', json['울산'], json['울산']],
-                        ['충북', json['충북'], json['충북']],
-                        ['인천', json['인천'], json['인천']],
-                        
-                        ['강원', json['강원'], json['강원']],
-                        
-                            
-                         
-                            
-                            ['대전', json['대전'], json['대전']],
-                            ['광주', json['광주'], json['광주']],
-                            
-                            
-                           
-                         
-                            ['전북', json['전북'], json['전북']],
-                       
-                            ['전남', json['전남'], json['전남']],
-                        ['제주', json['제주'], json['제주']]
-                              
-                  ]);
-            
+                    var data = google.visualization.arrayToDataTable(lst);
                   var barChartOption = {
                           bars: 'vertical',
                           height :400,
@@ -150,7 +127,6 @@
         preObject6.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject6.innerText)
         var lst = [["Title","전체", {role:'annotation'}]];
-        console.log(json);
         var items = Object.keys(json).map(function(key){
             return [key,json[key]];
         });
@@ -158,26 +134,9 @@
         items.sort(function(a,b){
             return b[1]-a[1];
         });
-        console.log(items[0]);
-        console.log(items[0][1]);
         for (var i=0;i<items.length;i++){
             lst.push([items[i][0],items[i][1],items[i][1]])
         }
-        console.log(lst);
-        console.log(lst[1]);
-        console.log(lst[2]);
-        // var aux = 'na';
-        // for (key in json){
-        //     if (aux=='na'){
-        //         aux = key;
-        //         lst.append([key,json[key],json[key]]);
-        //         continue;
-        //     }
-        //     var temp = json[key];
-        //     while(aux)
-
-        //     console.log('key:' + key + ' / ' + 'value:' + json[key])
-        // }
         google.charts.load('current', {'packages':['bar','corechart']});
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 

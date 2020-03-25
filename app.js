@@ -182,45 +182,7 @@
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 
                 function schedulerSuccessAndFailChart() {
-                    var data = google.visualization.arrayToDataTable([
-                          ["Title","전체", {role:'annotation'}],
-                        ['동대문구', json['동대문구'],json['동대문구']],
-                        ['구로구', json['구로구'],json['구로구']],
-                        ["관악구", json['관악구'],json['관악구']],
-                        
-                        ['송파구', json['송파구'],json['송파구']],
-                        
-                          ['노원구', json['노원구'],json['노원구']],
-                        ['은평구', json['은평구'],json['은평구']],
-                        ["강남구", json['강남구'],json['강남구']],
-                        ["강서구", json['강서구'],json['강서구']],
-                        ['양천구', json['양천구'],json['양천구']],
-                        ['영등포구', json['영등포구'],json['영등포구']],
-                        ['마포구', json['마포구'],json['마포구']],
-                          ['종로구', json['종로구'],json['종로구']],
-                        
-                        ['성북구', json['성북구'],json['성북구']],
-                        ['동작구', json['동작구'],json['동작구']],
-                        ['서초구', json['서초구'],json['서초구']],
-                        ['서대문구', json['서대문구'],json['서대문구']],
-                        ["강동구", json['강동구'],json['강동구']],
-                            ['금천구', json['금천구'],json['금천구']],
-                        ['중랑구', json['중랑구'],json['중랑구']],
-                            
-                            ['성동구', json['성동구'],json['성동구']],
-                             
-                            ['광진구', json['광진구'],json['광진구']],
-                            
-                           
-                            
-                            
-                        
-                            ['도봉구', json['도봉구'],json['도봉구']]
-                            
-                            
-                            
-                            
-                  ]);
+                    var data = google.visualization.arrayToDataTable(lst);
             
                   var barChartOption = {
                           bars: 'vertical',

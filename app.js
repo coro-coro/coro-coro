@@ -150,7 +150,8 @@
         preObject6.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject6.innerText)
         var lst = [["Title","전체", {role:'annotation'}]];
-        console.log(json)
+        console.log(json);
+        console.log(json[1]);
         // var aux = 'na';
         // for (key in json){
         //     if (aux=='na'){

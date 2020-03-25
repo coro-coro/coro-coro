@@ -112,10 +112,17 @@
         <!--감염추이-->
         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-            <h5 style="color:black"><b> 감염 추이</b></h5>              
+            <h5 style="color:black"><b>감염 추이(최근10일)</b></h5>   
+            <h6 style="color:black"><b>&nbsp;&nbsp;누적감염</b></h6>           
             <div id="current" style="width: 100%;height:400%;"></div>
-	    <div id="curedead" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;일자별 신규감염</b></h6>
+            <div id="daily" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;완치자추이</b></h6>
+            <div id="cure" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;사망자추이</b></h6>
+            <div id="dead" style="width: 100%;height:400%;"></div>
           </div></div>
+
           <script>
             google.charts.load('current', {'packages':['corechart']}); //id통일
             google.charts.setOnLoadCallback(drawVisualization);
@@ -123,36 +130,70 @@
             function drawVisualization() {
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
-                 ['날짜', '확진자',{role:'annotation'},'누적확진자',{role:'annotation'}],
-		      ['3/14',  107, 107, 8086,8086],
-		      ['3/15',  76, 76, 8162,8162],
-		      ['3/16',  74, 74, 8236,8236],
-		      ['3/17',  84, 84, 8320,8320],
-		      ['3/18',  93, 93, 8413,8413],
-		      ['3/19',  152, 152, 8565,8565],
-		      ['3/20',  87, 87, 8652,8652],
-		      ['3/21',  147, 147, 8799,8799],
-		      ['3/22',  98, 98, 8897,8897],
-		      ['3/23',  64, 64, 8961,8961],
-		      ['3/24',  76, 76, 9037,9037],
-		      ['3/25',  100, 100, 9137,9137]
+                 ['날짜','누적확진자',{role:'annotation'}],
+                  ['3/16',  8236,8236],
+                  ['3/17',  8320,8320],
+                  ['3/18',  8413,8413],
+                  ['3/19',  8565,8565],
+                  ['3/20',  8652,8652],
+                  ['3/21',  8799,8799],
+                  ['3/22',  8897,8897],
+                  ['3/23',  8961,8961],
+                  ['3/24',  9037,9037],
+                  ['3/25',  9137,9137]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:9500,min:0,interval:1000}},
+                vAxis: {viewWindow:{max:9500,min:8000,interval:500}},
                 seriesType: 'bars',
-                series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}, 
-                1: {type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
+                series: {0:{type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
                 },
-                legend: {position: 'top'},
+                legend: {position: 'None'},
                 chartArea:{width:'90%',left:'10%'},
-                height:450,
+                height:300,
 		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
      
                 };
     
               var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
+              chart.draw(data, options);
+            }
+          </script>
+          <script>
+            google.charts.load('current', {'packages':['corechart']}); //id통일
+            google.charts.setOnLoadCallback(drawVisualization);
+    
+            function drawVisualization() {
+              // Some raw data (not necessarily accurate)
+              var data = google.visualization.arrayToDataTable([
+                 ['날짜', '확진자',{role:'annotation'}],
+                  ['3/16',  74, 74],
+                  ['3/17',  84, 84],
+                  ['3/18',  93, 93],
+                  ['3/19',  152, 152],
+                  ['3/20',  87, 87],
+                  ['3/21',  147, 147],
+                  ['3/22',  98, 98],
+                  ['3/23',  64, 64],
+                  ['3/24',  76, 76],
+                  ['3/25',  100, 100]
+              ]);
+    
+              var options = {
+                hAxis: {title: '날짜'},
+                vAxis: {viewWindow:{max:500,min:0,interval:100}},
+                seriesType: 'bars',
+                series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}
+                },
+                legend: {position: 'None'},
+                chartArea:{width:'90%',left:'10%'},
+                height:300,
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
+     
+                };
+    
+              var chart = new google.visualization.ComboChart(document.getElementById('daily')); //id통일
               chart.draw(data, options);
             }
           </script>

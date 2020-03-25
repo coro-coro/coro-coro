@@ -149,12 +149,20 @@
     dbRefObject6.on('value',snap=>{
         preObject6.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject6.innerText)
-        json.sort(function(a,b){
-            return b-a;
-        });
-        for (key in json){
-            console.log('key:' + key + ' / ' + 'value:' + json[key])
-        }
+        var lst = [["Title","전체", {role:'annotation'}]];
+        console.log(json)
+        // var aux = 'na';
+        // for (key in json){
+        //     if (aux=='na'){
+        //         aux = key;
+        //         lst.append([key,json[key],json[key]]);
+        //         continue;
+        //     }
+        //     var temp = json[key];
+        //     while(aux)
+
+        //     console.log('key:' + key + ' / ' + 'value:' + json[key])
+        // }
         google.charts.load('current', {'packages':['bar','corechart']});
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 

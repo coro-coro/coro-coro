@@ -151,7 +151,15 @@
         var json = JSON.parse(preObject6.innerText)
         var lst = [["Title","전체", {role:'annotation'}]];
         console.log(json);
-        console.log(json[1]);
+        var items = Object.keys(json).map(function(key){
+            return [key,json[key]];
+        });
+
+        items.sort(function(a,b){
+            return b[1]-a[1];
+        });
+
+        console.log(json);
         // var aux = 'na';
         // for (key in json){
         //     if (aux=='na'){

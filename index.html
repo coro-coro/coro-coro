@@ -204,19 +204,17 @@
             function drawVisualization() {	
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
-                ['날짜', '완치자','누적완치자',{role:'annotation'},'사망자','누적사망자'],				
-		      ['3/14', 204,714,714,5,72],	
-		      ['3/15', 120,834,834,3,75],	
-		      ['3/16', 303,1137,1137,0,75],	
-		      ['3/17', 264,1401,1401,6,81],	
-		      ['3/18', 139,1540,1540,3,84],	
-		      ['3/19', 407,1947,1947,7,91],
-		      ['3/20', 286,2233,2233,3,94],
-		      ['3/21', 379,2612,2612,8,102],
-		      ['3/22', 297,2909,2909,2,104],
-		      ['3/23', 257,3166,3166,7,111],
-		      ['3/24', 341,3507,3507,9,120],
-		      ['3/25', 223,3730,3730,6,126]
+                ['날짜', '완치자',{role:'annotation'},'누적완치자',{role:'annotation'}],					
+                ['3/16', 303,303,1137,1137],	
+                ['3/17', 264,264,1401,1401],	
+                ['3/18', 139,139,1540,1540],	
+                ['3/19', 407,407,1947,1947],
+                ['3/20', 286,286,2233,2233],
+                ['3/21', 379,379,2612,2612],
+                ['3/22', 297,297,2909,2909],
+                ['3/23', 257,257,3166,3166],
+                ['3/24', 341,341,3507,3507],
+                ['3/25', 223,223,3730,3730]
 
               ]);	
 
@@ -224,14 +222,52 @@
                 hAxis: {title: '날짜'},	
                 vAxis: {viewWindow:{max:4000,min:0,interval:500}},	
                 seriesType: 'bars',	
-                series: {3: {type: 'line', color: '#2c2c2c'},0: {color:'#6593F5'},1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},2:{color:'#2c2c2c'}},	
+                series: {0: {color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
+                        1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
                 legend: {position: 'top'},	
                 chartArea:{width:'90%',left:'10%'},	
                 height:400,	
 		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}	
                 };	
 
-              var chart = new google.visualization.ComboChart(document.getElementById('curedead')); //id통일	
+              var chart = new google.visualization.ComboChart(document.getElementById('cure')); //id통일	
+              chart.draw(data, options);	
+            }	
+      </script>
+      <script>	
+		    google.charts.load('current', {'packages':['corechart']}); //id통일	
+            google.charts.setOnLoadCallback(drawVisualization);	
+
+            function drawVisualization() {	
+              // Some raw data (not necessarily accurate)	
+              var data = google.visualization.arrayToDataTable([	
+                ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],				
+                ['3/16', 0,0,75,75],	
+                ['3/17', 6,6,81,81],	
+                ['3/18', 3,3,84,84],	
+                ['3/19', 7,7,91,91],
+                ['3/20', 3,3,94,94],
+                ['3/21', 8,8,102,102],
+                ['3/22', 2,2,104,104],
+                ['3/23', 7,7,111,111],
+                ['3/24', 9,9,120,120],
+                ['3/25', 6,6,126,126]
+
+              ]);	
+
+              var options = {	
+                hAxis: {title: '날짜'},	
+                vAxis: {viewWindow:{max:150,min:0,interval:50}},	
+                seriesType: 'bars',	
+                series: {0:{color:'#2c2c2c',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
+                        1: {type: 'line', color: '#2c2c2c',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
+                legend: {position: 'top'},	
+                chartArea:{width:'90%',left:'10%'},	
+                height:400,	
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}	
+                };	
+
+              var chart = new google.visualization.ComboChart(document.getElementById('dead')); //id통일	
               chart.draw(data, options);	
             }	
 	    </script>

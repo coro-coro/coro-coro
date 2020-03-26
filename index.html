@@ -42,14 +42,14 @@
       <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
         <div class="nav">
           <a href="/location.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">확진자 방문장소</a>
-          <a class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">휴일당번 약국</a>
+          <a class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;opacity: 0.7;">휴일당번 약국</a>
           <a href="/church.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">전국 신천지 위치</a>
           <a href="/" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">분석</a>
           <a href="/jebo.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">제보하기</a>
         </div>
       </div>
       <div style="display: block;padding: 0px 10px 10px 0px;position: absolute; right:0px;">
-        <p style="font-size:12px;">*출처: 질병관리본부</p>
+        <p style="font-size:12px;text-align:right;">*출처: 질병관리본부<br>*최근 업데이트 : 지역별 감염 증감, 국외 감염 현황 추가</p>
       </div>
 
 
@@ -287,16 +287,77 @@
           </div></div> -->
 
           <!--지역별(googlechart)-->
+
+
           <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <h5 style="color:black; margin-bottom:0px;"><b> 지역별 감염현황</b></h5>                                   
               <!-- <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p> -->
               <div id="region" style="width: 100%;height:400%;"></div>
               <pre class="w3-hide" id="지역별"></pre>
-              <h6 style="color:black; margin-bottom:0px;"><b><br> &nbsp;&nbsp;서울시 구별 감염현황</b></h6> 
+             
+            <!-- <div class="w3-row-padding" style="padding-top:40px;padding-bottom:10px;">
+            <div class="w3-col s2">
+              <button  class="w3-btn" style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer;' onclick="currentDiv(1)">서울</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(2)">대구</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(3)">경북</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(4)">경기</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(1)">충남</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(1)">부산/경남</button>
+            </div>
+          </div>
+          <div class="w3-container" id="apartment">
+            <div class="w3-display-container mySlides" style="display: block;">
+              <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;서울시 구별 감염현황</b></h6> 
               <div id="seoul" style="width: 100%;height:400%;"></div>
               <pre class="w3-hide" id="서울지역별"></pre>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+          </div>-->
+
+              <h6 style="color:black; margin-bottom:0px;"><b><br>&nbsp;&nbsp;서울시 구별 감염현황</b></h6> 
+              <div id="seoul" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="서울지역별"></pre>
+
           </div></div>
+
+          <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black; margin-bottom:0px;"><b> 국외 감염현황</b></h5>                                   
+              <!-- <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p> -->
+              <div id="foreign" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="외국"></pre>
+            </div></div>
           <script src="app.js"></script>
         
           <!--hospital_plot-->
@@ -736,6 +797,27 @@
                   .text(function(d) { return d.text; });
               }
             });
+            function currentDiv(n) {
+              showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+              }
+              x[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " w3-opacity-off";
+            }
+
+
         </script>
         <!-------------------------------------javascript부분--------------------------------------->
         </body>

@@ -76,7 +76,7 @@
     dbRefObject5.on('value',snap=>{
         preObject5.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject5.innerText)
-        var lst = [["Title","전체", {role:'annotation'}]];
+        var lst = [["Title","감염자수", {role:'annotation'}]];
         var items = Object.keys(json).map(function(key){
             return [key,json[key]];
         });
@@ -88,7 +88,10 @@
             if (items[i][0].includes('증감')||items[i][0].includes('검역')){
                 continue;
             }
-            lst.push([items[i][0],items[i][1],items[i][1]])
+            var s = items[i][0].concat('증감');
+            console.log(s);
+            console.log((items[i][1].toString().concat('(','+',json[s].toString(),')')));
+            lst.push([items[i][0],items[i][1],(items[i][1].toString().concat('(','+',json[s].toString(),')'))]);
         }
         google.charts.load('current', {'packages':['bar','corechart']});
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
@@ -126,7 +129,7 @@
     dbRefObject6.on('value',snap=>{
         preObject6.innerText=JSON.stringify(snap.val(),null,3);
         var json = JSON.parse(preObject6.innerText)
-        var lst = [["Title","전체", {role:'annotation'}]];
+        var lst = [["Title","감염자수", {role:'annotation'}]];
         var items = Object.keys(json).map(function(key){
             return [key,json[key]];
         });
@@ -162,6 +165,54 @@
                     };
             
                   var chart = new google.visualization.BarChart(document.getElementById('seoul'));
+            
+                  chart.draw(data, barChartOption);
+                  
+                }
+    });
+
+    const preObject11 = document.getElementById('외국');
+    const dbRefObject11 = firebase.database().ref().child('전세계확진자수');
+
+    dbRefObject11.on('value',snap=>{
+        preObject11.innerText=JSON.stringify(snap.val(),null,3);
+        var json = JSON.parse(preObject11.innerText)
+        var lst = [["Title","감염자수", {role:'annotation'}]];
+        var items = Object.keys(json).map(function(key){
+            return [key,json[key]];
+        });
+
+        items.sort(function(a,b){
+            return b[1]-a[1];
+        });
+        for (var i=0;i<items.length;i++){
+            lst.push([items[i][0],items[i][1],items[i][1]])
+        }
+        google.charts.load('current', {'packages':['bar','corechart']});
+            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
+
+                function schedulerSuccessAndFailChart() {
+                    var data = google.visualization.arrayToDataTable(lst);
+            
+                  var barChartOption = {
+                          bars: 'vertical',
+                          height :450,
+                          vAxis:{textStyle:{fontSize:11}},
+                          hAxis:{textStyle:{fontSize:11}},
+                          legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
+                          colors: ['#04355e'],// '#5e64c1','#d3e9ff'
+                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
+                          annotations: {
+                              textStyle: {
+                                fontSize: 13,
+                                color: 'gray'
+                              }
+                          },
+                          bar: { groupWidth: "85%" },
+                          chartArea:{width:'70%',top:'30',bottom:'0'}
+                    };
+            
+                  var chart = new google.visualization.BarChart(document.getElementById('foreign'));
             
                   chart.draw(data, barChartOption);
                   

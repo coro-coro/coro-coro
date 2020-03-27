@@ -90,8 +90,8 @@
             }
             var s = items[i][0].concat('증감');
             console.log(s);
-            console.log((items[i][1].toString().concat('(','+',json[s].toString(),')')));
-            lst.push([items[i][0],items[i][1],(items[i][1].toString().concat('(','+',json[s].toString(),')'))]);
+            console.log((items[i][1].toString().concat(json[s].toString())));
+            lst.push([items[i][0],items[i][1],(items[i][1].toString().concat(json[s].toString()))]);
         }
         google.charts.load('current', {'packages':['bar','corechart']});
             google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);

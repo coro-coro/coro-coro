@@ -131,7 +131,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜','누적확진자',{role:'annotation'}],
-                  ['3/19',  8565,8565],
                   ['3/20',  8652,8652],
                   ['3/21',  8799,8799],
                   ['3/22',  8897,8897],
@@ -140,12 +139,14 @@
                   ['3/25',  9137,9137],
                   ['3/26',  9241,9241],
 		  ['3/27',  9332,9332],
-		      ['3/28',  9478,9478]
+		      ['3/28',  9478,9478],
+                  ['3/29',  9583,9583]
+
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:9500,min:8000,interval:500}},
+                vAxis: {viewWindow:{max:10000,min:8000,interval:500}},
                 seriesType: 'bars',
                 series: {0:{type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
                 },
@@ -168,7 +169,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜', '확진자',{role:'annotation'}],
-                  ['3/19',  152, 152],
                   ['3/20',  87, 87],
                   ['3/21',  147, 147],
                   ['3/22',  98, 98],
@@ -177,7 +177,8 @@
                   ['3/25',  100, 100],
                   ['3/26',  104,104],
 		  ['3/27',  91, 91],
-		  ['3/28',  146, 146]
+		  ['3/28',  146, 146],
+                  ['3/29',  105, 105],
               ]);
     
               var options = {
@@ -205,7 +206,6 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '완치자',{role:'annotation'},'누적완치자',{role:'annotation'}],					
-                ['3/19', 407,407,1947,1947],
                 ['3/20', 286,286,2233,2233],
                 ['3/21', 379,379,2612,2612],
                 ['3/22', 297,297,2909,2909],
@@ -214,12 +214,13 @@
                 ['3/25', 223,223,3730,3730],
                 ['3/26', 414,414,4144,4144],
                 ['3/27', 384,384,4528,4528],
-		['3/28', 283,283,4811,4811]
+		['3/28', 283,283,4811,4811],
+                ['3/29', 222,222,5033,5033]
               ]);	
 
               var options = {	
                 hAxis: {title: '날짜'},	
-                vAxis: {viewWindow:{max:5000,min:0,interval:500}},	
+                vAxis: {viewWindow:{max:6000,min:0,interval:2000}},	
                 seriesType: 'bars',	
                 series: {0: {color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
                         1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
@@ -241,7 +242,6 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],					
-                ['3/19', 7,7,91,91],
                 ['3/20', 3,3,94,94],
                 ['3/21', 8,8,102,102],
                 ['3/22', 2,2,104,104],
@@ -250,7 +250,8 @@
                 ['3/25', 6,6,126,126],
                 ['3/16', 5,5,131,131],
                 ['3/27', 8,8,139,139],
-                ['3/28', 5,5,144,144]
+                ['3/28', 5,5,144,144],
+                ['3/29', 8,8,152,152]
               ]);	
 
               var options = {	

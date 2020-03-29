@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/css/w3style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -18,7 +21,7 @@
 
       </head>
     <style>
-        body, h1,h2,h3,h4,h5,h6,p {font-family: 'Nanum Gothic', sans-serif;}
+        body, h1,h2,h3,h4,h5,h6,p,pre {font-family: 'Nanum Gothic', sans-serif;}
         /*.w3-row-padding img {margin-bottom: 12px}
         /* Set the width of the sidebar to 120px */
         @media only screen and (max-width: 600px) {#main {margin-left: 0}}
@@ -30,6 +33,7 @@
     <body class="w3-white">
       <div class="nav">
         <a href="/location.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">확진자 방문장소</a> 
+        <a class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px; opacity: 0.7;">휴일당번 약국</a> 
         <a href="/church.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">전국 신천지 위치</a> 
         <a href="/" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">분석</a>
         <a href="/jebo.html" class="w3-bar-item w3-button w3-text-white w3-hover-black w3-padding-large w3-hide-small" style="text-align:center; width:50% !important; font-size:16px;">제보하기</a> 
@@ -37,14 +41,15 @@
       <!--Navbar on small screens (Hidden on medium and large screens) -->
       <div class="w3-black w3-hide-large w3-hide-medium" id="myNavbar">
         <div class="nav">
-          <a href="/location.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">확진자 방문장소</a>
-          <a href="/church.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">전국 신천지 위치</a>
-          <a href="/" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">분석</a>
-          <a href="/jebo.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:12px;">제보하기</a>
+          <a href="/location.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">확진자 방문장소</a>
+          <a class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;opacity: 0.7;">휴일당번 약국</a>
+          <a href="/church.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">전국 신천지 위치</a>
+          <a href="/" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">분석</a>
+          <a href="/jebo.html" class="w3-bar-item w3-button" style="width:25% !important; font-size:10px;padding:10px 0px;">제보하기</a>
         </div>
       </div>
       <div style="display: block;padding: 0px 10px 10px 0px;position: absolute; right:0px;">
-        <p style="font-size:12px;">*출처: 질병관리본부</p>
+        <p style="font-size:12px;text-align:right;">*출처: 질병관리본부<br>최근 업데이트 : 지역별 감염 증감, 국외 감염 현황 추가</p>
       </div>
 
 
@@ -56,8 +61,9 @@
                 <div class="w3-quarter">
                   <div class="w3-container w3-padding-16" style="background-color: #B80F0A; opacity: .7;">
                     <div class="w3-left w3-padding-16"><h2>확진자</h2></div>
-                    <div class="w3-right w3-padding-16">
-                      <h3>3,736</h3>
+                    <div class="w3-right w3-padding-16" style="text-align:center;">
+			    <h3 style="margin:0px"><pre style="margin:0px" id="확진자"></pre></h3>
+			    <p style="margin:0px;display:inline">(+<pre style="margin:0px;display:inline" id="확진자증감"></pre>)</p>
                     </div>
                     <div class="w3-clear"></div>
                   </div>
@@ -65,8 +71,9 @@
                 <div class="w3-quarter">
                   <div class="w3-container w3-padding-16" style="background-color: #9DC183; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>완치자</h2></div>
-                          <div class="w3-right w3-padding-16">
-                            <h3>30</h3>
+                          <div class="w3-right w3-padding-16" style="text-align:center;">
+                            <h3 style="margin:0px"><pre style="margin:0px" id="완치자"></pre></h3>
+			    <p style="margin:0px;display:inline">(+<pre style="margin:0px;display:inline" id="완치자증감"></pre>)</p>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -74,17 +81,19 @@
                 <div class="w3-quarter">
                   <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .7;">
                         <div class="w3-left w3-padding-16"><h2>사망자</h2></div>
-                          <div class="w3-right w3-padding-16">
-                            <h3>18</h3>
+                          <div class="w3-right w3-padding-16" style="text-align:center;">
+                            <h3 style="margin:0px"><pre style="margin:0px" id="사망자"></pre></h3>
+			    <p style="margin:0px;display:inline">(+<pre style="margin:0px;display:inline" id="사망자증감"></pre>)</p>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
                 </div>
                 <div class="w3-quarter">
-                  <div class="w3-container w3-padding-16" style="background-color: #565656; opacity: .7;">
+                  <div class="w3-container w3-padding-16" style="background-color: #2c2c2c; opacity: .5;">
                         <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
-                          <div class="w3-right w3-padding-16">
-                            <h3>32,422</h3>
+                          <div class="w3-right w3-padding-16" style="text-align:center;">
+                            <h3 style="margin:0px"><pre style="margin:0px" id="유증상자"></pre></h3>
+			    <p style="margin:0px;display:inline">(+<pre style="margin:0px;display:inline" id="유증상자증감"></pre>)</p>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -93,109 +102,27 @@
           </div>  
         </div>
 
-
-        <!--확진자 리스트-->
-        <div class="w3-padding-small" id="main">
+<!--         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify">
-            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1" style="text-align: center;color:black; background-color: rgb(204,204,204);">▼ 확진자 리스트 보기</button>
-          <div id="Demo1" class="w3-hide w3-container">
-            <ul>
-              <li><b>1번확진자: </b>30대 여자, 중국인 관광객 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>2번확진자: </b>50대 남자, 우한 교민 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>3번확진자: </b>50대 남자, 우한 교민 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>4번확진자: </b>50대 남자, 우한 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>5번확진자: </b>30대 남자, 우한 방문자</li>
-              <li><b>6번확진자: </b>50대 남자, 3번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>7번확진자: </b>20대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>8번확진자: </b>60대 여자, 우한 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>9번확진자: </b>20대 여자, 5번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>10번확진자: </b>50대 여자, 6번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>11번확진자: </b>20대 남자, 6번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>12번확진자: </b>40대 남자, 중국인 관광객 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>13번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>14번확진자: </b>40대 여자, 12번 확진자의 가족 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p> </li>
-              <li><b>15번확진자: </b>40대 남자, 우한 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>16번확진자: </b>40대 여자, 태국 방문자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>17번확진자: </b>30대 남자, 싱가폴 방문자 <p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>18번확진자: </b>20대 여자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>19번확진자: </b>30대 남자, 싱가폴 방문자</li>
-              <li><b>20번확진자: </b>40대 여자, 15번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>21번확진자: </b>50대 여자, 6번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>22번확진자: </b>40대 남자, 16번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>23번확진자: </b>50대 여자, 중국인 관광객<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>24번확진자: </b>20대 남자, 우한 교민<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>25번확진자: </b>70대 여자, 26번/27번 확진자의 가족<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>26번확진자: </b>50대 남자,  광둥성 방문자</li>
-              <li><b>27번확진자: </b>30대 여자, 광둥성 방문자</li>
-              <li><b>28번확진자: </b>30대 여자, 3번 확진자의 지인<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>29번확진자: </b>80대 남자, 확인 중</li>
-	      <li><b>30번확진자: </b>60대 여자, 29번 확진자의 가족</li>
-	      <li><b>31번확진자: </b>60대 여자, 확인 중</li>
-	      <li><b>32번확진자: </b>10대 여자, 15번/20번 확진자의 가족</li>
-	      <li><b>33번확진자: </b>40대 여자, 31번 확진자 접족차</li> 
-	      <li><b>34번확진자: </b>20대 남자, 31번 확진자와 같은 교회</li>
-	      <li><b>35번확진자: </b>20대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>36번확진자: </b>40대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>37번확진자: </b>40대 남자, 31번 확진자와 같은 교회<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-	      <li><b>38번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>39번확진자: </b>60대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>40번확진자: </b>70대 남자, 확인 중</li>
-	      <li><b>41번확진자: </b>60대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>42번확진자: </b>20대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>43번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>44번확진자: </b>40대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>45번확진자: </b>50대 여자, 31번 확진자와 같은 교회</li>
-	      <li><b>46번확진자: </b>20대 남자, 확인 중</li>
-	      <li><b>47번확진자: </b>60대 여자, 31번 확진자 접촉자</li>
-	      <li><b>48번확진자: </b>70대 여자, 31번 확진자 접촉자</li>
-	      <li><b>49번확진자: </b>50대 남자, 31번 확진자 접촉자</li>
-	      <li><b>50번확진자: </b>70대 남자, 31번 확진자 접촉자</li>
-	      <li><b>51번확진자: </b>60대 여자, 31번 확진자 접촉자<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-	      <li><b>52번확진자: </b>20대 남자, 확인 중</li>   
-	      <li><b>53번확진자: </b>30대 여자, 확인 중</li> 
-              <li><b>54번확진자: </b>40대 남자, 확인 중</li>   
-	      <li><b>55번확진자: </b>50대 남자, 확인 중</li>
-	      <li><b>56번확진자: </b>70대 남자, 확인 중</li>   
-	      <li><b>57번확진자: </b>30대 남자, 확인 중</li>
-              <li><b>58번확진자: </b>20대 여자, 확인 중</li>   
-	      <li><b>59번확진자: </b>30대 여자, 확인 중</li> 
-              <li><b>60번확진자: </b>50대 여자, 확인 중</li>   
-	      <li><b>61번확진자: </b>50대 여자, 확인 중</li>
-	      <li><b>62번확진자: </b>60대 남자, 확인 중</li>   
-	      <li><b>63번확진자: </b>50대 여자, 확인 중<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li>
-              <li><b>64번확진자: </b>50대 여자, 확인 중</li>   
-	      <li><b>65번확진자: </b>50대 여자, 확인 중<p style="color:green; display: inline-block; margin:0px 0px;">- 퇴원</p></li> 
-              <li><b>66번확진자: </b>20대 남자, 확인 중</li>   
-	      <li><b>67번확진자: </b>30대 여자, 확인 중</li>
-	      <li><b>68번확진자: </b>50대 여자, 확인 중</li>   
-	      <li><b>69번확진자: </b>20대 남자, 확인 중</li>
-              <li><b>70번확진자: </b>40대 여자, 확인 중</li>   
-	      <li><b>71번확진자: </b>50대 여자, 확인 중</li> 
-              <li><b>72번확진자: </b>30대 여자, 확인 중</li>   
-	      <li><b>73번확진자: </b>20대 여자, 확인 중</li>
-	      <li><b>74번확진자: </b>40대 남자, 확인 중</li>   
-	      <li><b>75번확진자: </b>20대 여자, 확인 중</li>
-              <li><b>76번확진자: </b>30대 남자, 확인 중</li>   
-	      <li><b>77번확진자: </b>50대 여자, 확인 중</li> 
-              <li><b>78번확진자: </b>50대 남자, 확인 중</li>   
-	      <li><b>79번확진자: </b>20대 여자, 확인 중</li>
-	      <li><b>80번확진자: </b>30대 여자, 확인 중</li>   
-	      <li><b>81번확진자: </b>60대 여자, 확인 중</li>
-	      <li><b>82번확진자: </b>60대 남자, 확인 중</li>
-	      <li><b>83번확진자 이상: </b>확인 중</li>
-		    
-          </ul>
+            <button onclick="location.href='/phar.html'" class="w3-button w3-block" style="text-align: center;color:white; background-color:	#84cdee;">휴일당번 약국(마스크 판매처) 보러가기</button>
           </div>
-          </div>
-        </div>
+        </div> -->
 
 
         <!--감염추이-->
         <div class="w3-padding-small" id="main">
           <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-            <h5 style="color:black"><b> 감염 추이</b></h5>              
+            <h5 style="color:black"><b>감염 추이(최근10일)</b></h5>   
+            <h6 style="color:black"><b>&nbsp;&nbsp;누적감염</b></h6>           
             <div id="current" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;일자별 신규감염</b></h6>
+            <div id="daily" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;완치자추이</b></h6>
+            <div id="cure" style="width: 100%;height:400%;"></div>
+            <h6 style="color:black"><b>&nbsp;&nbsp;사망자추이</b></h6>
+            <div id="dead" style="width: 100%;height:400%;"></div>
           </div></div>
+
           <script>
             google.charts.load('current', {'packages':['corechart']}); //id통일
             google.charts.setOnLoadCallback(drawVisualization);
@@ -203,41 +130,145 @@
             function drawVisualization() {
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
-                ['날짜', '확진자','누적확진자',{role:'annotation'},'완치자','누적완치자','사망자','예측 누적확진자',{role:'annotation'}],
-                ['2/15',  0,     28,28, 2,9,0,null,null],
-                ['2/16',  1,     29,29, 0,9,0,null,null],
-                ['2/17',  1,     30,30, 1,10,0,null,null],
-                ['2/18',  1,     31,31, 2,12,0,null,null],
-                ['2/19',  20,    51,51, 4,16,0,null,null],
-		            ['2/20',  53,    104,104, 0,16,1,null,null],
-                ['2/21',  100,   204,204,1,17,0,null,null],
-                ['2/22',  229,   433,433, 1,18,1,null,null],
-		            ['2/23',  169,   602,602, 0,18,3,null,null],
-		            ['2/24',  231,   833,833, 4,22,2,null,null],
-		            ['2/25',  144,   977,977, 0,22,3,null,null],
-                ['2/26',  284,   1261,1261, 2,24,4,null,null],
-		            ['2/27',  505,   1766,1766, 2,26,1,null,null],
-		            ['2/28',  571,   2337,2337, 1,27,0,null,null],
-		            ['2/29',  813,3150, 3150,1,28,1,null,null],
-		            ['3/1',  586, 3736,3736,2,30,1,3736,null]
+                 ['날짜','누적확진자',{role:'annotation'}],
+                  ['3/19',  8565,8565],
+                  ['3/20',  8652,8652],
+                  ['3/21',  8799,8799],
+                  ['3/22',  8897,8897],
+                  ['3/23',  8961,8961],
+                  ['3/24',  9037,9037],
+                  ['3/25',  9137,9137],
+                  ['3/26',  9241,9241],
+		  ['3/27',  9332,9332],
+		      ['3/28',  9478,9478]
               ]);
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:4500,min:0,interval:100}},
+                vAxis: {viewWindow:{max:9500,min:8000,interval:500}},
                 seriesType: 'bars',
-                series: {0:{color:'red'}, 1: {type: 'line', color: 'red'},5: {type: 'line', color: '#ffb000'},2: {color:'#6593F5'},3:{type:'line',color:'#6593F5'},4:{color:'#2c2c2c'}},
-                legend: {position: 'top'},
-                chartArea:{width:'83%'},
-                height:400
+                series: {0:{type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
+                },
+                legend: {position: 'None'},
+                chartArea:{width:'90%',left:'10%'},
+                height:300,
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
+     
                 };
     
               var chart = new google.visualization.ComboChart(document.getElementById('current')); //id통일
               chart.draw(data, options);
             }
           </script>
+          <script>
+            google.charts.load('current', {'packages':['corechart']}); //id통일
+            google.charts.setOnLoadCallback(drawVisualization);
+    
+            function drawVisualization() {
+              // Some raw data (not necessarily accurate)
+              var data = google.visualization.arrayToDataTable([
+                 ['날짜', '확진자',{role:'annotation'}],
+                  ['3/19',  152, 152],
+                  ['3/20',  87, 87],
+                  ['3/21',  147, 147],
+                  ['3/22',  98, 98],
+                  ['3/23',  64, 64],
+                  ['3/24',  76, 76],
+                  ['3/25',  100, 100],
+                  ['3/26',  104,104],
+		  ['3/27',  91, 91],
+		  ['3/28',  146, 146]
+              ]);
+    
+              var options = {
+                hAxis: {title: '날짜'},
+                vAxis: {viewWindow:{max:200,min:0,interval:100}},
+                seriesType: 'bars',
+                series: {0:{color:'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { color: 'gray',fontSize:12 }}}
+                },
+                legend: {position: 'None'},
+                chartArea:{width:'90%',left:'10%'},
+                height:300,
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}
+     
+                };
+    
+              var chart = new google.visualization.ComboChart(document.getElementById('daily')); //id통일
+              chart.draw(data, options);
+            }
+          </script>
+	   <script>	
+		    google.charts.load('current', {'packages':['corechart']}); //id통일	
+            google.charts.setOnLoadCallback(drawVisualization);	
 
+            function drawVisualization() {	
+              // Some raw data (not necessarily accurate)	
+              var data = google.visualization.arrayToDataTable([	
+                ['날짜', '완치자',{role:'annotation'},'누적완치자',{role:'annotation'}],					
+                ['3/19', 407,407,1947,1947],
+                ['3/20', 286,286,2233,2233],
+                ['3/21', 379,379,2612,2612],
+                ['3/22', 297,297,2909,2909],
+                ['3/23', 257,257,3166,3166],
+                ['3/24', 341,341,3507,3507],
+                ['3/25', 223,223,3730,3730],
+                ['3/26', 414,414,4144,4144],
+                ['3/27', 384,384,4528,4528],
+		['3/28', 283,283,4811,4811]
+              ]);	
 
+              var options = {	
+                hAxis: {title: '날짜'},	
+                vAxis: {viewWindow:{max:5000,min:0,interval:500}},	
+                seriesType: 'bars',	
+                series: {0: {color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
+                        1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
+                legend: {position: 'top'},	
+                chartArea:{width:'90%',left:'10%'},	
+                height:300,	
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}	
+                };	
+
+              var chart = new google.visualization.ComboChart(document.getElementById('cure')); //id통일	
+              chart.draw(data, options);	
+            }	
+      </script>
+      <script>	
+		    google.charts.load('current', {'packages':['corechart']}); //id통일	
+            google.charts.setOnLoadCallback(drawVisualization);	
+
+            function drawVisualization() {	
+              // Some raw data (not necessarily accurate)	
+              var data = google.visualization.arrayToDataTable([	
+                ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],					
+                ['3/19', 7,7,91,91],
+                ['3/20', 3,3,94,94],
+                ['3/21', 8,8,102,102],
+                ['3/22', 2,2,104,104],
+                ['3/23', 7,7,111,111],
+                ['3/24', 9,9,120,120],
+                ['3/25', 6,6,126,126],
+                ['3/16', 5,5,131,131],
+                ['3/27', 8,8,139,139],
+                ['3/28', 5,5,144,144]
+              ]);	
+
+              var options = {	
+                hAxis: {title: '날짜'},	
+                vAxis: {viewWindow:{max:150,min:0,interval:50}},	
+                seriesType: 'bars',	
+                series: {0:{color:'#2c2c2c',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
+                        1: {type: 'line', color: '#2c2c2c',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
+                legend: {position: 'top'},	
+                chartArea:{width:'90%',left:'10%'},	
+                height:300,	
+		crosshair: { trigger: 'focus',orientation: 'vertical',focused: { color: 'gray' ,opacity:'0.8'}}	
+                };	
+
+              var chart = new google.visualization.ComboChart(document.getElementById('dead')); //id통일	
+              chart.draw(data, options);	
+            }	
+	    </script>
           <!--date_plot-->
           <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
@@ -254,71 +285,79 @@
           </div></div> -->
 
           <!--지역별(googlechart)-->
+
+
           <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
               <h5 style="color:black; margin-bottom:0px;"><b> 지역별 감염현황</b></h5>                                   
               <!-- <p style="color:black;font-size:10px;margin-top: 0px;">*질병관리본부 출처, 지역사회 관련의 경우 확인된 경우만 소계</p> -->
               <div id="region" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="지역별"></pre>
+             
+            <!-- <div class="w3-row-padding" style="padding-top:40px;padding-bottom:10px;">
+            <div class="w3-col s2">
+              <button  class="w3-btn" style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer;' onclick="currentDiv(1)">서울</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(2)">대구</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(3)">경북</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(4)">경기</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(1)">충남</button>
+            </div>
+            <div class="w3-col s2">
+              <button class='w3-btn' style='font-size:12px;color:black;border:1px solid gray;width:100%;cursor:pointer' onclick="currentDiv(1)">부산/경남</button>
+            </div>
+          </div>
+          <div class="w3-container" id="apartment">
+            <div class="w3-display-container mySlides" style="display: block;">
+              <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;서울시 구별 감염현황</b></h6> 
+              <div id="seoul" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="서울지역별"></pre>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <div class="w3-display-container mySlides" style="display: none;">
+                <h6 style="color:black; margin-bottom:0px;"><b>&nbsp;&nbsp;경기도 도시별 감염현황</b></h6> 
+                <div id="seoul" style="width: 100%;height:400%;"></div>
+                <pre class="w3-hide" id="서울지역별"></pre>
+              </div>
+            </div>
+          </div>-->
+
+              <h6 style="color:black; margin-bottom:0px;"><b><br>&nbsp;&nbsp;서울시 구별 감염현황</b></h6> 
+              <div id="seoul" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="서울지역별"></pre>
+
           </div></div>
-          <script>
-            google.charts.load('current', {'packages':['bar','corechart']});
-            google.charts.setOnLoadCallback(schedulerSuccessAndFailChart);
 
-                function schedulerSuccessAndFailChart() {
-                    var data = google.visualization.arrayToDataTable([
-                          ["Title","전체", {role:'annotation'}],
-                          ["대구",2705,2705],
-                          ['경북', 555,555],
-			    ['경기', 89,89],
-			    ['서울', 87,87],
-                          ['부산',83,83],       
-                          
-			                   
-			    ['충남', 68,68],
-			    ['경남', 63,63],
-			    ['울산',20,20], 
-			             
-			    ['강원',15,15],
-			    ['대전',13,13],
-			    ['충북', 11,11],
-			    ['광주', 9,9],
-			                    
-                         
-			    
-			  ['인천', 6,6],                             
-                          
-			                    ['전북', 6,6], 
-			                    ['전남', 3,3],
-			    ['제주', 2,2],
-                          ['세종',1,1]      
-                  ]);
-            
-                  var barChartOption = {
-                          bars: 'vertical',
-                          height :400,
-                          vAxis:{textStyle:{fontSize:13}},
-                          hAxis:{textStyle:{fontSize:13}},
-                          legend: { position: "none", textStyle: {fontSize: 11} }, //'top'
-                          colors: ['#ca3433'],// '#5e64c1','#d3e9ff'
-                          tooltip:{textStyle : {fontSize:12}, showColorCode : true},
-                          annotations: {
-                              textStyle: {
-                                fontSize: 11,
-                                color: '#871b47'
-                              }
-                          },
-                          bar: { groupWidth: "85%" },
-                          chartArea:{width:'85%',top:'30',bottom:'0'}
-                    };
-            
-                  var chart = new google.visualization.BarChart(document.getElementById('region'));
-            
-                  chart.draw(data, barChartOption);
-                  
-                }
-          </script>
-
-
+          <div class="w3-padding-small" id="main">
+            <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
+              <h5 style="color:black; margin-bottom:0px;"><b> 국외 감염현황</b></h5>                                   
+              <p style="color:black;font-size:10px;margin: 0px;">*상위 20개국</p>
+              <div id="foreign" style="width: 100%;height:400%;"></div>
+              <pre class="w3-hide" id="외국"></pre>
+            </div></div>
+          <script src="app.js"></script>
+        
           <!--hospital_plot-->
           <!-- <div class="w3-padding-small" id="main">
             <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
@@ -371,7 +410,7 @@
 
 
   <!--JOURNAL-->
-  <div class="w3-padding-small" id="main">
+  <!-- <div class="w3-padding-small" id="main">
     <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
           <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1" style="text-align: center;color:black; background-color: rgb(204,204,204);">▼ 신종 코로나 관련 키워드 조사</button>
         <div id="Demo2" class="w3-hide w3-container">
@@ -581,15 +620,15 @@
           </ul>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     <!-- 트위터 구글차트 -->
-    <div class="w3-padding-small" id="main">
+    <!-- <div class="w3-padding-small" id="main">
       <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
-        <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     <!--제목-->
-        <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  <!--하위설명-->
-        <div id="tweet" style="width: 100%;height:250%;"></div>                                                       <!--id부분바꾸기(script도통일)-->
+        <h5 style="color:black; margin-bottom:0px;"><b> 날짜별 트윗 추이</b></h5>                                     
+        <p style="color:black;font-size:10px;margin-top: 0px;">*('신종 +코로나') OR ('우한+폐렴)에 관한 트윗 건수</p>  
+        <div id="tweet" style="width: 100%;height:250%;"></div>                                                       
       </div></div>
       <script>
         google.charts.load('tweet', {
@@ -661,22 +700,22 @@
           var chart = new google.visualization.LineChart(document.getElementById('tweet')); //id통일
           chart.draw(data, options);
         }
-      </script>  
+      </script>   -->
 
       <!--트위터 wordcloud-->
-      <div class="w3-padding-small w3-hide-small" id="main">
+      <!-- <div class="w3-padding-small w3-hide-small" id="main">
         <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
           <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
           <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
         <img src="/images/wordc.png" style="width:80%;height:250%;display: block; margin: 0px auto;"></div>
-      </div></div>
+      </div></div> -->
       <!--on small screens-->
-      <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
+      <!-- <div class="w3-padding-small w3-hide-large w3-hide-medium" id="main">
         <div class="w3-content w3-justify w3-text-light-grey w3-padding-32">
           <h5 style="color:black; margin-bottom:0px;"><b> 워드클라우드</b></h5>                                   
           <p style="color:black;font-size:10px;margin-top: 0px;">*1월 19일부터 2월 9일까지 신종 코로나 또는 우한 폐렴을 언급한 트윗 대상</p>
         <div id="cloud" class="chart-container" style="width:100%;height:250%;text-align:center;"></div>
-      </div></div>
+      </div></div> -->
       <div class="w3-padding-small" id="main">
         <div class="w3-content w3-justify w3-text-grey w3-padding-32">
           <footer class="w3-content w3-text-grey w3-xlarge" style="text-align: right;">
@@ -756,6 +795,27 @@
                   .text(function(d) { return d.text; });
               }
             });
+            function currentDiv(n) {
+              showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+              }
+              x[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " w3-opacity-off";
+            }
+
+
         </script>
         <!-------------------------------------javascript부분--------------------------------------->
         </body>

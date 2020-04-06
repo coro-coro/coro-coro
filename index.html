@@ -146,7 +146,7 @@
     
               var options = {
                 hAxis: {title: '날짜'},
-                vAxis: {viewWindow:{max:12000,min:8000,interval:500}},
+                vAxis: {viewWindow:{max:11000,min:9000,interval:500}},
                 seriesType: 'bars',
                 series: {0:{type: 'line', color: 'red', annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}
                 },
@@ -242,7 +242,6 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],					
-                ['3/27', 8,8,139,139],
                 ['3/28', 5,5,144,144],
                 ['3/29', 8,8,152,152],
                 ['3/30', 6,6,158,158],

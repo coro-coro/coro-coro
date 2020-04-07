@@ -93,7 +93,7 @@
                         <div class="w3-left w3-padding-16"><h2>유증상자</h2></div>
                           <div class="w3-right w3-padding-16" style="text-align:center;">
                             <h3 style="margin:0px"><pre style="margin:0px" id="유증상자"></pre></h3>
-			    <p style="margin:0px;display:inline">(<pre style="margin:0px;display:inline" id="유증상자증감"></pre>)</p>
+			    <p style="margin:0px;display:inline">(+<pre style="margin:0px;display:inline" id="유증상자증감"></pre>)</p>
                           </div>
                         <div class="w3-clear"></div>
                   </div>
@@ -131,7 +131,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜','누적확진자',{role:'annotation'}],
-		      ['3/28',  9478,9478],
                   ['3/29',  9583,9583],
                   ['3/30',  9661,9661],
 		      ['3/31',  9786,9786],
@@ -140,7 +139,8 @@
 		      ['4/3',  10062,10062],
 		      ['4/4',  10156,10156],
 		      ['4/5',  10237,10237],
-		      ['4/6',  10284,10284]
+		      ['4/6',  10284,10284],
+		      ['4/7',  10331,10331]
 
               ]);
     
@@ -169,7 +169,6 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜', '확진자',{role:'annotation'}],
-		  ['3/28',  146, 146],
                   ['3/29',  105, 105],
                   ['3/30',  78, 78],
 		  ['3/31',  125, 125],
@@ -178,7 +177,8 @@
 		      ['4/3',  86, 86],
 		      ['4/4',  94, 94],
 		      ['4/5',  81, 81],
-		      ['4/6',  47, 47]
+		      ['4/6',  47, 47],
+		      ['4/7',  47, 47]
               ]);
     
               var options = {
@@ -206,7 +206,6 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '완치자',{role:'annotation'},'누적완치자',{role:'annotation'}],					
-		['3/28', 283,283,4811,4811],
                 ['3/29', 222,222,5033,5033],
                 ['3/30', 195,195,5228,5228],
                 ['3/31', 180,180,5408,5408],
@@ -215,7 +214,8 @@
 		 ['4/3', 193,193,6021,6021],
 		  ['4/4', 304,304,6325,6325],
 		 ['4/5', 138,138,6463,6463],
-		 ['4/6', 135,135,6598,6598]
+		 ['4/6', 135,135,6598,6598],
+		 ['4/7', 96,96,6694,6694]
               ]);	
 
               var options = {	
@@ -242,7 +242,6 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],					
-                ['3/28', 5,5,144,144],
                 ['3/29', 8,8,152,152],
                 ['3/30', 6,6,158,158],
 		['3/31', 4,4,162,162],
@@ -251,7 +250,8 @@
 		['4/3', 5,5,174,174],
 		['4/4', 3,3,177,177],
 		['4/5', 6,6,183,183],
-		['4/6', 3,3,186,186]
+		['4/6', 3,3,186,186],
+		['4/7', 6,6,192,192]      
               ]);	
 
               var options = {	

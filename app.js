@@ -66,6 +66,10 @@
 
     dbRefObject10.on('value',snap=>{
         preObject10.innerText=JSON.stringify(snap.val(),null,3);
+        if(preObject10.innerText>=0){
+            preObject10.innerText='+'.concat(preObject10.innerText.toString())
+            console.log(preObject10.innerText)
+        }
     });
 
 

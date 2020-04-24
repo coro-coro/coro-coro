@@ -131,13 +131,13 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜','누적확진자',{role:'annotation'}],
-		      ['4/17',  10635,10635],
 		      ['4/18',  10653,10653],
 		      ['4/19',  10661,10661],
 		      ['4/20',  10674,10674],
 		      ['4/21',  10683,10683],
 		      ['4/22',  10694,10694],
-		      ['4/23',  10702,10702]
+		      ['4/23',  10702,10702],
+		      ['4/24',  10708,10708]
 
               ]);
     
@@ -166,13 +166,13 @@
               // Some raw data (not necessarily accurate)
               var data = google.visualization.arrayToDataTable([
                  ['날짜', '확진자',{role:'annotation'}],
-		      ['4/17',  22, 22],
 		      ['4/18',  18, 18],
 		      ['4/19',  8, 8],
 		      ['4/20',  13, 13],
 		      ['4/21',  9, 9],
 		      ['4/22',  11,11],
-		      ['4/23', 8,8]
+		      ['4/23', 8,8],
+		      ['4/24', 6,6]
               ]);
     
               var options = {
@@ -200,18 +200,18 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '완치자',{role:'annotation'},'누적완치자',{role:'annotation'}],					
-		['4/17', 72,72,7829,7829],
 		['4/18', 108,108,7937,7937],
 		['4/19', 105,105,8042,8042],
 		      ['4/20', 72,72,8114,8114],
 		      ['4/21', 99,99,8213,8213],
 		      ['4/22', 64,64,8277,8277],
-		      ['4/23', 134,134,8411,8411]
+		      ['4/23', 134,134,8411,8411],
+		      ['4/24', 90,90,8501,8501]
               ]);	
 
               var options = {	
                 hAxis: {title: '날짜'},	
-                vAxis: {viewWindow:{max:8500,min:0,interval:500}},	
+                vAxis: {viewWindow:{max:9000,min:0,interval:500}},	
                 seriesType: 'bars',	
                 series: {0: {color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}},
                         1:{type:'line',color:'#6593F5',annotations: { stem: {color: 'gray', length: 5  }, textStyle: { fontSize:12 }}}},	
@@ -233,13 +233,13 @@
               // Some raw data (not necessarily accurate)	
               var data = google.visualization.arrayToDataTable([	
                 ['날짜', '사망자',{role:'annotation'},'누적사망자',{role:'annotation'}],					
-		['4/17', 1,1,230,230],
 		      ['4/18', 2,2,232,232],
 		      ['4/19', 2,2,234,234],
 		      ['4/20', 2,2,236,236],
 		     ['4/21', 1,1,237,237],
 		      ['4/22', 1,1,238,238],
-		      ['4/23', 2,2,240,240]
+		      ['4/23', 2,2,240,240],
+		      ['4/24', 0,0,240,240]
 		      
               ]);	
 
